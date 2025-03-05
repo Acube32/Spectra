@@ -1,0 +1,1 @@
+vhdtdtfi -prj fft_virt6 -o /home/ise/Desktop/fft_virt6/fifo_spi_interface.vhi -module fifo_spi_interface -template /opt/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work fifo_spi_interface.vhd 

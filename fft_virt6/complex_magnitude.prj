@@ -1,0 +1,3 @@
+vhdl work "ipcore_dir/mult.vhd"
+vhdl work "ipcore_dir/sqrt.vhd"
+vhdl work "complex_magnitude.vhd"

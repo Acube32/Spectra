@@ -1,0 +1,88 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:24:36 MDT 2013
+# Start of session at: Wed Feb 26 11:19:45 2025
+# Process ID: 3634
+# Log file: /home/ise/Desktop/fft_virt6/planAhead_run_2/planAhead.log
+# Journal file: /home/ise/Desktop/fft_virt6/planAhead_run_2/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source /home/ise/Desktop/fft_virt6/pa.fromHdl.tcl
+update_compile_order -fileset sim_1
+refresh_design
+startgroup
+set_property package_pin AC32 [get_ports {din[11]}]
+set_property package_pin AC30 [get_ports {din[5]}]
+set_property package_pin AB32 [get_ports {din[10]}]
+set_property package_pin AD30 [get_ports {din[4]}]
+set_property package_pin AE33 [get_ports {din[6]}]
+set_property package_pin AD29 [get_ports {din[8]}]
+set_property package_pin AF34 [get_ports {din[3]}]
+set_property package_pin AE34 [get_ports {din[2]}]
+set_property package_pin AB28 [get_ports {din[12]}]
+set_property package_pin AC28 [get_ports {din[13]}]
+set_property package_pin AF33 [get_ports {din[7]}]
+set_property package_pin AC29 [get_ports {din[9]}]
+set_property package_pin AE32 [get_ports {din[15]}]
+set_property package_pin AD32 [get_ports {din[14]}]
+set_property package_pin AA29 [get_ports {din[1]}]
+set_property package_pin AA28 [get_ports {din[0]}]
+endgroup
+startgroup
+set_property package_pin AC33 [get_ports rst]
+set_property package_pin AC34 [get_ports wr_en]
+endgroup
+refresh_design
+startgroup
+set_property package_pin AD34 [get_ports {dout[6]}]
+set_property package_pin AB31 [get_ports {dout[0]}]
+set_property package_pin AB30 [get_ports {dout[1]}]
+set_property package_pin AA33 [get_ports {dout[3]}]
+set_property package_pin AA31 [get_ports {dout[5]}]
+set_property package_pin AA30 [get_ports {dout[4]}]
+set_property package_pin AA34 [get_ports {dout[2]}]
+set_property package_pin AC34 [get_ports {dout[7]}]
+endgroup
+startgroup
+set_property package_pin U27 [get_ports {din[1]}]
+set_property package_pin V32 [get_ports {din[14]}]
+set_property package_pin V34 [get_ports {din[10]}]
+set_property package_pin V30 [get_ports {din[8]}]
+set_property package_pin U32 [get_ports {din[3]}]
+set_property package_pin W34 [get_ports {din[11]}]
+set_property package_pin V33 [get_ports {din[15]}]
+set_property package_pin U30 [get_ports {din[7]}]
+set_property package_pin W30 [get_ports {din[9]}]
+set_property package_pin U33 [get_ports {din[2]}]
+set_property package_pin V28 [get_ports {din[12]}]
+set_property package_pin U31 [get_ports {din[6]}]
+set_property package_pin U26 [get_ports {din[0]}]
+set_property package_pin V27 [get_ports {din[13]}]
+set_property package_pin V29 [get_ports {din[5]}]
+set_property package_pin U28 [get_ports {din[4]}]
+endgroup
+startgroup
+set_property package_pin T33 [get_ports wr_en]
+set_property package_pin T34 [get_ports rst]
+endgroup
+startgroup
+set_property package_pin K34 [get_ports {dout[6]}]
+set_property package_pin R28 [get_ports {dout[0]}]
+set_property package_pin R27 [get_ports {dout[1]}]
+set_property package_pin R32 [get_ports {dout[3]}]
+set_property package_pin T26 [get_ports {dout[5]}]
+set_property package_pin R26 [get_ports {dout[4]}]
+set_property package_pin R31 [get_ports {dout[2]}]
+set_property package_pin L34 [get_ports {dout[7]}]
+endgroup
+startgroup
+set_property package_pin AA31 [get_ports {dout[6]}]
+set_property package_pin AB31 [get_ports {dout[0]}]
+set_property package_pin AB30 [get_ports {dout[1]}]
+set_property package_pin AA34 [get_ports {dout[3]}]
+set_property package_pin AA30 [get_ports {dout[5]}]
+set_property package_pin AA33 [get_ports {dout[4]}]
+set_property package_pin AC34 [get_ports {dout[2]}]
+set_property package_pin AD34 [get_ports {dout[7]}]
+endgroup
+save_constraints

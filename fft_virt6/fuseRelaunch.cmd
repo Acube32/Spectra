@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "/home/ise/Desktop/fft_virt6/tb_fifo_spi_interface_isim_beh.exe" -prj "/home/ise/Desktop/fft_virt6/tb_fifo_spi_interface_beh.prj" "work.tb_fifo_spi_interface" 

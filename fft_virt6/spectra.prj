@@ -1,0 +1,8 @@
+vhdl work "ipcore_dir/fifo.vhd"
+vhdl work "ipcore_dir/mult.vhd"
+vhdl work "ipcore_dir/sqrt.vhd"
+vhdl work "ipcore_dir/fft.vhd"
+vhdl work "fifo_fft_interface.vhd"
+vhdl work "complex_magnitude.vhd"
+vhdl work "comparator.vhd"
+vhdl work "spectra.vhd"

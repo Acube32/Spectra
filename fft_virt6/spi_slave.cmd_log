@@ -1,0 +1,1 @@
+vhdtdtfi -prj fft_virt6 -o /home/ise/Desktop/fft_virt6/spi_slave.vhi -module spi_slave -template /opt/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work spi_v2.vhd 

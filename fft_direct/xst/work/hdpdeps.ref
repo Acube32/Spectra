@@ -1,0 +1,62 @@
+V3 40
+FL /home/ise/Desktop/fft_virt5/comparator.vhd 2025/02/20.13:39:35 P.20131013
+FL /home/ise/Desktop/fft_virt5/complex_magnitude.vhd 2025/02/20.13:36:02 P.20131013
+FL /home/ise/Desktop/fft_virt5/fifo_fft_interface.vhd 2025/02/18.17:01:28 P.20131013
+FL /home/ise/Desktop/fft_virt5/fifo_spi_interface.vhd 2025/02/23.09:43:18 P.20131013
+AR work/fifo_spi_interface/Behavioral 1740139018 \
+      FL /home/ise/Desktop/fft_virt5/fifo_spi_interface.vhd \
+      EN work/fifo_spi_interface 1740139017
+EN work/spi_slave_fifo 1740304160 \
+      FL /home/ise/Desktop/fft_virt5/fifo_spi_interface.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/spi_slave_fifo/behavior 1740304161 \
+      FL /home/ise/Desktop/fft_virt5/fifo_spi_interface.vhd \
+      EN work/spi_slave_fifo 1740304160
+FL /home/ise/Desktop/fft_virt5/ipcore_dir/fifo.vhd 2025/02/18.14:00:17 P.20131013
+FL /home/ise/Desktop/fft_virt5/ipcore_dir/mult.vhd 2025/02/20.05:17:43 P.20131013
+FL /home/ise/Desktop/fft_virt5/ipcore_dir/sqrt.vhd 2025/02/20.05:42:28 P.20131013
+FL /home/ise/Desktop/fft_virt5/spectra.vhd 2025/02/20.13:38:47 P.20131013
+FL /home/ise/Desktop/fft_virt6/comparator.vhd 2025/02/20.14:23:53 P.20131013
+EN work/comparator 1740567261 FL /home/ise/Desktop/fft_virt6/comparator.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/comparator/Behavioral 1740567262 \
+      FL /home/ise/Desktop/fft_virt6/comparator.vhd EN work/comparator 1740567261
+FL /home/ise/Desktop/fft_virt6/complex_magnitude.vhd 2025/02/20.13:36:02 P.20131013
+EN work/complex_magnitude 1740567259 \
+      FL /home/ise/Desktop/fft_virt6/complex_magnitude.vhd PB ieee/std_logic_1164 1381692176 \
+      PB ieee/std_logic_arith 1381692177 PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/complex_magnitude/Behavioral 1740567260 \
+      FL /home/ise/Desktop/fft_virt6/complex_magnitude.vhd \
+      EN work/complex_magnitude 1740567259 CP mult CP sqrt
+FL /home/ise/Desktop/fft_virt6/fifo_fft_interface.vhd 2025/02/18.17:01:28 P.20131013
+EN work/fifo_fft_interface 1740567257 \
+      FL /home/ise/Desktop/fft_virt6/fifo_fft_interface.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/fifo_fft_interface/Behavioral 1740567258 \
+      FL /home/ise/Desktop/fft_virt6/fifo_fft_interface.vhd \
+      EN work/fifo_fft_interface 1740567257
+FL /home/ise/Desktop/fft_virt6/ipcore_dir/fifo.vhd 2025/02/18.14:00:17 P.20131013
+EN work/fifo 1740567255 FL /home/ise/Desktop/fft_virt6/ipcore_dir/fifo.vhd \
+      PB ieee/std_logic_1164 1381692176
+AR work/fifo/fifo_a 1740567256 \
+      FL /home/ise/Desktop/fft_virt6/ipcore_dir/fifo.vhd EN work/fifo 1740567255
+FL /home/ise/Desktop/fft_virt6/ipcore_dir/mult.vhd 2025/02/20.05:17:43 P.20131013
+EN work/mult 1740567251 FL /home/ise/Desktop/fft_virt6/ipcore_dir/mult.vhd \
+      PB ieee/std_logic_1164 1381692176
+AR work/mult/mult_a 1740567252 \
+      FL /home/ise/Desktop/fft_virt6/ipcore_dir/mult.vhd EN work/mult 1740567251
+FL /home/ise/Desktop/fft_virt6/ipcore_dir/sqrt.vhd 2025/02/20.05:42:28 P.20131013
+EN work/sqrt 1740567253 FL /home/ise/Desktop/fft_virt6/ipcore_dir/sqrt.vhd \
+      PB ieee/std_logic_1164 1381692176
+AR work/sqrt/sqrt_a 1740567254 \
+      FL /home/ise/Desktop/fft_virt6/ipcore_dir/sqrt.vhd EN work/sqrt 1740567253
+FL /home/ise/Desktop/fft_virt6/spectra.vhd 2025/02/20.13:41:07 P.20131013
+EN work/spectra 1740567263 FL /home/ise/Desktop/fft_virt6/spectra.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/spectra/Structural 1740567264 \
+      FL /home/ise/Desktop/fft_virt6/spectra.vhd EN work/spectra 1740567263 \
+      CP fifo CP fifo_fft_interface CP fft CP complex_magnitude CP comparator

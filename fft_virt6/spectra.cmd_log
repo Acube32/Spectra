@@ -1,0 +1,22 @@
+xst -intstyle ise -ifn "/home/ise/Desktop/fft_virt5/spectra.xst" -ofn "/home/ise/Desktop/fft_virt5/spectra.syr" 
+xst -intstyle ise -ifn "/home/ise/Desktop/fft_virt5/spectra.xst" -ofn "/home/ise/Desktop/fft_virt5/spectra.syr" 
+xst -intstyle ise -ifn "/home/ise/Desktop/fft_virt5/spectra.xst" -ofn "/home/ise/Desktop/fft_virt5/spectra.syr" 
+xst -intstyle ise -ifn "/home/ise/Desktop/fft_virt5/spectra.xst" -ofn "/home/ise/Desktop/fft_virt5/spectra.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -i -p xc5vlx20t-ff323-2 spectra.ngc spectra.ngd  
+map -intstyle ise -p xc5vlx20t-ff323-2 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o spectra_map.ncd spectra.ngd spectra.pcf 
+xst -intstyle ise -ifn "/home/ise/Desktop/fft_virt6/spectra.xst" -ofn "/home/ise/Desktop/fft_virt6/spectra.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -i -p xc5vlx20t-ff323-2 spectra.ngc spectra.ngd  
+xst -intstyle ise -ifn "/home/ise/Desktop/fft_virt6/spectra.xst" -ofn "/home/ise/Desktop/fft_virt6/spectra.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc spectra.ucf -p xc5vlx20t-ff323-2 spectra.ngc spectra.ngd  
+map -intstyle ise -p xc5vlx20t-ff323-2 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o spectra_map.ncd spectra.ngd spectra.pcf 
+xst -intstyle ise -ifn "/home/ise/Desktop/fft_virt6/spectra.xst" -ofn "/home/ise/Desktop/fft_virt6/spectra.syr" 
+xst -intstyle ise -ifn "/home/ise/Desktop/fft_virt6/spectra.xst" -ofn "/home/ise/Desktop/fft_virt6/spectra.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc spectra.ucf -p xc6vlx240t-ff1156-2 spectra.ngc spectra.ngd  
+map -intstyle ise -p xc6vlx240t-ff1156-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o spectra_map.ncd spectra.ngd spectra.pcf 
+par -w -intstyle ise -ol high -mt off spectra_map.ncd spectra.ncd spectra.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml spectra.twx spectra.ncd -o spectra.twr spectra.pcf -ucf spectra.ucf 
+xst -intstyle ise -ifn "/home/ise/Desktop/fft_virt6/spectra.xst" -ofn "/home/ise/Desktop/fft_virt6/spectra.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc spectra.ucf -p xc6vlx240t-ff1156-2 spectra.ngc spectra.ngd  
+map -intstyle ise -p xc6vlx240t-ff1156-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o spectra_map.ncd spectra.ngd spectra.pcf 
+par -w -intstyle ise -ol high -mt off spectra_map.ncd spectra.ncd spectra.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml spectra.twx spectra.ncd -o spectra.twr spectra.pcf -ucf spectra.ucf 

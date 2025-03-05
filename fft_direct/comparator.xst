@@ -1,0 +1,5 @@
+set -tmpdir "/home/ise/Desktop/fft_virt5/xst/projnav.tmp"
+set -xsthdpdir "/home/ise/Desktop/fft_virt5/xst"
+elaborate
+-ifn comparator.prj
+-ifmt mixed

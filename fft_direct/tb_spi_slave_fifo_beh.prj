@@ -1,0 +1,2 @@
+vhdl work "fifo_spi_interface.vhd"
+vhdl work "tb_fifo_spi_interface.vhd"

@@ -1,0 +1,805 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.03 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.03 secs
+ 
+--> 
+Reading design: spectra.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "spectra.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "spectra"
+Output Format                      : NGC
+Target Device                      : xc6vlx240t-2-ff1156
+
+---- Source Options
+Top Module Name                    : spectra
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 32
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "/home/ise/Desktop/fft_virt6/ipcore_dir/fifo.vhd" into library work
+Parsing entity <fifo>.
+Parsing architecture <fifo_a> of entity <fifo>.
+Parsing VHDL file "/home/ise/Desktop/fft_virt6/ipcore_dir/mult.vhd" into library work
+Parsing entity <mult>.
+Parsing architecture <mult_a> of entity <mult>.
+Parsing VHDL file "/home/ise/Desktop/fft_virt6/ipcore_dir/sqrt.vhd" into library work
+Parsing entity <sqrt>.
+Parsing architecture <sqrt_a> of entity <sqrt>.
+Parsing VHDL file "/home/ise/Desktop/fft_virt6/ipcore_dir/fft.vhd" into library work
+Parsing VHDL file "/home/ise/Desktop/fft_virt6/fifo_fft_interface.vhd" into library work
+Parsing entity <fifo_fft_interface>.
+Parsing architecture <Behavioral> of entity <fifo_fft_interface>.
+Parsing VHDL file "/home/ise/Desktop/fft_virt6/complex_magnitude.vhd" into library work
+Parsing entity <complex_magnitude>.
+Parsing architecture <Behavioral> of entity <complex_magnitude>.
+Parsing VHDL file "/home/ise/Desktop/fft_virt6/comparator.vhd" into library work
+Parsing entity <comparator>.
+Parsing architecture <Behavioral> of entity <comparator>.
+Parsing VHDL file "/home/ise/Desktop/fft_virt6/spectra.vhd" into library work
+Parsing entity <spectra>.
+Parsing architecture <Structural> of entity <spectra>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <spectra> (architecture <Structural>) from library <work>.
+
+Elaborating entity <fifo> (architecture <fifo_a>) from library <work>.
+
+Elaborating entity <fifo_fft_interface> (architecture <Behavioral>) from library <work>.
+WARNING:HDLCompiler:89 - "/home/ise/Desktop/fft_virt6/spectra.vhd" Line 35: <fft> remains a black-box since it has no binding entity.
+
+Elaborating entity <complex_magnitude> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <mult> (architecture <mult_a>) from library <work>.
+
+Elaborating entity <sqrt> (architecture <sqrt_a>) from library <work>.
+
+Elaborating entity <comparator> (architecture <Behavioral>) from library <work>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <spectra>.
+    Related source file is "/home/ise/Desktop/fft_virt6/spectra.vhd".
+INFO:Xst:3210 - "/home/ise/Desktop/fft_virt6/spectra.vhd" line 122: Output port <full> of the instance <u_fifo> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/ise/Desktop/fft_virt6/spectra.vhd" line 122: Output port <empty> of the instance <u_fifo> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/ise/Desktop/fft_virt6/spectra.vhd" line 153: Output port <xn_index> of the instance <u_fft> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/ise/Desktop/fft_virt6/spectra.vhd" line 153: Output port <blk_exp> of the instance <u_fft> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/ise/Desktop/fft_virt6/spectra.vhd" line 153: Output port <rfd> of the instance <u_fft> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/ise/Desktop/fft_virt6/spectra.vhd" line 153: Output port <busy> of the instance <u_fft> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/ise/Desktop/fft_virt6/spectra.vhd" line 153: Output port <edone> of the instance <u_fft> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/ise/Desktop/fft_virt6/spectra.vhd" line 153: Output port <done> of the instance <u_fft> is unconnected or connected to loadless signal.
+    Summary:
+	no macro.
+Unit <spectra> synthesized.
+
+Synthesizing Unit <fifo_fft_interface>.
+    Related source file is "/home/ise/Desktop/fft_virt6/fifo_fft_interface.vhd".
+WARNING:Xst:647 - Input <fifo_din> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <wr_clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <wr_en> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <fifo_valid> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 13-bit register for signal <read_counter>.
+    Found 1-bit register for signal <start_signal>.
+    Found 1-bit register for signal <reading>.
+    Found 1-bit register for signal <fifo_rd_en>.
+    Found 16-bit register for signal <fft_xn_re>.
+    Found 16-bit register for signal <fft_xn_im>.
+    Found 13-bit adder for signal <read_counter[12]_GND_7_o_add_1_OUT> created at line 54.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  48 D-type flip-flop(s).
+	inferred   3 Multiplexer(s).
+Unit <fifo_fft_interface> synthesized.
+
+Synthesizing Unit <complex_magnitude>.
+    Related source file is "/home/ise/Desktop/fft_virt6/complex_magnitude.vhd".
+    Found 1-bit register for signal <nd_reg>.
+    Found 12-bit register for signal <index_reg_2>.
+    Found 12-bit register for signal <index_out>.
+    Found 12-bit register for signal <index_reg_1>.
+    Found 33-bit adder for signal <sum_squares> created at line 68.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  37 D-type flip-flop(s).
+Unit <complex_magnitude> synthesized.
+
+Synthesizing Unit <comparator>.
+    Related source file is "/home/ise/Desktop/fft_virt6/comparator.vhd".
+    Found 8-bit register for signal <result_reg>.
+    Found 17-bit comparator greater for signal <GND_11_o_data_in[16]_LessThan_16_o> created at line 36
+    Summary:
+	inferred   8 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+	inferred   8 Multiplexer(s).
+Unit <comparator> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 2
+ 13-bit adder                                          : 1
+ 33-bit adder                                          : 1
+# Registers                                            : 11
+ 1-bit register                                        : 4
+ 12-bit register                                       : 3
+ 13-bit register                                       : 1
+ 16-bit register                                       : 2
+ 8-bit register                                        : 1
+# Comparators                                          : 1
+ 17-bit comparator greater                             : 1
+# Multiplexers                                         : 11
+ 1-bit 2-to-1 multiplexer                              : 10
+ 13-bit 2-to-1 multiplexer                             : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Reading core <ipcore_dir/fifo.ngc>.
+Reading core <ipcore_dir/fft.ngc>.
+Reading Secure Unit <blk00000176>.
+Reading core <ipcore_dir/mult.ngc>.
+Reading Secure Unit <blk00000001>.
+Reading core <ipcore_dir/sqrt.ngc>.
+Reading Secure Unit <blk0000004b>.
+Loading core <fifo> for timing and area information for instance <u_fifo>.
+Loading core <fft> for timing and area information for instance <u_fft>.
+Loading core <mult> for timing and area information for instance <mult_real>.
+Loading core <mult> for timing and area information for instance <mult_imag>.
+Loading core <sqrt> for timing and area information for instance <sqrt_inst>.
+INFO:Xst:1901 - Instance blk000003ef in unit blk000003ef of type RAMB18 has been replaced by RAMB18E1
+INFO:Xst:1901 - Instance blk000003f0 in unit blk000003f0 of type RAMB18 has been replaced by RAMB18E1
+INFO:Xst:1901 - Instance blk000003f1 in unit blk000003f1 of type RAMB18 has been replaced by RAMB18E1
+INFO:Xst:1901 - Instance blk000003f2 in unit blk000003f2 of type RAMB18 has been replaced by RAMB18E1
+INFO:Xst:1901 - Instance blk000006fb in unit blk000006fb of type RAMB18 has been replaced by RAMB18E1
+INFO:Xst:1901 - Instance blk000006fc in unit blk000006fc of type RAMB18 has been replaced by RAMB18E1
+INFO:Xst:1901 - Instance blk00000bb4 in unit blk00000bb4 of type RAMB18SDP has been replaced by RAMB18E1
+INFO:Xst:1901 - Instance blk00000bb5 in unit blk00000bb5 of type RAMB18SDP has been replaced by RAMB18E1
+INFO:Xst:1901 - Instance blk00000f18 in unit blk00000f18 of type RAMB18SDP has been replaced by RAMB18E1
+INFO:Xst:1901 - Instance blk00000f19 in unit blk00000f19 of type RAMB18SDP has been replaced by RAMB18E1
+INFO:Xst:1901 - Instance blk000013ff in unit blk000013ff of type RAMB18SDP has been replaced by RAMB18E1
+INFO:Xst:1901 - Instance blk00001400 in unit blk00001400 of type RAMB18SDP has been replaced by RAMB18E1
+INFO:Xst:1901 - Instance blk0000320c in unit blk0000320c of type RAMB18 has been replaced by RAMB18E1
+INFO:Xst:1901 - Instance blk0000320d in unit blk0000320d of type RAMB18 has been replaced by RAMB18E1
+INFO:Xst:1901 - Instance blk0000320e in unit blk0000320e of type RAMB18 has been replaced by RAMB18E1
+INFO:Xst:1901 - Instance blk0000320f in unit blk0000320f of type RAMB18 has been replaced by RAMB18E1
+INFO:Xst:1901 - Instance blk00003210 in unit blk00003210 of type RAMB18 has been replaced by RAMB18E1
+INFO:Xst:1901 - Instance blk00003211 in unit blk00003211 of type RAMB18 has been replaced by RAMB18E1
+INFO:Xst:1901 - Instance blk00003212 in unit blk00003212 of type RAMB18 has been replaced by RAMB18E1
+INFO:Xst:1901 - Instance blk00003213 in unit blk00003213 of type RAMB18 has been replaced by RAMB18E1
+INFO:Xst:1901 - Instance blk00003214 in unit blk00003214 of type RAMB18 has been replaced by RAMB18E1
+INFO:Xst:1901 - Instance blk00003215 in unit blk00003215 of type RAMB18 has been replaced by RAMB18E1
+INFO:Xst:1901 - Instance blk00003216 in unit blk00003216 of type RAMB18 has been replaced by RAMB18E1
+INFO:Xst:1901 - Instance blk00003217 in unit blk00003217 of type RAMB18 has been replaced by RAMB18E1
+INFO:Xst:1901 - Instance blk00003218 in unit blk00003218 of type RAMB18 has been replaced by RAMB18E1
+INFO:Xst:1901 - Instance blk00003aa0 in unit blk00003aa0 of type DSP48E has been replaced by DSP48E1
+INFO:Xst:1901 - Instance blk00003aa1 in unit blk00003aa1 of type DSP48E has been replaced by DSP48E1
+INFO:Xst:1901 - Instance blk00003aa2 in unit blk00003aa2 of type DSP48E has been replaced by DSP48E1
+INFO:Xst:1901 - Instance blk00003aa3 in unit blk00003aa3 of type DSP48E has been replaced by DSP48E1
+WARNING:Xst:1710 - FF/Latch <fft_xn_im_0> (without init value) has a constant value of 0 in block <u_fifo_fft_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <fft_xn_im_1> (without init value) has a constant value of 0 in block <u_fifo_fft_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <fft_xn_im_2> (without init value) has a constant value of 0 in block <u_fifo_fft_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <fft_xn_im_3> (without init value) has a constant value of 0 in block <u_fifo_fft_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <fft_xn_im_4> (without init value) has a constant value of 0 in block <u_fifo_fft_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <fft_xn_im_5> (without init value) has a constant value of 0 in block <u_fifo_fft_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <fft_xn_im_6> (without init value) has a constant value of 0 in block <u_fifo_fft_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <fft_xn_im_7> (without init value) has a constant value of 0 in block <u_fifo_fft_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <fft_xn_im_8> (without init value) has a constant value of 0 in block <u_fifo_fft_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <fft_xn_im_9> (without init value) has a constant value of 0 in block <u_fifo_fft_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <fft_xn_im_10> (without init value) has a constant value of 0 in block <u_fifo_fft_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <fft_xn_im_11> (without init value) has a constant value of 0 in block <u_fifo_fft_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <fft_xn_im_12> (without init value) has a constant value of 0 in block <u_fifo_fft_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <fft_xn_im_13> (without init value) has a constant value of 0 in block <u_fifo_fft_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <fft_xn_im_14> (without init value) has a constant value of 0 in block <u_fifo_fft_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <fft_xn_im_15> (without init value) has a constant value of 0 in block <u_fifo_fft_interface>. This FF/Latch will be trimmed during the optimization process.
+
+Synthesizing (advanced) Unit <fifo_fft_interface>.
+The following registers are absorbed into counter <read_counter>: 1 register on signal <read_counter>.
+Unit <fifo_fft_interface> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 33-bit adder                                          : 1
+# Counters                                             : 1
+ 13-bit up counter                                     : 1
+# Registers                                            : 80
+ Flip-Flops                                            : 80
+# Comparators                                          : 1
+ 17-bit comparator greater                             : 1
+# Multiplexers                                         : 10
+ 1-bit 2-to-1 multiplexer                              : 10
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <fft_xn_im_0> (without init value) has a constant value of 0 in block <fifo_fft_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fft_xn_im_1> (without init value) has a constant value of 0 in block <fifo_fft_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fft_xn_im_2> (without init value) has a constant value of 0 in block <fifo_fft_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fft_xn_im_3> (without init value) has a constant value of 0 in block <fifo_fft_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fft_xn_im_4> (without init value) has a constant value of 0 in block <fifo_fft_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fft_xn_im_5> (without init value) has a constant value of 0 in block <fifo_fft_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fft_xn_im_6> (without init value) has a constant value of 0 in block <fifo_fft_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fft_xn_im_7> (without init value) has a constant value of 0 in block <fifo_fft_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fft_xn_im_8> (without init value) has a constant value of 0 in block <fifo_fft_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fft_xn_im_9> (without init value) has a constant value of 0 in block <fifo_fft_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fft_xn_im_10> (without init value) has a constant value of 0 in block <fifo_fft_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fft_xn_im_11> (without init value) has a constant value of 0 in block <fifo_fft_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fft_xn_im_12> (without init value) has a constant value of 0 in block <fifo_fft_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fft_xn_im_13> (without init value) has a constant value of 0 in block <fifo_fft_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fft_xn_im_14> (without init value) has a constant value of 0 in block <fifo_fft_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fft_xn_im_15> (without init value) has a constant value of 0 in block <fifo_fft_interface>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <spectra> ...
+
+Optimizing unit <fifo_fft_interface> ...
+
+Optimizing unit <comparator> ...
+
+Optimizing unit <complex_magnitude> ...
+WARNING:Xst:1293 - FF/Latch <u_fifo_fft_interface/read_counter_12> has a constant value of 0 in block <spectra>. This FF/Latch will be trimmed during the optimization process.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block spectra, actual ratio is 1.
+INFO:Xst:2260 - The FF/Latch <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i> in Unit <u_fifo> is equivalent to the following FF/Latch : <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_fb_i> 
+INFO:Xst:2260 - The FF/Latch <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i> in Unit <u_fifo> is equivalent to the following FF/Latch : <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_fb_i> 
+INFO:Xst:2260 - The FF/Latch <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg_1> in Unit <u_fifo> is equivalent to the following FF/Latch : <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg_0> 
+INFO:Xst:2260 - The FF/Latch <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg_2> in Unit <u_fifo> is equivalent to the following 2 FFs/Latches : <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg_1> <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg_0> 
+INFO:Xst:2260 - The FF/Latch <blk000000b2> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000be> 
+INFO:Xst:2260 - The FF/Latch <blk000000ba> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000c6> 
+INFO:Xst:2260 - The FF/Latch <blk000000b1> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000bd> 
+INFO:Xst:2260 - The FF/Latch <blk000000b9> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000c5> 
+INFO:Xst:2260 - The FF/Latch <blk000000b6> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000c2> 
+INFO:Xst:2260 - The FF/Latch <blk000000b8> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000c4> 
+INFO:Xst:2260 - The FF/Latch <blk000000b5> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000c1> 
+INFO:Xst:2260 - The FF/Latch <blk000000b7> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000c3> 
+INFO:Xst:2260 - The FF/Latch <blk000000b4> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000c0> 
+INFO:Xst:2260 - The FF/Latch <blk000000bc> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000c8> 
+INFO:Xst:2260 - The FF/Latch <blk000000b3> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000bf> 
+INFO:Xst:2260 - The FF/Latch <blk000000bb> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000c7> 
+INFO:Xst:2260 - The FF/Latch <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i> in Unit <u_fifo> is equivalent to the following FF/Latch : <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_fb_i> 
+INFO:Xst:2260 - The FF/Latch <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i> in Unit <u_fifo> is equivalent to the following FF/Latch : <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_fb_i> 
+INFO:Xst:2260 - The FF/Latch <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg_1> in Unit <u_fifo> is equivalent to the following FF/Latch : <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg_0> 
+INFO:Xst:2260 - The FF/Latch <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg_2> in Unit <u_fifo> is equivalent to the following 2 FFs/Latches : <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg_1> <U0/xst_fifo_generator/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg_0> 
+INFO:Xst:2260 - The FF/Latch <blk000000b2> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000be> 
+INFO:Xst:2260 - The FF/Latch <blk000000ba> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000c6> 
+INFO:Xst:2260 - The FF/Latch <blk000000b1> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000bd> 
+INFO:Xst:2260 - The FF/Latch <blk000000b9> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000c5> 
+INFO:Xst:2260 - The FF/Latch <blk000000b6> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000c2> 
+INFO:Xst:2260 - The FF/Latch <blk000000b8> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000c4> 
+INFO:Xst:2260 - The FF/Latch <blk000000b5> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000c1> 
+INFO:Xst:2260 - The FF/Latch <blk000000b7> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000c3> 
+INFO:Xst:2260 - The FF/Latch <blk000000b4> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000c0> 
+INFO:Xst:2260 - The FF/Latch <blk000000bc> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000c8> 
+INFO:Xst:2260 - The FF/Latch <blk000000b3> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000bf> 
+INFO:Xst:2260 - The FF/Latch <blk000000bb> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000c7> 
+INFO:Xst:2260 - The FF/Latch <blk000000b2> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000be> 
+INFO:Xst:2260 - The FF/Latch <blk000000ba> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000c6> 
+INFO:Xst:2260 - The FF/Latch <blk000000b1> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000bd> 
+INFO:Xst:2260 - The FF/Latch <blk000000b9> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000c5> 
+INFO:Xst:2260 - The FF/Latch <blk000000b6> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000c2> 
+INFO:Xst:2260 - The FF/Latch <blk000000b8> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000c4> 
+INFO:Xst:2260 - The FF/Latch <blk000000b5> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000c1> 
+INFO:Xst:2260 - The FF/Latch <blk000000b7> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000c3> 
+INFO:Xst:2260 - The FF/Latch <blk000000b4> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000c0> 
+INFO:Xst:2260 - The FF/Latch <blk000000bc> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000c8> 
+INFO:Xst:2260 - The FF/Latch <blk000000b3> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000bf> 
+INFO:Xst:2260 - The FF/Latch <blk000000bb> in Unit <blk00000001> is equivalent to the following FF/Latch : <blk000000c7> 
+
+Final Macro Processing ...
+
+Processing Unit <spectra> :
+	Found 2-bit shift register for signal <u_complex_magnitude/index_out_11>.
+	Found 2-bit shift register for signal <u_complex_magnitude/index_out_10>.
+	Found 2-bit shift register for signal <u_complex_magnitude/index_out_9>.
+	Found 2-bit shift register for signal <u_complex_magnitude/index_out_8>.
+	Found 2-bit shift register for signal <u_complex_magnitude/index_out_7>.
+	Found 2-bit shift register for signal <u_complex_magnitude/index_out_6>.
+	Found 2-bit shift register for signal <u_complex_magnitude/index_out_5>.
+	Found 2-bit shift register for signal <u_complex_magnitude/index_out_4>.
+	Found 2-bit shift register for signal <u_complex_magnitude/index_out_3>.
+	Found 2-bit shift register for signal <u_complex_magnitude/index_out_2>.
+	Found 2-bit shift register for signal <u_complex_magnitude/index_out_1>.
+	Found 2-bit shift register for signal <u_complex_magnitude/index_out_0>.
+Unit <spectra> processed.
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 52
+ Flip-Flops                                            : 52
+# Shift Registers                                      : 12
+ 2-bit shift register                                  : 12
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : spectra.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 8563
+#      GND                         : 134
+#      INV                         : 218
+#      LUT1                        : 202
+#      LUT2                        : 1132
+#      LUT3                        : 1753
+#      LUT4                        : 485
+#      LUT5                        : 73
+#      LUT6                        : 401
+#      MUXCY                       : 1993
+#      MUXF7                       : 116
+#      MUXF8                       : 58
+#      VCC                         : 106
+#      XORCY                       : 1892
+# FlipFlops/Latches                : 6253
+#      FD                          : 1049
+#      FDC                         : 121
+#      FDCE                        : 80
+#      FDE                         : 2481
+#      FDP                         : 15
+#      FDPE                        : 2
+#      FDR                         : 132
+#      FDRE                        : 2373
+# RAMS                             : 63
+#      RAM64X1S                    : 32
+#      RAMB18E1                    : 27
+#      RAMB36E1                    : 4
+# Shift Registers                  : 1722
+#      SRL16E                      : 1139
+#      SRLC16E                     : 429
+#      SRLC32E                     : 154
+# Clock Buffers                    : 2
+#      BUFGP                       : 2
+# IO Buffers                       : 26
+#      IBUF                        : 18
+#      OBUF                        : 8
+# DSPs                             : 21
+#      DSP48E1                     : 21
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6vlx240tff1156-2 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:            6253  out of  301440     2%  
+ Number of Slice LUTs:                 6018  out of  150720     3%  
+    Number used as Logic:              4264  out of  150720     2%  
+    Number used as Memory:             1754  out of  58400     3%  
+       Number used as RAM:               32
+       Number used as SRL:             1722
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:   8835
+   Number with an unused Flip Flop:    2582  out of   8835    29%  
+   Number with an unused LUT:          2817  out of   8835    31%  
+   Number of fully used LUT-FF pairs:  3436  out of   8835    38%  
+   Number of unique control sets:        63
+
+IO Utilization: 
+ Number of IOs:                          28
+ Number of bonded IOBs:                  28  out of    600     4%  
+
+Specific Feature Utilization:
+ Number of Block RAM/FIFO:               18  out of    416     4%  
+    Number using Block RAM only:         18
+ Number of BUFG/BUFGCTRLs:                2  out of     32     6%  
+ Number of DSP48E1s:                     21  out of    768     2%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+rd_clk                             | BUFGP                  | 7959  |
+wr_clk                             | BUFGP                  | 104   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+Control Signal                                                                                                                                                                                                                                                                                      | Buffer(FF name)                                                                                                                                                                                    | Load  |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+u_fft/blk00000001/blk000031cd/sig000059c0(u_fft/blk00000001/blk000031cd/blk000031cf:G)                                                                                                                                                                                                              | NONE(u_fft/blk00000001/blk000031cd/blk0000320e/blk0000320e)                                                                                                                                        | 26    |
+u_fft/blk00000001/sig0000039a(u_fft/blk00000001/blk00000003:G)                                                                                                                                                                                                                                      | NONE(u_fft/blk00000001/blk000037e3)                                                                                                                                                                | 20    |
+u_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/DBITERR(u_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/XST_GND:G)| NONE(u_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/v6_noinit.ram/SDP.SIMPLE_PRIM36.ram)| 16    |
+u_fft/blk00000001/blk000003ca/blk000003ef/N0(u_fft/blk00000001/blk000003ca/blk000003ef/XST_GND:G)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000003ca/blk000003ef/blk000003ef)                                                                                                                                        | 8     |
+u_fft/blk00000001/blk000003ca/blk000003f0/N0(u_fft/blk00000001/blk000003ca/blk000003f0/XST_GND:G)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000003ca/blk000003f0/blk000003f0)                                                                                                                                        | 8     |
+u_fft/blk00000001/blk000003ca/blk000003f1/N0(u_fft/blk00000001/blk000003ca/blk000003f1/XST_GND:G)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000003ca/blk000003f1/blk000003f1)                                                                                                                                        | 8     |
+u_fft/blk00000001/blk000003ca/blk000003f2/N0(u_fft/blk00000001/blk000003ca/blk000003f2/XST_GND:G)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000003ca/blk000003f2/blk000003f2)                                                                                                                                        | 8     |
+u_fft/blk00000001/blk000003ca/sig00003305(u_fft/blk00000001/blk000003ca/blk000003cc:G)                                                                                                                                                                                                              | NONE(u_fft/blk00000001/blk000003ca/blk000003f1/blk000003f1)                                                                                                                                        | 8     |
+u_fft/blk00000001/blk000006d4/blk000006fb/N0(u_fft/blk00000001/blk000006d4/blk000006fb/XST_GND:G)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000006d4/blk000006fb/blk000006fb)                                                                                                                                        | 8     |
+u_fft/blk00000001/blk000006d4/blk000006fc/N0(u_fft/blk00000001/blk000006d4/blk000006fc/XST_GND:G)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000006d4/blk000006fc/blk000006fc)                                                                                                                                        | 8     |
+u_fft/blk00000001/blk00000b89/sig00003a40(u_fft/blk00000001/blk00000b89/blk00000b8a:P)                                                                                                                                                                                                              | NONE(u_fft/blk00000001/blk00000b89/blk00000bb4/blk00000bb4)                                                                                                                                        | 8     |
+u_fft/blk00000001/blk00000eeb/sig00003d05(u_fft/blk00000001/blk00000eeb/blk00000eec:P)                                                                                                                                                                                                              | NONE(u_fft/blk00000001/blk00000eeb/blk00000f18/blk00000f18)                                                                                                                                        | 8     |
+u_fft/blk00000001/blk000013d0/sig000041e2(u_fft/blk00000001/blk000013d0/blk000013d1:P)                                                                                                                                                                                                              | NONE(u_fft/blk00000001/blk000013d0/blk000013ff/blk000013ff)                                                                                                                                        | 8     |
+u_fft/blk00000001/blk000031cd/blk0000320c/N0(u_fft/blk00000001/blk000031cd/blk0000320c/XST_GND:G)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000031cd/blk0000320c/blk0000320c)                                                                                                                                        | 8     |
+u_fft/blk00000001/blk000031cd/blk0000320d/N0(u_fft/blk00000001/blk000031cd/blk0000320d/XST_GND:G)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000031cd/blk0000320d/blk0000320d)                                                                                                                                        | 8     |
+u_fft/blk00000001/blk000031cd/blk0000320e/N0(u_fft/blk00000001/blk000031cd/blk0000320e/XST_GND:G)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000031cd/blk0000320e/blk0000320e)                                                                                                                                        | 8     |
+u_fft/blk00000001/blk000031cd/blk0000320f/N0(u_fft/blk00000001/blk000031cd/blk0000320f/XST_GND:G)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000031cd/blk0000320f/blk0000320f)                                                                                                                                        | 8     |
+u_fft/blk00000001/blk000031cd/blk00003210/N0(u_fft/blk00000001/blk000031cd/blk00003210/XST_GND:G)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000031cd/blk00003210/blk00003210)                                                                                                                                        | 8     |
+u_fft/blk00000001/blk000031cd/blk00003211/N0(u_fft/blk00000001/blk000031cd/blk00003211/XST_GND:G)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000031cd/blk00003211/blk00003211)                                                                                                                                        | 8     |
+u_fft/blk00000001/blk000031cd/blk00003212/N0(u_fft/blk00000001/blk000031cd/blk00003212/XST_GND:G)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000031cd/blk00003212/blk00003212)                                                                                                                                        | 8     |
+u_fft/blk00000001/blk000031cd/blk00003213/N0(u_fft/blk00000001/blk000031cd/blk00003213/XST_GND:G)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000031cd/blk00003213/blk00003213)                                                                                                                                        | 8     |
+u_fft/blk00000001/blk000031cd/blk00003214/N0(u_fft/blk00000001/blk000031cd/blk00003214/XST_GND:G)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000031cd/blk00003214/blk00003214)                                                                                                                                        | 8     |
+u_fft/blk00000001/blk000031cd/blk00003215/N0(u_fft/blk00000001/blk000031cd/blk00003215/XST_GND:G)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000031cd/blk00003215/blk00003215)                                                                                                                                        | 8     |
+u_fft/blk00000001/blk000031cd/blk00003216/N0(u_fft/blk00000001/blk000031cd/blk00003216/XST_GND:G)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000031cd/blk00003216/blk00003216)                                                                                                                                        | 8     |
+u_fft/blk00000001/blk000031cd/blk00003217/N0(u_fft/blk00000001/blk000031cd/blk00003217/XST_GND:G)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000031cd/blk00003217/blk00003217)                                                                                                                                        | 8     |
+u_fft/blk00000001/blk000031cd/blk00003218/N0(u_fft/blk00000001/blk000031cd/blk00003218/XST_GND:G)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000031cd/blk00003218/blk00003218)                                                                                                                                        | 8     |
+u_fft/blk00000001/sig00000399(u_fft/blk00000001/blk00000002:P)                                                                                                                                                                                                                                      | NONE(u_fft/blk00000001/blk000037e3)                                                                                                                                                                | 8     |
+u_fft/blk00000001/blk00000b89/blk00000bb4/N0(u_fft/blk00000001/blk00000b89/blk00000bb4/XST_GND:G)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk00000b89/blk00000bb4/blk00000bb4)                                                                                                                                        | 6     |
+u_fft/blk00000001/blk00000b89/blk00000bb5/N0(u_fft/blk00000001/blk00000b89/blk00000bb5/XST_GND:G)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk00000b89/blk00000bb5/blk00000bb5)                                                                                                                                        | 6     |
+u_fft/blk00000001/blk00000eeb/blk00000f18/N0(u_fft/blk00000001/blk00000eeb/blk00000f18/XST_GND:G)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk00000eeb/blk00000f18/blk00000f18)                                                                                                                                        | 6     |
+u_fft/blk00000001/blk00000eeb/blk00000f19/N0(u_fft/blk00000001/blk00000eeb/blk00000f19/XST_GND:G)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk00000eeb/blk00000f19/blk00000f19)                                                                                                                                        | 6     |
+u_fft/blk00000001/blk000013d0/blk000013ff/N0(u_fft/blk00000001/blk000013d0/blk000013ff/XST_GND:G)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000013d0/blk000013ff/blk000013ff)                                                                                                                                        | 6     |
+u_fft/blk00000001/blk000013d0/blk00001400/N0(u_fft/blk00000001/blk000013d0/blk00001400/XST_GND:G)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000013d0/blk00001400/blk00001400)                                                                                                                                        | 6     |
+u_fft/blk00000001/blk000003ca/blk000003ef/N1(u_fft/blk00000001/blk000003ca/blk000003ef/XST_VCC:P)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000003ca/blk000003ef/blk000003ef)                                                                                                                                        | 4     |
+u_fft/blk00000001/blk000003ca/blk000003f0/N1(u_fft/blk00000001/blk000003ca/blk000003f0/XST_VCC:P)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000003ca/blk000003f0/blk000003f0)                                                                                                                                        | 4     |
+u_fft/blk00000001/blk000003ca/blk000003f1/N1(u_fft/blk00000001/blk000003ca/blk000003f1/XST_VCC:P)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000003ca/blk000003f1/blk000003f1)                                                                                                                                        | 4     |
+u_fft/blk00000001/blk000003ca/blk000003f2/N1(u_fft/blk00000001/blk000003ca/blk000003f2/XST_VCC:P)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000003ca/blk000003f2/blk000003f2)                                                                                                                                        | 4     |
+u_fft/blk00000001/blk000006d4/blk000006fb/N1(u_fft/blk00000001/blk000006d4/blk000006fb/XST_VCC:P)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000006d4/blk000006fb/blk000006fb)                                                                                                                                        | 4     |
+u_fft/blk00000001/blk000006d4/blk000006fc/N1(u_fft/blk00000001/blk000006d4/blk000006fc/XST_VCC:P)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000006d4/blk000006fc/blk000006fc)                                                                                                                                        | 4     |
+u_fft/blk00000001/blk000006d4/sig0000358c(u_fft/blk00000001/blk000006d4/blk000006d6:G)                                                                                                                                                                                                              | NONE(u_fft/blk00000001/blk000006d4/blk000006fb/blk000006fb)                                                                                                                                        | 4     |
+u_fft/blk00000001/blk00000b89/blk00000bb4/N1(u_fft/blk00000001/blk00000b89/blk00000bb4/XST_VCC:P)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk00000b89/blk00000bb4/blk00000bb4)                                                                                                                                        | 4     |
+u_fft/blk00000001/blk00000b89/blk00000bb5/N1(u_fft/blk00000001/blk00000b89/blk00000bb5/XST_VCC:P)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk00000b89/blk00000bb5/blk00000bb5)                                                                                                                                        | 4     |
+u_fft/blk00000001/blk00000eeb/blk00000f18/N1(u_fft/blk00000001/blk00000eeb/blk00000f18/XST_VCC:P)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk00000eeb/blk00000f18/blk00000f18)                                                                                                                                        | 4     |
+u_fft/blk00000001/blk00000eeb/blk00000f19/N1(u_fft/blk00000001/blk00000eeb/blk00000f19/XST_VCC:P)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk00000eeb/blk00000f19/blk00000f19)                                                                                                                                        | 4     |
+u_fft/blk00000001/blk000013d0/blk000013ff/N1(u_fft/blk00000001/blk000013d0/blk000013ff/XST_VCC:P)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000013d0/blk000013ff/blk000013ff)                                                                                                                                        | 4     |
+u_fft/blk00000001/blk000013d0/blk00001400/N1(u_fft/blk00000001/blk000013d0/blk00001400/XST_VCC:P)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000013d0/blk00001400/blk00001400)                                                                                                                                        | 4     |
+u_fft/blk00000001/blk000031cd/blk0000320c/N1(u_fft/blk00000001/blk000031cd/blk0000320c/XST_VCC:P)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000031cd/blk0000320c/blk0000320c)                                                                                                                                        | 4     |
+u_fft/blk00000001/blk000031cd/blk0000320d/N1(u_fft/blk00000001/blk000031cd/blk0000320d/XST_VCC:P)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000031cd/blk0000320d/blk0000320d)                                                                                                                                        | 4     |
+u_fft/blk00000001/blk000031cd/blk0000320e/N1(u_fft/blk00000001/blk000031cd/blk0000320e/XST_VCC:P)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000031cd/blk0000320e/blk0000320e)                                                                                                                                        | 4     |
+u_fft/blk00000001/blk000031cd/blk0000320f/N1(u_fft/blk00000001/blk000031cd/blk0000320f/XST_VCC:P)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000031cd/blk0000320f/blk0000320f)                                                                                                                                        | 4     |
+u_fft/blk00000001/blk000031cd/blk00003210/N1(u_fft/blk00000001/blk000031cd/blk00003210/XST_VCC:P)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000031cd/blk00003210/blk00003210)                                                                                                                                        | 4     |
+u_fft/blk00000001/blk000031cd/blk00003211/N1(u_fft/blk00000001/blk000031cd/blk00003211/XST_VCC:P)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000031cd/blk00003211/blk00003211)                                                                                                                                        | 4     |
+u_fft/blk00000001/blk000031cd/blk00003212/N1(u_fft/blk00000001/blk000031cd/blk00003212/XST_VCC:P)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000031cd/blk00003212/blk00003212)                                                                                                                                        | 4     |
+u_fft/blk00000001/blk000031cd/blk00003213/N1(u_fft/blk00000001/blk000031cd/blk00003213/XST_VCC:P)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000031cd/blk00003213/blk00003213)                                                                                                                                        | 4     |
+u_fft/blk00000001/blk000031cd/blk00003214/N1(u_fft/blk00000001/blk000031cd/blk00003214/XST_VCC:P)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000031cd/blk00003214/blk00003214)                                                                                                                                        | 4     |
+u_fft/blk00000001/blk000031cd/blk00003215/N1(u_fft/blk00000001/blk000031cd/blk00003215/XST_VCC:P)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000031cd/blk00003215/blk00003215)                                                                                                                                        | 4     |
+u_fft/blk00000001/blk000031cd/blk00003216/N1(u_fft/blk00000001/blk000031cd/blk00003216/XST_VCC:P)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000031cd/blk00003216/blk00003216)                                                                                                                                        | 4     |
+u_fft/blk00000001/blk000031cd/blk00003217/N1(u_fft/blk00000001/blk000031cd/blk00003217/XST_VCC:P)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000031cd/blk00003217/blk00003217)                                                                                                                                        | 4     |
+u_fft/blk00000001/blk000031cd/blk00003218/N1(u_fft/blk00000001/blk000031cd/blk00003218/XST_VCC:P)                                                                                                                                                                                                   | NONE(u_fft/blk00000001/blk000031cd/blk00003218/blk00003218)                                                                                                                                        | 4     |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: 3.653ns (Maximum Frequency: 273.743MHz)
+   Minimum input arrival time before clock: 1.438ns
+   Maximum output required time after clock: 0.664ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'rd_clk'
+  Clock period: 3.653ns (frequency: 273.743MHz)
+  Total number of paths / destination ports: 203643 / 10948
+-------------------------------------------------------------------------
+Delay:               3.653ns (Levels of Logic = 37)
+  Source:            u_complex_magnitude/sqrt_inst/blk000001db (FF)
+  Destination:       u_complex_magnitude/sqrt_inst/blk0000028d (FF)
+  Source Clock:      rd_clk rising
+  Destination Clock: rd_clk rising
+
+  Data Path: u_complex_magnitude/sqrt_inst/blk000001db to u_complex_magnitude/sqrt_inst/blk0000028d
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               3   0.317   0.438  blk000001db (sig000001b8)
+     begin scope: 'u_complex_magnitude/sqrt_inst/blk000001f7:A<2>'
+     SEC:in->out           1   0.061   0.000  sec_inst (sec_net)
+     SEC:in->out           1   0.248   0.000  sec_inst (sec_net)
+     SEC:in->out           1   0.017   0.000  sec_inst (sec_net)
+     SEC:in->out           1   0.017   0.000  sec_inst (sec_net)
+     SEC:in->out           1   0.017   0.000  sec_inst (sec_net)
+     SEC:in->out           1   0.017   0.000  sec_inst (sec_net)
+     SEC:in->out           1   0.017   0.000  sec_inst (sec_net)
+     SEC:in->out           1   0.017   0.000  sec_inst (sec_net)
+     SEC:in->out           1   0.017   0.000  sec_inst (sec_net)
+     SEC:in->out           1   0.017   0.000  sec_inst (sec_net)
+     SEC:in->out           1   0.017   0.000  sec_inst (sec_net)
+     SEC:in->out           1   0.017   0.000  sec_inst (sec_net)
+     SEC:in->out           1   0.017   0.000  sec_inst (sec_net)
+     SEC:in->out           1   0.017   0.000  sec_inst (sec_net)
+     SEC:in->out           1   0.017   0.000  sec_inst (sec_net)
+     SEC:in->out          31   0.204   0.487  sec_inst (sec_net)
+     end scope: 'u_complex_magnitude/sqrt_inst/blk000001f7:S<16>'
+     LUT3:I2->O            1   0.061   0.357  blk00000360 (sig00000084)
+     begin scope: 'u_complex_magnitude/sqrt_inst/blk00000245:A<2>'
+     SEC:in->out           1   0.061   0.000  sec_inst (sec_net)
+     SEC:in->out           1   0.248   0.000  sec_inst (sec_net)
+     SEC:in->out           1   0.017   0.000  sec_inst (sec_net)
+     SEC:in->out           1   0.017   0.000  sec_inst (sec_net)
+     SEC:in->out           1   0.017   0.000  sec_inst (sec_net)
+     SEC:in->out           1   0.017   0.000  sec_inst (sec_net)
+     SEC:in->out           1   0.017   0.000  sec_inst (sec_net)
+     SEC:in->out           1   0.017   0.000  sec_inst (sec_net)
+     SEC:in->out           1   0.017   0.000  sec_inst (sec_net)
+     SEC:in->out           1   0.017   0.000  sec_inst (sec_net)
+     SEC:in->out           1   0.017   0.000  sec_inst (sec_net)
+     SEC:in->out           1   0.017   0.000  sec_inst (sec_net)
+     SEC:in->out           1   0.017   0.000  sec_inst (sec_net)
+     SEC:in->out           1   0.017   0.000  sec_inst (sec_net)
+     SEC:in->out           1   0.017   0.000  sec_inst (sec_net)
+     SEC:in->out           1   0.017   0.000  sec_inst (sec_net)
+     SEC:in->out          17   0.204   0.447  sec_inst (sec_net)
+     end scope: 'u_complex_magnitude/sqrt_inst/blk00000245:S<17>'
+     LUT3:I2->O            1   0.061   0.000  blk0000036f (sig00000056)
+     FD:D                     -0.002          blk0000029c
+    ----------------------------------------
+    Total                      3.653ns (1.924ns logic, 1.729ns route)
+                                       (52.7% logic, 47.3% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'wr_clk'
+  Clock period: 1.959ns (frequency: 510.360MHz)
+  Total number of paths / destination ports: 563 / 286
+-------------------------------------------------------------------------
+Delay:               1.959ns (Levels of Logic = 9)
+  Source:            u_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_bin_1 (FF)
+  Destination:       u_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i (FF)
+  Source Clock:      wr_clk rising
+  Destination Clock: wr_clk rising
+
+  Data Path: u_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_bin_1 to u_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              2   0.317   0.571  U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_bin_1 (U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_bin<1>)
+     LUT4:I0->O            1   0.061   0.000  U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/c1/v1<0>1 (U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/c1/v1<0>)
+     MUXCY:S->O            1   0.248   0.000  U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/c1/gmux.gm[0].gm1.m1 (U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/c1/gmux.carrynet<0>)
+     MUXCY:CI->O           1   0.017   0.000  U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/c1/gmux.gm[1].gms.ms (U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/c1/gmux.carrynet<1>)
+     MUXCY:CI->O           1   0.017   0.000  U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/c1/gmux.gm[2].gms.ms (U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/c1/gmux.carrynet<2>)
+     MUXCY:CI->O           1   0.017   0.000  U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/c1/gmux.gm[3].gms.ms (U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/c1/gmux.carrynet<3>)
+     MUXCY:CI->O           1   0.017   0.000  U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/c1/gmux.gm[4].gms.ms (U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/c1/gmux.carrynet<4>)
+     MUXCY:CI->O           1   0.017   0.000  U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/c1/gmux.gm[5].gms.ms (U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/c1/gmux.carrynet<5>)
+     MUXCY:CI->O           1   0.190   0.426  U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/c1/gmux.gm[6].gms.ms (U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/comp1)
+     LUT5:I3->O            2   0.061   0.000  U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/Mmux_comp1_GND_409_o_MUX_31_o11 (U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/comp1_GND_409_o_MUX_31_o)
+     FDP:D                    -0.002          U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_fb_i
+    ----------------------------------------
+    Total                      1.959ns (0.962ns logic, 0.997ns route)
+                                       (49.1% logic, 50.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'rd_clk'
+  Total number of paths / destination ports: 40 / 40
+-------------------------------------------------------------------------
+Offset:              1.169ns (Levels of Logic = 2)
+  Source:            rst (PAD)
+  Destination:       u_fifo_fft_interface/fft_xn_re_15 (FF)
+  Destination Clock: rd_clk rising
+
+  Data Path: rst to u_fifo_fft_interface/fft_xn_re_15
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            30   0.003   0.486  rst_IBUF (rst_IBUF)
+     LUT2:I1->O           16   0.061   0.422  u_fifo_fft_interface/_n0066_inv1 (u_fifo_fft_interface/_n0066_inv)
+     FDE:CE                    0.196          u_fifo_fft_interface/fft_xn_re_0
+    ----------------------------------------
+    Total                      1.169ns (0.260ns logic, 0.909ns route)
+                                       (22.2% logic, 77.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'wr_clk'
+  Total number of paths / destination ports: 80 / 80
+-------------------------------------------------------------------------
+Offset:              1.438ns (Levels of Logic = 3)
+  Source:            wr_en (PAD)
+  Destination:       u_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_noinit.ram/SDP.SIMPLE_PRIM36.ram (RAM)
+  Destination Clock: wr_clk rising
+
+  Data Path: wr_en to u_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_noinit.ram/SDP.SIMPLE_PRIM36.ram
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   0.003   0.431  wr_en_IBUF (wr_en_IBUF)
+     begin scope: 'u_fifo:wr_en'
+     LUT2:I0->O           57   0.061   0.473  U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/ram_wr_en_i1 (U0/xst_fifo_generator/gconvfifo.rf/grf.rf/ram_wr_en)
+     begin scope: 'u_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr:WEA<0>'
+     RAMB36E1:WEA3             0.469          ramloop[0].ram.r/v6_noinit.ram/SDP.SIMPLE_PRIM36.ram
+    ----------------------------------------
+    Total                      1.438ns (0.533ns logic, 0.905ns route)
+                                       (37.1% logic, 62.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'rd_clk'
+  Total number of paths / destination ports: 8 / 8
+-------------------------------------------------------------------------
+Offset:              0.664ns (Levels of Logic = 1)
+  Source:            u_comparator/result_reg_7 (FF)
+  Destination:       dout<7> (PAD)
+  Source Clock:      rd_clk rising
+
+  Data Path: u_comparator/result_reg_7 to dout<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             2   0.317   0.344  u_comparator/result_reg_7 (u_comparator/result_reg_7)
+     OBUF:I->O                 0.003          dout_7_OBUF (dout<7>)
+    ----------------------------------------
+    Total                      0.664ns (0.320ns logic, 0.344ns route)
+                                       (48.2% logic, 51.8% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock rd_clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+rd_clk         |    3.653|         |         |         |
+wr_clk         |    0.656|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock wr_clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+rd_clk         |    0.656|         |         |         |
+wr_clk         |    1.959|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 16.00 secs
+Total CPU time to Xst completion: 13.42 secs
+ 
+--> 
+
+
+Total memory usage is 594056 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   38 (   0 filtered)
+Number of infos    :   81 (   0 filtered)
+

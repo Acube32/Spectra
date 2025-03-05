@@ -1,0 +1,28 @@
+Command line:
+   tb_spectra_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  37556
+
+Tue Mar  4 19:31:33 2025
+
+
+ Elaboration Time: 0.89 sec
+
+ Current Memory Usage: 532.816 Meg
+
+ Total Signals          : 101464
+ Total Nets             : 142094
+ Total Signal Drivers   : 28247
+ Total Blocks           : 15013
+ Total Primitive Blocks : 14896
+ Total Processes        : 25941
+ Total Traceable Variables  : 23839
+ Total Scalar Nets and Variables : 1827687
+
+ Total Simulation Time: 536.78 sec
+
+ Current Memory Usage: 611.238 Meg
+
+Tue Mar  4 19:43:57 2025
+

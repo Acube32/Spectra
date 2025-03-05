@@ -1,0 +1,144 @@
+Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -relaunch -intstyle "ise" -incremental -lib "secureip" -o "/home/ise/Desktop/fft_direct/tb_spectra_isim_beh.exe" -prj "/home/ise/Desktop/fft_direct/tb_spectra_beh.prj" "work.tb_spectra" 
+ISim P.20131013 (signature 0xfbc00daa)
+Number of CPUs detected in this system: 1
+Turning on mult-threading, number of parallel sub-compilation jobs: 0 
+Determining compilation order of HDL files
+Parsing VHDL file "/home/ise/Desktop/fft_direct/ipcore_dir/fft.vhd" into library work
+Parsing VHDL file "/home/ise/Desktop/fft_direct/ipcore_dir/fifo.vhd" into library work
+Parsing VHDL file "/home/ise/Desktop/fft_direct/ipcore_dir/mult.vhd" into library work
+Parsing VHDL file "/home/ise/Desktop/fft_direct/ipcore_dir/sqrt.vhd" into library work
+Parsing VHDL file "/home/ise/Desktop/fft_direct/ipcore_dir/comm_fifo.vhd" into library work
+Parsing VHDL file "/home/ise/Desktop/fft_direct/spi_v2.vhd" into library work
+Parsing VHDL file "/home/ise/Desktop/fft_direct/fifo_spi_interface.vhd" into library work
+Parsing VHDL file "/home/ise/Desktop/fft_direct/fifo_fft_interface.vhd" into library work
+Parsing VHDL file "/home/ise/Desktop/fft_direct/complex_magnitude.vhd" into library work
+Parsing VHDL file "/home/ise/Desktop/fft_direct/comparator.vhd" into library work
+Parsing VHDL file "/home/ise/Desktop/fft_direct/spectra.vhd" into library work
+Parsing VHDL file "/home/ise/Desktop/fft_direct/tb_spectra.vhd" into library work
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 344192 KB
+Fuse CPU Usage: 5670 ms
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package std_logic_arith
+Compiling package std_logic_unsigned
+Compiling package math_real
+Compiling package vcomponents
+Compiling package textio
+Compiling package vital_timing
+Compiling package vital_primitives
+Compiling package vpkg
+Compiling package numeric_std
+Compiling architecture behavioral of entity fifo_generator_v9_3_bhv_as [\fifo_generator_v9_3_bhv_as(16,"...]
+Compiling architecture behavioral of entity fifo_generator_v9_3_conv [\fifo_generator_v9_3_conv(0,0,13...]
+Compiling architecture behavioral of entity fifo_generator_v9_3 [\fifo_generator_v9_3(0,0,13,"Bla...]
+Compiling architecture fifo_a of entity fifo [fifo_default]
+Compiling architecture behavioral of entity fifo_fft_interface [fifo_fft_interface_default]
+Compiling package std_logic_signed
+Compiling architecture dsp48e_v of entity DSP48E [\DSP48E("SAFE",2,1,2,false,"MATC...]
+Compiling architecture dsp48e_v of entity DSP48E [\DSP48E("SAFE",1,1,1,false,"MATC...]
+Compiling architecture fde_v of entity FDE [\FDE('0')\]
+Compiling architecture srlc16e_v of entity SRLC16E [\SRLC16E("0000000000000000")(0,1...]
+Compiling package std_logic_textio
+Compiling architecture rb18_internal_vhdl_v of entity RB18_INTERNAL_VHDL [\RB18_INTERNAL_VHDL(18,1,1,false...]
+Compiling architecture ramb18e1_v of entity RAMB18E1 [\RAMB18E1(1,1,"00000000000000000...]
+Compiling architecture rb18_internal_vhdl_v of entity RB18_INTERNAL_VHDL [\RB18_INTERNAL_VHDL(18,1,1,false...]
+Compiling architecture ramb18e1_v of entity RAMB18E1 [\RAMB18E1(1,1,"00000000000000000...]
+Compiling architecture inv_v of entity INV [inv_default]
+Compiling architecture lut1_v of entity LUT1 [\LUT1("0010")(0,3)\]
+Compiling architecture lut4_v of entity LUT4 [\LUT4("1111100101100000")(0,15)\]
+Compiling architecture lut2_v of entity LUT2 [\LUT2("0110")(0,3)\]
+Compiling architecture lut3_v of entity LUT3 [\LUT3("01100000")(0,7)\]
+Compiling architecture fd_v of entity FD [\FD('0')\]
+Compiling architecture fdr_v of entity FDR [\FDR('0')\]
+Compiling architecture fdre_v of entity FDRE [\FDRE('0')\]
+Compiling architecture srl16e_v of entity SRL16E [\SRL16E("0000000000000000")(0,15...]
+Compiling architecture lut6_v of entity LUT6 [\LUT6("1111111100000000111100001...]
+Compiling architecture muxf7_v of entity MUXF7 [muxf7_default]
+Compiling architecture muxf8_v of entity MUXF8 [muxf8_default]
+Compiling architecture muxcy_v of entity MUXCY [muxcy_default]
+Compiling architecture xorcy_v of entity XORCY [xorcy_default]
+Compiling architecture dsp48e1_v of entity DSP48E1 [\DSP48E1(1,1,0,1,"NO_RESET","DIR...]
+Compiling architecture dsp48e1_v of entity DSP48E1 [\DSP48E1(1,1,0,1,"NO_RESET","CAS...]
+Compiling architecture dsp48e1_v of entity DSP48E1 [\DSP48E1(2,0,0,2,"NO_RESET","DIR...]
+Compiling architecture dsp48e1_v of entity DSP48E1 [\DSP48E1(1,0,0,1,"NO_RESET","DIR...]
+Compiling architecture dsp48e1_v of entity DSP48E1 [\DSP48E1(2,0,0,2,"NO_RESET","DIR...]
+Compiling architecture dsp48e1_v of entity DSP48E1 [\DSP48E1(1,1,0,1,"NO_RESET","DIR...]
+Compiling architecture gnd_v of entity GND [gnd_default]
+Compiling architecture vcc_v of entity VCC [vcc_default]
+Compiling architecture aramb36_internal_v of entity ARAMB36_INTERNAL [\ARAMB36_INTERNAL("TRUE_DUAL_POR...]
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3039: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3354: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3771: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3787: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3039: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3353: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3354: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3531: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3771: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3787: Range is empty (null range)
+Compiling architecture ramb18_v of entity RAMB18 [\RAMB18(0,1,"0000000000000000000...]
+Compiling architecture aramb36_internal_v of entity ARAMB36_INTERNAL [\ARAMB36_INTERNAL("TRUE_DUAL_POR...]
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3039: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3354: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3771: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3787: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3039: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3353: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3354: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3531: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3771: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3787: Range is empty (null range)
+Compiling architecture ramb18_v of entity RAMB18 [\RAMB18(0,1,"0000000000000000000...]
+Compiling architecture aramb36_internal_v of entity ARAMB36_INTERNAL [\ARAMB36_INTERNAL("SIMPLE_DUAL_P...]
+Compiling architecture ramb18sdp_v of entity RAMB18SDP [\RAMB18SDP(1,"000000000000000000...]
+Compiling architecture srlc32e_v of entity SRLC32E [\SRLC32E("0000000000000000000000...]
+Compiling architecture ram64x1s_v of entity RAM64X1S [\RAM64X1S("000000000000000000000...]
+Compiling architecture aramb36_internal_v of entity ARAMB36_INTERNAL [\ARAMB36_INTERNAL("TRUE_DUAL_POR...]
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3039: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3045: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3354: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3480: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3771: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3787: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3868: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3881: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3039: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3045: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3353: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3354: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3479: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3480: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3531: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3642: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3771: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3787: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3868: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3881: Range is empty (null range)
+Compiling architecture ramb18_v of entity RAMB18 [\RAMB18(0,1,"0000000000000000000...]
+Compiling architecture structure of entity fft [fft_default]
+Compiling package bip_utils_pkg_v2_0
+Compiling package mult_gen_pkg_v11_2
+Compiling architecture behavioral of entity mult_gen_v11_2 [\mult_gen_v11_2(0,0,"virtex6",16...]
+Compiling architecture mult_a of entity mult [mult_default]
+Compiling package mult_gen_pkg_v11_0
+Compiling package cordic_v4_0_pack
+Compiling architecture behavioral of entity cordic_v4_0 [\cordic_v4_0(2,6,0,1,"virtex6","...]
+Compiling architecture sqrt_a of entity sqrt [sqrt_default]
+Compiling architecture behavioral of entity complex_magnitude [complex_magnitude_default]
+Compiling architecture behavioral of entity comparator [comparator_default]
+Compiling architecture behavioral of entity fifo_generator_v9_3_bhv_as [\fifo_generator_v9_3_bhv_as(16,"...]
+Compiling architecture behavioral of entity fifo_generator_v9_3_conv [\fifo_generator_v9_3_conv(0,0,13...]
+Compiling architecture behavioral of entity fifo_generator_v9_3 [\fifo_generator_v9_3(0,0,13,"Bla...]
+Compiling architecture comm_fifo_a of entity comm_fifo [comm_fifo_default]
+Compiling architecture behavioral of entity fifo_spi_interface [fifo_spi_interface_default]
+Compiling architecture behavioral of entity spi_slave [spi_slave_default]
+Compiling architecture structural of entity spectra [spectra_default]
+Compiling architecture behavioral of entity tb_spectra
+Time Resolution for simulation is 1ps.
+Compiled 312 VHDL Units
+Built simulation executable /home/ise/Desktop/fft_direct/tb_spectra_isim_beh.exe
+Fuse Memory Usage: 414476 KB
+Fuse CPU Usage: 8010 ms
+GCC CPU Usage: 190 ms

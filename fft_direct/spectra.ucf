@@ -1,0 +1,35 @@
+
+#Created by Constraints Editor (xc5vlx20t-ff323-2) - 2025/02/26
+NET "rd_clk" TNM_NET = "rd_clk";
+TIMESPEC TS_rd_clk = PERIOD "rd_clk" 10 ns HIGH 50 %;
+NET "wr_clk" TNM_NET = "wr_clk";
+TIMESPEC TS_wr_clk = PERIOD "wr_clk" 10 us HIGH 50 %;
+
+# PlanAhead Generated physical constraints 
+
+NET "din[1]" LOC = U27;
+NET "din[14]" LOC = V32;
+NET "din[10]" LOC = V34;
+NET "din[8]" LOC = V30;
+NET "din[3]" LOC = U32;
+NET "din[11]" LOC = W34;
+NET "din[15]" LOC = V33;
+NET "din[7]" LOC = U30;
+NET "din[9]" LOC = W30;
+NET "din[2]" LOC = U33;
+NET "din[12]" LOC = V28;
+NET "din[6]" LOC = U31;
+NET "din[0]" LOC = U26;
+NET "din[13]" LOC = V27;
+NET "din[5]" LOC = V29;
+NET "din[4]" LOC = U28;
+NET "wr_en" LOC = T33;
+NET "rst" LOC = T34;
+NET "dout[6]" LOC = AA31;
+NET "dout[0]" LOC = AB31;
+NET "dout[1]" LOC = AB30;
+NET "dout[3]" LOC = AA34;
+NET "dout[5]" LOC = AA30;
+NET "dout[4]" LOC = AA33;
+NET "dout[2]" LOC = AC34;
+NET "dout[7]" LOC = AD34;
