@@ -1,0 +1,740 @@
+-- Spectra
+
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_ARITH.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+ENTITY spectra IS
+  PORT (
+    rst      : IN STD_LOGIC;
+    wr_clk   : IN STD_LOGIC;
+    rd_clk   : IN STD_LOGIC;
+    din      : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    wr_en    : IN STD_LOGIC;
+	 sclk     : IN STD_LOGIC;
+	 ss       : IN STD_LOGIC;
+	 mosi     : IN STD_LOGIC;
+	 miso     : OUT STD_LOGIC;
+	 dout     : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+  );
+END spectra;
+
+ARCHITECTURE Structural OF spectra IS
+
+	COMPONENT fifo
+		PORT (
+			rst           : IN STD_LOGIC;
+			wr_clk        : IN STD_LOGIC;
+			rd_clk        : IN STD_LOGIC;
+			din           : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+			wr_en         : IN STD_LOGIC;
+			rd_en         : IN STD_LOGIC;
+			dout          : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			full          : OUT STD_LOGIC;
+			empty         : OUT STD_LOGIC;
+			valid         : OUT STD_LOGIC;
+			prog_empty    : OUT STD_LOGIC
+		);
+	END COMPONENT;
+
+	COMPONENT fft
+		PORT (
+			clk          : IN STD_LOGIC;
+			start        : IN STD_LOGIC;
+			xn_re        : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+			xn_im        : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+			fwd_inv      : IN STD_LOGIC;
+			fwd_inv_we   : IN STD_LOGIC;
+			rfd          : OUT STD_LOGIC;
+			xn_index     : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
+			busy         : OUT STD_LOGIC;
+			edone        : OUT STD_LOGIC;
+			done         : OUT STD_LOGIC;
+			dv           : OUT STD_LOGIC;
+			xk_index     : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
+			xk_re        : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			xk_im        : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			blk_exp      : OUT STD_LOGIC_VECTOR(4 DOWNTO 0)
+		);
+	END COMPONENT;
+
+	COMPONENT fifo_fft_interface
+		PORT (
+			rst            : IN STD_LOGIC;
+			wr_clk         : IN STD_LOGIC;
+			rd_clk         : IN STD_LOGIC;
+			fifo_din       : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+			wr_en          : IN STD_LOGIC;
+			start          : OUT STD_LOGIC;
+			fifo_valid     : IN STD_LOGIC;
+			fifo_prog_empty: IN STD_LOGIC;
+			fifo_rd_en     : OUT STD_LOGIC;
+			fifo_dout      : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+			fft_xn_re      : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			fft_xn_im      : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+		);
+	END COMPONENT;
+
+	COMPONENT complex_magnitude IS
+		PORT (
+			clk       : IN STD_LOGIC;
+			ce        : IN STD_LOGIC;
+			real_in   : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+			imag_in   : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+			index_in  : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
+			mag_out   : OUT STD_LOGIC_VECTOR(16 DOWNTO 0);
+			index_out : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
+			rdy       : OUT STD_LOGIC
+		);
+	END COMPONENT;
+
+	COMPONENT comparator IS
+		PORT (
+			clk       : IN STD_LOGIC;
+			reset     : IN STD_LOGIC;
+			valid_in  : IN STD_LOGIC;
+			data_in   : IN STD_LOGIC_VECTOR(16 DOWNTO 0);
+			index_in  : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
+			result    : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+			valid_out : OUT STD_LOGIC
+		);
+	END COMPONENT;
+
+	COMPONENT comm_fifo
+		PORT (
+			rst        : IN STD_LOGIC;
+			wr_clk     : IN STD_LOGIC;
+			rd_clk     : IN STD_LOGIC;
+			din        : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+			wr_en      : IN STD_LOGIC;
+			rd_en      : IN STD_LOGIC;
+			dout       : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			full       : OUT STD_LOGIC;
+			empty      : OUT STD_LOGIC;
+			valid      : OUT STD_LOGIC;
+			prog_empty : OUT STD_LOGIC
+		);
+	END COMPONENT;
+	
+	COMPONENT fifo_spi_interface
+		PORT(
+			rst             : IN std_logic;
+			sclk            : IN std_logic;
+			ss              : IN std_logic;
+			trdy            : IN std_logic;
+			cmp_result      : IN std_logic_vector(7 downto 0);
+			cmp_res_valid   : IN std_logic;
+			fifo_dout       : IN std_logic_vector(15 downto 0);
+			fifo_empty      : IN std_logic;
+			fifo_prog_empty : IN std_logic;          
+			rd_en           : OUT std_logic;
+			tx_data         : OUT std_logic_vector(15 downto 0);
+			tx_valid        : OUT std_logic
+		);
+	END COMPONENT;
+	
+	COMPONENT spi_slave
+		PORT(
+			sclk     : IN std_logic;
+			ss       : IN std_logic;
+			mosi     : IN std_logic;
+			tx_data  : IN std_logic_vector(15 downto 0);
+			tx_valid : IN std_logic;          
+			miso     : OUT std_logic;
+			rx_data  : OUT std_logic_vector(15 downto 0);
+			rx_valid : OUT std_logic;
+			trdy     : OUT std_logic
+		);
+	END COMPONENT;
+
+
+
+	SIGNAL fifo_dout            : STD_LOGIC_VECTOR(15 DOWNTO 0);
+	SIGNAL fifo_valid           : STD_LOGIC;
+	SIGNAL fifo_prog_empty      : STD_LOGIC;
+	SIGNAL fifo_rd_en           : STD_LOGIC;
+	
+	SIGNAL fft_start            : STD_LOGIC;
+	SIGNAL fft_xn_re            : STD_LOGIC_VECTOR(15 DOWNTO 0);
+	SIGNAL fft_xn_im            : STD_LOGIC_VECTOR(15 DOWNTO 0);
+	SIGNAL fft_rfd              : STD_LOGIC;
+	SIGNAL fft_busy             : STD_LOGIC;
+	SIGNAL fft_done             : STD_LOGIC;
+	SIGNAL fft_dv               : STD_LOGIC;
+	SIGNAL fft_xk_re            : STD_LOGIC_VECTOR(15 DOWNTO 0);
+	SIGNAL fft_xk_im            : STD_LOGIC_VECTOR(15 DOWNTO 0);
+	SIGNAL fft_xk_index         : STD_LOGIC_VECTOR(11 DOWNTO 0);
+	
+	SIGNAL cm_index_out         : STD_LOGIC_VECTOR(11 DOWNTO 0);
+	SIGNAL cm_mag               : STD_LOGIC_VECTOR(16 DOWNTO 0);
+	SIGNAL cm_rdy               : STD_LOGIC;
+	
+	SIGNAL cmp_result           : STD_LOGIC_VECTOR(7 DOWNTO 0);
+	SIGNAL cmp_res_valid        : STD_LOGIC;
+	
+	SIGNAL comm_fifo_empty      : STD_LOGIC;
+	SIGNAL comm_fifo_prog_empty : STD_LOGIC;
+	SIGNAL comm_fifo_dout       : STD_LOGIC_VECTOR(15 DOWNTO 0);
+	SIGNAL comm_fifo_rd_en      : STD_LOGIC;
+	
+	SIGNAL spis_trdy            : STD_LOGIC;
+	SIGNAL spis_tx_data         : STD_LOGIC_VECTOR(15 DOWNTO 0);
+	SIGNAL spis_tx_valid        : STD_LOGIC;
+	
+
+BEGIN
+
+	u_fifo : fifo
+		PORT MAP (
+			rst         => rst,
+			wr_clk      => wr_clk,
+			rd_clk      => rd_clk,
+			din         => din,
+			wr_en       => wr_en,
+			rd_en       => fifo_rd_en,
+			dout        => fifo_dout,
+			full        => OPEN,
+			empty       => OPEN,
+			valid       => fifo_valid,
+			prog_empty  => fifo_prog_empty
+		);
+
+	u_fifo_fft_interface : fifo_fft_interface
+		PORT MAP (
+			rst             => rst,
+			wr_clk          => wr_clk,
+			rd_clk          => rd_clk,
+			fifo_din        => din,
+			wr_en           => wr_en,
+			start           => fft_start,
+			fifo_valid      => fifo_valid,
+			fifo_prog_empty => fifo_prog_empty,
+			fifo_rd_en      => fifo_rd_en,
+			fifo_dout       => fifo_dout,
+			fft_xn_re       => fft_xn_re,
+			fft_xn_im       => fft_xn_im
+		);
+
+	u_fft : fft
+		PORT MAP (
+			clk        => rd_clk,
+			start      => fft_start,
+			xn_re      => fft_xn_re,
+			xn_im      => fft_xn_im,
+			fwd_inv    => '1',
+			fwd_inv_we => '1',
+			rfd        => fft_rfd,
+			xn_index   => OPEN,
+			busy       => fft_busy,
+			edone      => OPEN,
+			done       => fft_done,
+			dv         => fft_dv,
+			xk_index   => fft_xk_index,
+			xk_re      => fft_xk_re,
+			xk_im      => fft_xk_im,
+			blk_exp    => OPEN
+		);
+	 
+	u_complex_magnitude : complex_magnitude
+		PORT MAP (
+			clk       => rd_clk,
+			ce        => fft_dv,
+			real_in   => fft_xk_re,
+			imag_in   => fft_xk_im,
+			index_in  => fft_xk_index,
+			mag_out   => cm_mag,
+			index_out => cm_index_out,
+			rdy       => cm_rdy
+		);
+	 
+	u_comparator : comparator
+		PORT MAP (
+			clk       => rd_clk,
+			reset     => rst,
+			valid_in  => cm_rdy,
+			data_in   => cm_mag,
+			index_in  => cm_index_out,
+			result    => cmp_result,
+			valid_out => cmp_res_valid
+		);
+
+	dout <= cmp_result;
+		
+	u_comm_fifo : comm_fifo
+		PORT MAP (
+			rst         => rst,
+			wr_clk      => rd_clk,
+			rd_clk      => rd_clk,
+			din         => fifo_dout,
+			wr_en       => fifo_rd_en,
+			rd_en       => comm_fifo_rd_en,
+			dout        => comm_fifo_dout,
+			full        => OPEN,
+			empty       => comm_fifo_empty,
+			valid       => OPEN,
+			prog_empty  => comm_fifo_prog_empty
+		);
+	 
+	u_fifo_spi_interface: fifo_spi_interface
+		PORT MAP(
+			rst             => rst,
+			sclk            => sclk,
+			ss              => ss,
+			trdy            => spis_trdy,
+			cmp_result      => cmp_result,
+			cmp_res_valid   => cmp_res_valid,
+			fifo_dout       => comm_fifo_dout,
+			fifo_empty      => comm_fifo_empty,
+			fifo_prog_empty => comm_fifo_prog_empty,
+			rd_en           => comm_fifo_rd_en,
+			tx_data         => spis_tx_data,
+			tx_valid        => spis_tx_valid
+		);
+	
+	u_spi_slave: spi_slave 
+		PORT MAP(
+			sclk     => sclk,
+			ss       => ss,
+			mosi     => mosi,
+			tx_data  => spis_tx_data,
+			tx_valid => spis_tx_valid,
+			miso     => miso,
+			rx_data  => OPEN,
+			rx_valid => OPEN,
+			trdy     => spis_trdy
+		);
+
+END Structural;
+
+ -------------------------------------------------------------------
+
+-- Comparator
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.std_logic_arith.ALL;
+USE ieee.std_logic_unsigned.ALL;
+
+ENTITY comparator IS
+  PORT (
+    clk       : IN STD_LOGIC;
+    reset     : IN STD_LOGIC;
+    valid_in     : IN STD_LOGIC;
+    data_in   : IN STD_LOGIC_VECTOR(16 DOWNTO 0);
+    index_in  : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
+    result    : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+    valid_out : OUT STD_LOGIC
+  );
+END comparator;
+
+ARCHITECTURE Behavioral OF comparator IS
+  
+  TYPE int_array IS ARRAY(0 TO 7) OF INTEGER;
+  CONSTANT COMP_VALUES : int_array := (4, 11, 26, 49, 82, 143, 266, 1638);
+  
+  SIGNAL result_reg : STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0');
+  SIGNAL count : INTEGER range 0 to 8 := 8;
+  SIGNAL valid_out_reg : STD_LOGIC := '0';
+  CONSTANT THRESHOLD : STD_LOGIC_VECTOR(16 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(10000, 17);
+
+BEGIN
+  PROCESS (clk, reset)
+  BEGIN
+    IF reset = '1' THEN
+      result_reg <= (OTHERS => '0');
+      valid_out_reg <= '0';
+    ELSIF rising_edge(clk) THEN
+		if count = 0 then
+			valid_out_reg <= '0'; -- Default to invalid
+		elsif count = 8 then 
+			count <= 0;
+		else
+			count <= count + 1;
+		end if;
+		
+      IF valid_in = '1' THEN
+        FOR i IN 0 TO 7 LOOP
+          IF index_in = COMP_VALUES(i) THEN
+            IF data_in > THRESHOLD THEN
+              result_reg(i) <= '1';
+            ELSE
+              result_reg(i) <= '0';
+            END IF;
+          END IF;
+        END LOOP;
+		  IF index_in = COMP_VALUES(7) THEN 
+			 valid_out_reg <= '1';
+			 count <= 1;
+		  END IF;
+      END IF;
+    END IF;
+  END PROCESS;
+
+  result <= result_reg;
+  valid_out <= valid_out_reg;
+
+END Behavioral;
+
+
+ -------------------------------------------------------------------
+
+-- Fifo_spi_interface
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity fifo_spi_interface is
+  Port (
+    rst             : in  std_logic;  -- active high reset
+    sclk            : in  std_logic;  -- SPI clock (also FIFO read clock)
+    ss              : in  std_logic;  -- SPI slave select, active low
+    trdy            : in  std_logic;  -- SPI transmit ready from spi_slave
+    cmp_result      : in  std_logic_vector(7 downto 0);  -- external compare result
+    cmp_res_valid   : in  std_logic;  -- when high, load cmp_result
+    fifo_dout       : in  std_logic_vector(15 downto 0);  -- data from FIFO
+	 fifo_empty      : in  std_logic;
+    fifo_prog_empty : in  std_logic;  -- '1' when FIFO has <4098 words, '0' otherwise
+    rd_en           : out std_logic;  -- read enable to FIFO
+    tx_data         : out std_logic_vector(15 downto 0);  -- data to SPI slave
+    tx_valid        : out std_logic   -- one-cycle valid pulse to SPI slave
+  );
+end fifo_spi_interface;
+
+architecture Behavioral of fifo_spi_interface is
+
+  -- Three states: IDLE, TRANSMIT, FLUSH.
+  type state_type is (IDLE, TRANSMIT, FLUSH);
+  signal state       : state_type := IDLE;
+  
+  -- Count the words transmitted in the current burst.
+  signal burst_count : integer range 0 to 4096 := 0;
+  -- Count words flushed when a transmission is interrupted.
+  signal flush_count : integer range 0 to 4096 := 0;
+  
+  -- Registered compare result; a nonzero value enables transmission.
+  signal cmp_reg     : std_logic_vector(7 downto 0) := (others => '0');
+  
+  -- 8-bit burst identifier. Every new burst (transmission) uses a unique id.
+  signal current_id  : unsigned(7 downto 0) := (others => '0');
+  
+  signal metastable_cmp_res_valid : std_logic;
+  signal stable_cmp_res_valid     : std_logic;
+  signal metastable_cmp_result     : std_logic_vector(7 downto 0);
+  signal stable_cmp_result     : std_logic_vector(7 downto 0);
+
+begin
+
+  process(sclk)
+  begin
+	if rising_edge(sclk) then
+		metastable_cmp_res_valid <= cmp_res_valid;
+		stable_cmp_res_valid <= metastable_cmp_res_valid;
+		
+		metastable_cmp_result <= cmp_result;
+		stable_cmp_result <= metastable_cmp_result;
+	end if;
+  end process;
+
+  process(sclk, rst)
+  begin
+    if rst = '1' then
+      state       <= IDLE;
+      burst_count <= 0;
+      flush_count <= 0;
+      cmp_reg     <= (others => '0');
+      current_id  <= x"01";
+      rd_en       <= '0';
+      tx_valid    <= '0';
+      tx_data     <= (others => '0');
+      
+    elsif rising_edge(sclk) then
+    
+      -- Capture cmp_result when valid.
+      if stable_cmp_res_valid = '1' then
+         cmp_reg <= stable_cmp_result;
+      end if;
+      
+      -- Default outputs.
+      rd_en    <= '0';
+      tx_valid <= '0';
+      
+      case state is
+        
+        -------------------------------
+        when IDLE =>
+          -- If idle (ss high) and an incomplete burst exists with new data available,
+          -- flush the old data so that it won't be sent later.
+          if (ss = '1') and ((fifo_prog_empty = '0') or (burst_count > 0)) then
+              state <= FLUSH;
+              flush_count <= 0;
+				  cmp_reg <= (others => '0');
+              
+          -- When a transmission begins (ss low) and cmp_reg is valid,
+          -- send the header (id & cmp_reg) as the first word of the burst.
+          elsif (ss = '0') and (cmp_reg /= "00000000") and (fifo_empty /= '1') then
+					tx_data <= std_logic_vector(current_id) & cmp_reg;
+					tx_valid <= '1';
+					burst_count <= 0;
+					if current_id = x"ff" then
+						current_id <= x"01";
+					else
+						current_id <= current_id + 1;  -- update id for the next burst
+					end if;
+					state <= TRANSMIT;
+          end if;
+          
+        -------------------------------
+        when TRANSMIT =>
+          if ss = '1' then
+              -- Transmission interrupted; return to idle.
+              state <= IDLE;
+          elsif ss = '0' then
+              if trdy = '1' then
+                  rd_en <= '1';  -- read next word from FIFO
+                  tx_data <= fifo_dout;
+                  tx_valid <= '1';
+                  burst_count <= burst_count + 1;
+                  -- If a full burst (4096 words) has been sent, clear cmp_reg and reset counters.
+                  if burst_count = 4096 then
+                      cmp_reg <= (others => '0');
+                      burst_count <= 0;
+                      state <= IDLE;
+                  end if;
+              end if;
+          end if;
+          
+        -------------------------------
+        when FLUSH =>
+			  rd_en <= '1';  -- read (and discard) the word from FIFO
+			  flush_count <= flush_count + 1;
+			  -- When flushed words equal the remaining unsent words, reset counters.
+			  if flush_count = (4096 - burst_count) then
+					burst_count <= 0;
+					flush_count <= 0;
+					state <= IDLE;
+			  end if;
+          
+      end case;
+      
+    end if;
+  end process;
+
+end Behavioral;
+
+
+ -------------------------------------------------------------------
+
+-- Spl_Slave
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity spi_slave is
+    Port (
+        sclk     : in  STD_LOGIC;  -- SPI clock
+        ss       : in  STD_LOGIC;  -- Slave select (active low)
+        mosi     : in  STD_LOGIC;  -- Master Out Slave In
+        tx_data  : in  STD_LOGIC_VECTOR(15 downto 0);  -- Data to transmit
+        tx_valid : in  STD_LOGIC;  -- Indicates tx_data is valid
+        miso     : out STD_LOGIC;  -- Master In Slave Out
+        rx_data  : out STD_LOGIC_VECTOR(15 downto 0);  -- Received data
+        rx_valid : out STD_LOGIC;  -- Indicates rx_data is valid
+        trdy     : out STD_LOGIC   -- Transmit ready
+    );
+end spi_slave;
+
+architecture Behavioral of spi_slave is
+    signal shift_reg_tx : STD_LOGIC_VECTOR(15 downto 0) := (others => '0');  -- Shift register for transmission
+    signal shift_reg_rx : STD_LOGIC_VECTOR(15 downto 0) := (others => '0');  -- Shift register for reception
+    signal bit_count    : INTEGER range 0 to 15 := 0;  -- Bit counter
+    signal tx_active    : STD_LOGIC := '0';  -- Indicates if transmission is active
+    signal tx_ready     : STD_LOGIC := '1';  -- Indicates if ready to transmit new data
+	 signal prev_ss      : STD_LOGIC := '1';
+	 signal latched      : STD_LOGIC := '0';
+begin
+
+    process(sclk, ss)
+    begin
+        if ss = '1' then  -- Slave select is high (inactive)
+            bit_count <= 0;  -- Reset bit counter
+            tx_active <= '0';  -- Transmission is inactive
+            tx_ready <= '1';  -- Ready to accept new data
+            miso <= 'Z';  -- Tri-state miso
+				prev_ss <= '1';
+        elsif falling_edge(sclk) then
+            if tx_active = '0' then  -- Start new transmission
+					if tx_valid = '1' then
+						shift_reg_tx <= tx_data;
+						tx_active <= '1'; 
+						tx_ready <= '0';
+					elsif tx_ready = '1' then
+						shift_reg_tx <= (others => '0');
+						tx_active <= '1'; 
+						tx_ready <= '0';
+					end if;
+            else -- Transmission is active
+                miso <= shift_reg_tx(15);  -- Output MSB of shift register
+                shift_reg_tx <= shift_reg_tx(14 downto 0) & '0';  -- Shift left
+                bit_count <= bit_count + 1;  -- Increment bit counter
+
+                if bit_count = 15 then  -- Transmission complete
+                    tx_active <= '0';  -- Transmission is inactive
+						  bit_count <= 0;
+					 end if;
+					 if bit_count = 14 then
+                    tx_ready <= '1';  -- Ready to accept new data
+                end if;
+            end if;
+				
+				if tx_ready = '1' and bit_count = 15 and tx_valid = '1' then
+					shift_reg_tx <= tx_data;
+					tx_active <= '1'; 
+					tx_ready <= '0';
+				end if;
+        end if;
+    end process;
+
+    process(sclk, ss)
+    begin
+        if ss = '1' then  -- Slave select is high (inactive)
+            shift_reg_rx <= (others => '0');  -- Reset receive shift register
+            rx_valid <= '0';  -- Received data is not valid
+        elsif rising_edge(sclk) then  -- On rising edge of sclk
+            shift_reg_rx <= shift_reg_rx(14 downto 0) & mosi;  -- Shift in mosi data
+            if bit_count = 15 then  -- Reception complete
+                rx_data <= shift_reg_rx(14 downto 0) & mosi;  -- Store received data
+                rx_valid <= '1';  -- Received data is valid
+            else
+                rx_valid <= '0';  -- Received data is not valid
+            end if;
+        end if;
+    end process;
+
+    trdy <= tx_ready;  -- Output transmit ready signal
+
+end Behavioral;
+
+ -------------------------------------------------------------------
+
+-- tb_spectra
+
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_ARITH.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+USE IEEE.MATH_REAL.ALL;
+
+ENTITY tb_spectra IS
+END tb_spectra;
+
+ARCHITECTURE Behavioral OF tb_spectra IS
+
+  CONSTANT clk_period  : TIME := 10 ns;  -- 100 MHz clock
+  CONSTANT sample_rate : INTEGER := 100000;
+  CONSTANT num_samples : INTEGER := 15000;
+  
+  -- Define a REAL array type for frequencies
+  TYPE REAL_ARRAY IS ARRAY (0 TO 7) OF REAL;
+  CONSTANT freqs : REAL_ARRAY := (100.0, 280.0, 625.0, 1200.0, 2000.0, 3500.0, 6500.0, 40000.0);
+  
+  SIGNAL rst      : STD_LOGIC := '1';
+  SIGNAL wr_clk   : STD_LOGIC := '0';
+  SIGNAL rd_clk   : STD_LOGIC := '0';
+  SIGNAL din      : STD_LOGIC_VECTOR(15 DOWNTO 0);
+  SIGNAL wr_en    : STD_LOGIC := '0';
+  SIGNAL sclk     : STD_LOGIC := '0';
+  SIGNAL ss       : STD_LOGIC := '1';
+  SIGNAL mosi     : STD_LOGIC := '0';
+  SIGNAL miso     : STD_LOGIC;
+  SIGNAL dout   : STD_LOGIC_VECTOR(7 DOWNTO 0);
+
+  COMPONENT spectra
+    PORT (
+		rst      : IN STD_LOGIC;
+		wr_clk   : IN STD_LOGIC;
+		rd_clk   : IN STD_LOGIC;
+		din      : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		wr_en    : IN STD_LOGIC;
+		sclk     : IN STD_LOGIC;
+		ss       : IN STD_LOGIC;
+		mosi     : IN STD_LOGIC;
+		miso     : OUT STD_LOGIC;
+		dout     : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+    );
+  END COMPONENT;
+
+BEGIN
+
+  -- Instantiate the top-level module
+  UUT : spectra
+    PORT MAP (
+      rst     => rst,
+      wr_clk  => wr_clk,
+      rd_clk  => rd_clk,
+      din     => din,
+      wr_en   => wr_en,
+		sclk    => sclk,
+      ss      => ss,
+      mosi    => mosi,
+      miso    => miso,
+      dout  => dout
+    );
+
+  -- Clock Generation
+  PROCESS
+  BEGIN
+    WAIT FOR clk_period / 2;
+    wr_clk <= NOT wr_clk;
+  END PROCESS;
+
+  PROCESS
+  BEGIN
+    WAIT FOR clk_period / 4;
+    rd_clk <= NOT rd_clk;
+  END PROCESS;
+  
+  PROCESS
+  BEGIN
+    WAIT FOR clk_period / 4;
+    sclk <= NOT sclk;
+  END PROCESS;
+
+  -- Stimulus Process
+  PROCESS
+    VARIABLE sample_index : INTEGER := 0;
+    VARIABLE sine_value   : REAL;
+    VARIABLE total_signal : REAL;
+    VARIABLE scaled_value : INTEGER;
+  BEGIN
+    -- Reset sequence
+    rst <= '1';
+    WAIT FOR 100 ns;
+    rst <= '0';
+	 ss  <= '0';
+    
+    FOR i IN 0 TO num_samples - 1 LOOP
+      total_signal := 0.0;
+      
+      -- Compute the sum of 8 sine waves
+      FOR j IN 0 TO 7 LOOP
+        total_signal := total_signal + SIN(2.0 * MATH_PI * freqs(j) * REAL(i) / REAL(sample_rate));
+      END LOOP;
+      
+      -- Normalize the signal to fit within 16-bit range
+      total_signal := total_signal / 8.0; -- Prevent overflow
+      scaled_value := INTEGER(total_signal * 32767.0);
+      
+      din <= CONV_STD_LOGIC_VECTOR(scaled_value, 16);
+      wr_en <= '1';
+      WAIT FOR clk_period;
+    END LOOP;
+    
+    wr_en <= '0';
+    WAIT;
+  END PROCESS;
+
+END Behavioral;
