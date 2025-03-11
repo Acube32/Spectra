@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "secureip" -o "/home/ise/Desktop/fft_direct/tb_spectra_isim_beh.exe" -prj "/home/ise/Desktop/fft_direct/tb_spectra_beh.prj" "work.tb_spectra" 
+-intstyle "ise" -incremental -lib "secureip" -o "/home/ise/Desktop/fft_direct/tb_spi_isim_beh.exe" -prj "/home/ise/Desktop/fft_direct/tb_spi_beh.prj" "work.tb_spi" 

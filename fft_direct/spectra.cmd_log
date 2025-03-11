@@ -20,3 +20,4 @@ ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc spectra.ucf -p 
 map -intstyle ise -p xc6vlx240t-ff1156-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o spectra_map.ncd spectra.ngd spectra.pcf 
 par -w -intstyle ise -ol high -mt off spectra_map.ncd spectra.ncd spectra.pcf 
 trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml spectra.twx spectra.ncd -o spectra.twr spectra.pcf -ucf spectra.ucf 
+xst -intstyle ise -ifn "/home/ise/Desktop/fft_direct/spectra.xst" -ofn "/home/ise/Desktop/fft_direct/spectra.syr" 

@@ -5,5 +5,35 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
+<msg type="warning" file="HDLCompiler" num="89" delta="new" >"/home/ise/Desktop/fft_direct/spectra.vhd" Line 39: &lt;<arg fmt="%s" index="1">fft</arg>&gt; remains a black-box since it has no binding entity.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="1156" delta="new" >"/home/ise/Desktop/fft_direct/spectra.vhd" Line 137: Formal port &lt;<arg fmt="%s" index="1">sclk</arg>&gt; does not exist in entity &lt;<arg fmt="%s" index="2">spi_slave</arg>&gt;.  Please compare the definition of block &lt;<arg fmt="%s" index="3">spi_slave</arg>&gt; to its component declaration and its instantion to detect the mismatch.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="1156" delta="new" >"/home/ise/Desktop/fft_direct/spectra.vhd" Line 138: Formal port &lt;<arg fmt="%s" index="1">ss</arg>&gt; does not exist in entity &lt;<arg fmt="%s" index="2">spi_slave</arg>&gt;.  Please compare the definition of block &lt;<arg fmt="%s" index="3">spi_slave</arg>&gt; to its component declaration and its instantion to detect the mismatch.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="1156" delta="new" >"/home/ise/Desktop/fft_direct/spectra.vhd" Line 139: Formal port &lt;<arg fmt="%s" index="1">mosi</arg>&gt; does not exist in entity &lt;<arg fmt="%s" index="2">spi_slave</arg>&gt;.  Please compare the definition of block &lt;<arg fmt="%s" index="3">spi_slave</arg>&gt; to its component declaration and its instantion to detect the mismatch.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="1156" delta="new" >"/home/ise/Desktop/fft_direct/spectra.vhd" Line 140: Formal port &lt;<arg fmt="%s" index="1">tx_data</arg>&gt; does not exist in entity &lt;<arg fmt="%s" index="2">spi_slave</arg>&gt;.  Please compare the definition of block &lt;<arg fmt="%s" index="3">spi_slave</arg>&gt; to its component declaration and its instantion to detect the mismatch.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="1156" delta="new" >"/home/ise/Desktop/fft_direct/spectra.vhd" Line 141: Formal port &lt;<arg fmt="%s" index="1">tx_valid</arg>&gt; does not exist in entity &lt;<arg fmt="%s" index="2">spi_slave</arg>&gt;.  Please compare the definition of block &lt;<arg fmt="%s" index="3">spi_slave</arg>&gt; to its component declaration and its instantion to detect the mismatch.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="1156" delta="new" >"/home/ise/Desktop/fft_direct/spectra.vhd" Line 142: Formal port &lt;<arg fmt="%s" index="1">miso</arg>&gt; does not exist in entity &lt;<arg fmt="%s" index="2">spi_slave</arg>&gt;.  Please compare the definition of block &lt;<arg fmt="%s" index="3">spi_slave</arg>&gt; to its component declaration and its instantion to detect the mismatch.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="1156" delta="new" >"/home/ise/Desktop/fft_direct/spectra.vhd" Line 143: Formal port &lt;<arg fmt="%s" index="1">rx_data</arg>&gt; does not exist in entity &lt;<arg fmt="%s" index="2">spi_slave</arg>&gt;.  Please compare the definition of block &lt;<arg fmt="%s" index="3">spi_slave</arg>&gt; to its component declaration and its instantion to detect the mismatch.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="1156" delta="new" >"/home/ise/Desktop/fft_direct/spectra.vhd" Line 144: Formal port &lt;<arg fmt="%s" index="1">rx_valid</arg>&gt; does not exist in entity &lt;<arg fmt="%s" index="2">spi_slave</arg>&gt;.  Please compare the definition of block &lt;<arg fmt="%s" index="3">spi_slave</arg>&gt; to its component declaration and its instantion to detect the mismatch.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="1156" delta="new" >"/home/ise/Desktop/fft_direct/spectra.vhd" Line 145: Formal port &lt;<arg fmt="%s" index="1">trdy</arg>&gt; does not exist in entity &lt;<arg fmt="%s" index="2">spi_slave</arg>&gt;.  Please compare the definition of block &lt;<arg fmt="%s" index="3">spi_slave</arg>&gt; to its component declaration and its instantion to detect the mismatch.
+</msg>
+
 </messages>
 

@@ -1,1 +1,1 @@
-vhdl isim_temp "spi_slave.vhd"
+vhdl isim_temp "spi_v2.vhd"

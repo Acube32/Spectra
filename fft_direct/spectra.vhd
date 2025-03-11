@@ -263,9 +263,9 @@ BEGIN
 		PORT MAP (
 			rst         => rst,
 			wr_clk      => rd_clk,
-			rd_clk      => rd_clk,
+			rd_clk      => sclk,
 			din         => fifo_dout,
-			wr_en       => fifo_rd_en,
+			wr_en       => fifo_valid,
 			rd_en       => comm_fifo_rd_en,
 			dout        => comm_fifo_dout,
 			full        => OPEN,

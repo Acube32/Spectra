@@ -5,9 +5,11 @@ use ieee.numeric_std.all;
 entity fifo_spi_interface is
   Port (
     rst             : in  std_logic;  -- active high reset
+	 
     sclk            : in  std_logic;  -- SPI clock (also FIFO read clock)
     ss              : in  std_logic;  -- SPI slave select, active low
     trdy            : in  std_logic;  -- SPI transmit ready from spi_slave
+	 
     cmp_result      : in  std_logic_vector(7 downto 0);  -- external compare result
     cmp_res_valid   : in  std_logic;  -- when high, load cmp_result
     fifo_dout       : in  std_logic_vector(15 downto 0);  -- data from FIFO
@@ -36,6 +38,10 @@ architecture Behavioral of fifo_spi_interface is
   -- 8-bit burst identifier. Every new burst (transmission) uses a unique id.
   signal current_id  : unsigned(7 downto 0) := (others => '0');
   
+  signal ss_falling_edge : std_logic := '0';
+  
+  signal prev_ss : std_logic := '1';
+  
   signal metastable_cmp_res_valid : std_logic;
   signal stable_cmp_res_valid     : std_logic;
   signal metastable_cmp_result     : std_logic_vector(7 downto 0);
@@ -57,16 +63,25 @@ begin
   process(sclk, rst)
   begin
     if rst = '1' then
-      state       <= IDLE;
-      burst_count <= 0;
-      flush_count <= 0;
-      cmp_reg     <= (others => '0');
-      current_id  <= x"01";
-      rd_en       <= '0';
-      tx_valid    <= '0';
-      tx_data     <= (others => '0');
+      state           <= IDLE;
+      burst_count     <= 0;
+      flush_count     <= 0;
+      cmp_reg         <= (others => '0');
+      current_id      <= x"01";
+      rd_en           <= '0';
+      tx_valid        <= '0';
+      tx_data         <= (others => '0');
+		prev_ss         <= '1';
+		ss_falling_edge <= '0';
       
     elsif rising_edge(sclk) then
+		
+		prev_ss <= ss;
+		if ss = '0' and prev_ss = '1' then
+			ss_falling_edge <= '1';
+		else
+			ss_falling_edge <= '0';
+		end if;
     
       -- Capture cmp_result when valid.
       if stable_cmp_res_valid = '1' then
@@ -91,6 +106,7 @@ begin
           -- When a transmission begins (ss low) and cmp_reg is valid,
           -- send the header (id & cmp_reg) as the first word of the burst.
           elsif (ss = '0') and (cmp_reg /= "00000000") and (fifo_empty /= '1') then
+				if trdy = '1' or ss_falling_edge = '1' then
 					tx_data <= std_logic_vector(current_id) & cmp_reg;
 					tx_valid <= '1';
 					burst_count <= 0;
@@ -100,6 +116,7 @@ begin
 						current_id <= current_id + 1;  -- update id for the next burst
 					end if;
 					state <= TRANSMIT;
+				end if;
           end if;
           
         -------------------------------

@@ -1,2 +1,3 @@
-vhdl work "fifo_spi_interface.vhd"
+vhdl work "spi_v2.vhd"
+vhdl work "spi_master.vhd"
 vhdl work "tb_spi.vhd"

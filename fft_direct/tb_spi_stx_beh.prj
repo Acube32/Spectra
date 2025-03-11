@@ -1,2 +1,3 @@
-vhdl isim_temp "fifo_spi_interface.vhd"
+vhdl isim_temp "spi_v2.vhd"
+vhdl isim_temp "spi_master.vhd"
 vhdl isim_temp "tb_spi.vhd"
