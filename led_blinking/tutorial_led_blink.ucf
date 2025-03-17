@@ -1,0 +1,13 @@
+#io contraints
+
+NET "i_clk_p" LOC="J9";
+NET "i_clk_n" LOC="H9";
+NET "i_enable" LOC="D22";
+NET "i_switch_1" LOC="C22";
+NET "i_switch_2" LOC="L21";
+
+NET "o_led_drive" LOC="AC22";
+
+#Created by Constraints Editor (xc6vlx240t-ff1156-2) - 2025/03/17
+NET "i_clk_p" TNM_NET = i_clk_p;
+TIMESPEC TS_i_clk_p = PERIOD "i_clk_p" 5 ns HIGH 50%;

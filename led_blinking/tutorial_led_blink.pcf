@@ -1,0 +1,40 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Mon Mar 17 18:36:57 2025
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "i_clk_n" LOCATE = SITE "H9" LEVEL 1;
+COMP "i_clk_p" LOCATE = SITE "J9" LEVEL 1;
+COMP "i_switch_1" LOCATE = SITE "C22" LEVEL 1;
+COMP "i_switch_2" LOCATE = SITE "L21" LEVEL 1;
+COMP "i_enable" LOCATE = SITE "D22" LEVEL 1;
+COMP "o_led_drive" LOCATE = SITE "AC22" LEVEL 1;
+TIMEGRP i_clk_p = BEL "BUFG_inst" BEL "r_TOGGLE_1HZ" BEL "r_TOGGLE_50HZ" BEL
+        "r_TOGGLE_10HZ" BEL "r_TOGGLE_100HZ" BEL "r_CNT_1HZ_7" BEL
+        "r_CNT_1HZ_8" BEL "r_CNT_1HZ_9" BEL "r_CNT_1HZ_10" BEL "r_CNT_1HZ_11"
+        BEL "r_CNT_1HZ_12" BEL "r_CNT_1HZ_13" BEL "r_CNT_1HZ_14" BEL
+        "r_CNT_1HZ_15" BEL "r_CNT_1HZ_16" BEL "r_CNT_1HZ_17" BEL
+        "r_CNT_1HZ_18" BEL "r_CNT_1HZ_19" BEL "r_CNT_100HZ_0" BEL
+        "r_CNT_100HZ_1" BEL "r_CNT_100HZ_2" BEL "r_CNT_100HZ_3" BEL
+        "r_CNT_100HZ_4" BEL "r_CNT_100HZ_5" BEL "r_CNT_100HZ_6" BEL
+        "r_CNT_100HZ_7" BEL "r_CNT_100HZ_8" BEL "r_CNT_100HZ_9" BEL
+        "r_CNT_100HZ_10" BEL "r_CNT_100HZ_11" BEL "r_CNT_100HZ_12" BEL
+        "r_CNT_100HZ_13" BEL "r_CNT_100HZ_14" BEL "r_CNT_100HZ_15" BEL
+        "r_CNT_100HZ_16" BEL "r_CNT_100HZ_17" BEL "r_CNT_100HZ_18" BEL
+        "r_CNT_1HZ_20" BEL "r_CNT_100HZ_19" BEL "r_CNT_1HZ_21" BEL
+        "r_CNT_50HZ_6" BEL "r_CNT_50HZ_7" BEL "r_CNT_50HZ_8" BEL
+        "r_CNT_50HZ_9" BEL "r_CNT_50HZ_10" BEL "r_CNT_50HZ_11" BEL
+        "r_CNT_50HZ_12" BEL "r_CNT_50HZ_13" BEL "r_CNT_50HZ_14" BEL
+        "r_CNT_50HZ_15" BEL "r_CNT_50HZ_16" BEL "r_CNT_50HZ_17" BEL
+        "r_CNT_50HZ_18" BEL "r_CNT_50HZ_19" BEL "r_CNT_50HZ_20" BEL
+        "r_CNT_1HZ_22" BEL "r_CNT_1HZ_23" BEL "r_CNT_1HZ_24" BEL
+        "r_CNT_1HZ_25" BEL "r_CNT_1HZ_26" BEL "r_CNT_10HZ_7" BEL
+        "r_CNT_10HZ_8" BEL "r_CNT_10HZ_9" BEL "r_CNT_10HZ_10" BEL
+        "r_CNT_10HZ_11" BEL "r_CNT_10HZ_12" BEL "r_CNT_10HZ_13" BEL
+        "r_CNT_10HZ_14" BEL "r_CNT_10HZ_15" BEL "r_CNT_10HZ_16" BEL
+        "r_CNT_10HZ_17" BEL "r_CNT_10HZ_18" BEL "r_CNT_10HZ_19" BEL
+        "r_CNT_10HZ_20" BEL "r_CNT_10HZ_21" BEL "r_CNT_10HZ_22" BEL
+        "r_CNT_10HZ_23";
+TS_i_clk_p = PERIOD TIMEGRP "i_clk_p" 5 ns HIGH 50%;
+SCHEMATIC END;
+

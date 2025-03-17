@@ -1,0 +1,14 @@
+xst -intstyle ise -ifn "/home/ise/Desktop/led_blinking/tutorial_led_blink.xst" -ofn "/home/ise/Desktop/led_blinking/tutorial_led_blink.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6vlx240t-ff1156-2 tutorial_led_blink.ngc tutorial_led_blink.ngd  
+xst -intstyle ise -ifn "/home/ise/Desktop/led_blinking/tutorial_led_blink.xst" -ofn "/home/ise/Desktop/led_blinking/tutorial_led_blink.syr" 
+xst -intstyle ise -ifn "/home/ise/Desktop/led_blinking/tutorial_led_blink.xst" -ofn "/home/ise/Desktop/led_blinking/tutorial_led_blink.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc tutorial_led_blink.ucf -p xc6vlx240t-ff1156-2 tutorial_led_blink.ngc tutorial_led_blink.ngd  
+xst -intstyle ise -ifn "/home/ise/Desktop/led_blinking/tutorial_led_blink.xst" -ofn "/home/ise/Desktop/led_blinking/tutorial_led_blink.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc tutorial_led_blink.ucf -p xc6vlx240t-ff1156-2 tutorial_led_blink.ngc tutorial_led_blink.ngd  
+map -intstyle ise -p xc6vlx240t-ff1156-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o tutorial_led_blink_map.ncd tutorial_led_blink.ngd tutorial_led_blink.pcf 
+xst -intstyle ise -ifn "/home/ise/Desktop/led_blinking/tutorial_led_blink.xst" -ofn "/home/ise/Desktop/led_blinking/tutorial_led_blink.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc tutorial_led_blink.ucf -p xc6vlx240t-ff1156-2 tutorial_led_blink.ngc tutorial_led_blink.ngd  
+map -intstyle ise -p xc6vlx240t-ff1156-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o tutorial_led_blink_map.ncd tutorial_led_blink.ngd tutorial_led_blink.pcf 
+par -w -intstyle ise -ol high -mt off tutorial_led_blink_map.ncd tutorial_led_blink.ncd tutorial_led_blink.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml tutorial_led_blink.twx tutorial_led_blink.ncd -o tutorial_led_blink.twr tutorial_led_blink.pcf -ucf tutorial_led_blink.ucf 
+bitgen -intstyle ise -f tutorial_led_blink.ut tutorial_led_blink.ncd 

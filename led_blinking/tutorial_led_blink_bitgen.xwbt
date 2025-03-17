@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/ise/Desktop/led_blinking/tutorial_led_blink.ncd
+OUTFILE=/home/ise/Desktop/led_blinking/tutorial_led_blink.bit
+FAMILY=Virtex6
+PART=xc6vlx240t-2ff1156
+WORKINGDIR=/home/ise/Desktop/led_blinking
+LICENSE=ISE
+USER_INFO=8416_11442_1478797146_620
