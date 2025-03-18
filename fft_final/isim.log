@@ -1,0 +1,116 @@
+ISim log file
+Running: /home/ise/Desktop/fft_final/tb_spectra_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/ise/Desktop/fft_final/tb_spectra_isim_beh.wdb 
+ISim P.20131013 (signature 0xfbc00daa)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+at 0 ps, Instance /tb_spectra/UUT/u_filter_40kHz/U0/g_mac/mac/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+Finished circuit initialization process.
+at 0 ps, Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_complex_magnitude/mult_real/U0/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 0 ps, Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002bba/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 0 ps, Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002bba/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 0 ps, Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002bba/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 0 ps, Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002b51/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 0 ps, Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002b51/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 0 ps, Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002b51/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 0 ps, Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002a4a/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 0 ps, Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002a4a/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 0 ps, Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002a4a/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 100 ps(3), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002bba/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 100 ps(3), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002bba/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 100 ps(3), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002bba/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 100 ps(3), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002b51/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 100 ps(3), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002b51/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 100 ps(3), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002b51/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 100 ps(3), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002a4a/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 100 ps(3), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002a4a/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 100 ps(3), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002a4a/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# restart
+# run 1.00us
+Simulator is doing circuit initialization process.
+at 0 ps, Instance /tb_spectra/UUT/u_filter_40kHz/U0/g_mac/mac/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+Finished circuit initialization process.
+at 0 ps, Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002bba/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 0 ps, Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002bba/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 0 ps, Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002bba/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 0 ps, Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002b51/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 0 ps, Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002b51/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 0 ps, Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002b51/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 0 ps, Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002a4a/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 0 ps, Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002a4a/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 0 ps, Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002a4a/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 100 ps(3), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002bba/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 100 ps(3), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002bba/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 100 ps(3), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002bba/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 100 ps(3), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002b51/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 100 ps(3), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002b51/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 100 ps(3), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002b51/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 100 ps(3), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002a4a/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 100 ps(3), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002a4a/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 100 ps(3), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002a4a/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# run 200.00ms
+at 26500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00000923/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 26500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00000923/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 26500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00000923/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 28500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00000924/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 28500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00000924/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 28500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00000924/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 28500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00000922/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 28500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00000922/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 28500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00000922/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 53500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk0000111f/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 53500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk0000111f/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 53500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk0000111f/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 55500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00001120/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 55500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00001120/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 55500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00001120/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 55500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk0000111e/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 55500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk0000111e/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 55500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk0000111e/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 138500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00001a6f/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 138500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00001a6f/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 138500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00001a6f/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 140500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00001a70/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 140500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00001a70/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 140500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00001a70/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 140500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00001a6e/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 140500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00001a6e/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 140500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00001a6e/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 254500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002a49/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 254500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002a49/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 254500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002a49/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 255500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002a4a/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 255500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002a4a/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 255500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002a4a/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 255500100 ps(3), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002a4a/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 255500100 ps(3), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002a4a/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 255500100 ps(3), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002a4a/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 255500100 ps(4), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002a4a/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 255500100 ps(4), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002a4a/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 255500100 ps(4), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002a4a/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 257500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002bbb/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 257500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002bbb/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 257500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002bbb/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 257500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002b52/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 257500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002b52/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 257500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002b52/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 258500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002bba/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 258500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002bba/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 258500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002bba/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 258500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002b51/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 258500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002b51/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 258500 ns(8), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002b51/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 258500100 ps(3), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002bba/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 258500100 ps(3), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002bba/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 258500100 ps(3), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002bba/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 258500100 ps(4), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002bba/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 258500100 ps(4), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002bba/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 258500100 ps(4), Instance /tb_spectra/UUT/u_spectral_analysis_wrapper/u_fft/blk00000001_blk00002bba/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).

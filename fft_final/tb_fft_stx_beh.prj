@@ -1,0 +1,2 @@
+vhdl isim_temp "ipcore_dir/fft.vhd"
+vhdl isim_temp "fft_tb.vhd"

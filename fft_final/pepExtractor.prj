@@ -1,0 +1,7 @@
+work	"complex_magnitude.vhd"
+work	"fifo_fft_interface.vhd"
+work	"ipcore_dir/fft.vhd"
+work	"ipcore_dir/fifo.vhd"
+work	"ipcore_dir/mult.vhd"
+work	"ipcore_dir/sqrt.vhd"
+work	"spectral_analysis_wrapper.vhd"

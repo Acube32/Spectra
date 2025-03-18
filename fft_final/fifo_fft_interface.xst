@@ -1,0 +1,5 @@
+set -tmpdir "/home/ise/Desktop/fft_virt5/xst/projnav.tmp"
+set -xsthdpdir "/home/ise/Desktop/fft_virt5/xst"
+elaborate
+-ifn fifo_fft_interface.prj
+-ifmt mixed

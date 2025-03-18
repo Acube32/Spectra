@@ -1,0 +1,10 @@
+Command line:
+   tb_fifo_spi_interface_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  49807
+
+Tue Mar  4 16:38:46 2025
+
+
+ Elaboration Time: 0.01 sec

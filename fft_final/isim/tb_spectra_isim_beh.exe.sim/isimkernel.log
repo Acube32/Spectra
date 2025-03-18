@@ -1,0 +1,10 @@
+Command line:
+   tb_spectra_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  41662
+
+Tue Mar 18 20:01:01 2025
+
+
+ Elaboration Time: 0.69 sec

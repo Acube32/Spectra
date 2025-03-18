@@ -1,0 +1,2088 @@
+Release 14.7 Map P.20131013 (lin64)
+Xilinx Mapping Report File for Design 'spectra'
+
+Design Information
+------------------
+Command Line   : map -intstyle ise -p xc6vlx240t-ff1156-2 -w -logic_opt off -ol
+high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off
+-pr off -lc off -power off -o spectra_map.ncd spectra.ngd spectra.pcf 
+Target Device  : xc6vlx240t
+Target Package : ff1156
+Target Speed   : -2
+Mapper Version : virtex6 -- $Revision: 1.55 $
+Mapped Date    : Wed Feb 26 12:19:50 2025
+
+Design Summary
+--------------
+Number of errors:      0
+Number of warnings:    2
+Slice Logic Utilization:
+  Number of Slice Registers:                 6,093 out of 301,440    2%
+    Number used as Flip Flops:               6,093
+    Number used as Latches:                      0
+    Number used as Latch-thrus:                  0
+    Number used as AND/OR logics:                0
+  Number of Slice LUTs:                      4,459 out of 150,720    2%
+    Number used as logic:                    3,146 out of 150,720    2%
+      Number using O6 output only:           1,626
+      Number using O5 output only:              52
+      Number using O5 and O6:                1,468
+      Number used as ROM:                        0
+    Number used as Memory:                   1,017 out of  58,400    1%
+      Number used as Dual Port RAM:              0
+      Number used as Single Port RAM:           32
+        Number using O6 output only:            32
+        Number using O5 output only:             0
+        Number using O5 and O6:                  0
+      Number used as Shift Register:           985
+        Number using O6 output only:           304
+        Number using O5 output only:             3
+        Number using O5 and O6:                678
+    Number used exclusively as route-thrus:    296
+      Number with same-slice register load:    289
+      Number with same-slice carry load:         7
+      Number with other load:                    0
+
+Slice Logic Distribution:
+  Number of occupied Slices:                 1,505 out of  37,680    3%
+  Number of LUT Flip Flop pairs used:        5,103
+    Number with an unused Flip Flop:           710 out of   5,103   13%
+    Number with an unused LUT:                 644 out of   5,103   12%
+    Number of fully used LUT-FF pairs:       3,749 out of   5,103   73%
+    Number of unique control sets:              35
+    Number of slice register sites lost
+      to control set restrictions:             108 out of 301,440    1%
+
+  A LUT Flip Flop pair for this architecture represents one LUT paired with
+  one Flip Flop within a slice.  A control set is a unique combination of
+  clock, reset, set, and enable signals for a registered element.
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+  OVERMAPPING of BRAM resources should be ignored if the design is
+  over-mapped for a non-BRAM resource or if placement fails.
+
+IO Utilization:
+  Number of bonded IOBs:                        28 out of     600    4%
+    Number of LOCed IOBs:                       26 out of      28   92%
+
+Specific Feature Utilization:
+  Number of RAMB36E1/FIFO36E1s:                  4 out of     416    1%
+    Number using RAMB36E1 only:                  4
+    Number using FIFO36E1 only:                  0
+  Number of RAMB18E1/FIFO18E1s:                 27 out of     832    3%
+    Number using RAMB18E1 only:                 27
+    Number using FIFO18E1 only:                  0
+  Number of BUFG/BUFGCTRLs:                      2 out of      32    6%
+    Number used as BUFGs:                        2
+    Number used as BUFGCTRLs:                    0
+  Number of ILOGICE1/ISERDESE1s:                 0 out of     720    0%
+  Number of OLOGICE1/OSERDESE1s:                 0 out of     720    0%
+  Number of BSCANs:                              0 out of       4    0%
+  Number of BUFHCEs:                             0 out of     144    0%
+  Number of BUFIODQSs:                           0 out of      72    0%
+  Number of BUFRs:                               0 out of      36    0%
+  Number of CAPTUREs:                            0 out of       1    0%
+  Number of DSP48E1s:                           21 out of     768    2%
+  Number of EFUSE_USRs:                          0 out of       1    0%
+  Number of FRAME_ECCs:                          0 out of       1    0%
+  Number of GTXE1s:                              0 out of      20    0%
+  Number of IBUFDS_GTXE1s:                       0 out of      12    0%
+  Number of ICAPs:                               0 out of       2    0%
+  Number of IDELAYCTRLs:                         0 out of      18    0%
+  Number of IODELAYE1s:                          0 out of     720    0%
+  Number of MMCM_ADVs:                           0 out of      12    0%
+  Number of PCIE_2_0s:                           0 out of       2    0%
+  Number of STARTUPs:                            1 out of       1  100%
+  Number of SYSMONs:                             0 out of       1    0%
+  Number of TEMAC_SINGLEs:                       0 out of       4    0%
+
+Average Fanout of Non-Clock Nets:                2.22
+
+Peak Memory Usage:  1378 MB
+Total REAL time to MAP completion:  58 secs 
+Total CPU time to MAP completion:   56 secs 
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group and Partition Summary
+Section 10 - Timing Report
+Section 11 - Configuration String Information
+Section 12 - Control Set Information
+Section 13 - Utilization by Hierarchy
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current
+version of Xilinx tools will continue to function, but you no longer qualify for
+Xilinx software updates or new releases.
+WARNING:Pack:2238 - Function generator symbol "u_fft/blk00000001/blk000015a1"
+   (Output Signal = u_fft/blk00000001/sig000014ff) has an invalid use of the
+   LUTNM constraint. There are no other function generator symbols with a
+   matching LUTNM constraint value (LUTNM=u_fft/blk00000001/hlutnm0000015b). The
+   constraint will be ignored.
+WARNING:Pack:2768 - At least one timing constraint is impossible to meet because component switching limit violations have been detected for
+   a constrained component. A timing constraint summary below shows the failing constraints (preceded with an Asterisk (*)). Please use the
+   Timing Analyzer (GUI) or TRCE (command line) with the Mapped NCD and PCF files to evaluate the component switching limit violations in
+   more detail. Evaluate the datasheet for alternative configurations for the component that could allow the frequencies requested in the
+   constraint. Otherwise, the timing constraint covering this component might need to be modified to satisfy the component switching limits
+   specified in the datasheet.
+
+Section 3 - Informational
+-------------------------
+INFO:Security:56 - Part 'xc6vlx240t' is not a WebPack part.
+INFO:LIT:243 - Logical network
+   u_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwa
+   s.wsts/ram_full_i has no load.
+INFO:LIT:395 - The above info message is repeated 317 more times for the
+   following (max. 5 shown):
+   u_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grh
+   f.rhf/ram_valid_d1,
+   u_fft/blk_exp<4>,
+   u_fft/blk_exp<3>,
+   u_fft/blk_exp<2>,
+   u_fft/blk_exp<1>
+   To see the details of these info messages, please use the -detail switch.
+INFO:MapLib:562 - No environment variables are currently set.
+INFO:LIT:244 - All of the single ended outputs in this design are using slew
+   rate limited output drivers. The delay on speed critical single ended outputs
+   can be dramatically reduced by designating them as fast outputs.
+INFO:Pack:1716 - Initializing temperature to 85.000 Celsius. (default - Range:
+   0.000 to 85.000 Celsius)
+INFO:Pack:1720 - Initializing voltage to 0.950 Volts. (default - Range: 0.950 to
+   1.050 Volts)
+INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
+   (.mrp).
+INFO:Place:834 - Only a subset of IOs are locked. Out of 28 IOs, 26 are locked
+   and 2 are not locked. If you would like to print the names of these IOs,
+   please set the environment variable XIL_PAR_DESIGN_CHECK_VERBOSE to 1. 
+INFO:Pack:1650 - Map created a placed design.
+INFO:PhysDesignRules:2384 - Issue with pin connections and/or configuration on
+   block:<u_fft/blk00000001/blk00001120>:<DSP48E1_DSP48E1>.  When the DSP48E1
+   AREG attribute is set to 1, the CEA1 input pin is prefered to be tied to GND
+   to save power when OPMODE0 and OPMODE1 are 1.
+INFO:PhysDesignRules:2384 - Issue with pin connections and/or configuration on
+   block:<u_fft/blk00000001/blk00000922>:<DSP48E1_DSP48E1>.  When the DSP48E1
+   AREG attribute is set to 1, the CEA1 input pin is prefered to be tied to GND
+   to save power when OPMODE0 and OPMODE1 are 1.
+INFO:PhysDesignRules:2384 - Issue with pin connections and/or configuration on
+   block:<u_fft/blk00000001/blk00000923>:<DSP48E1_DSP48E1>.  When the DSP48E1
+   AREG attribute is set to 1, the CEA1 input pin is prefered to be tied to GND
+   to save power when OPMODE0 and OPMODE1 are 1.
+INFO:PhysDesignRules:2384 - Issue with pin connections and/or configuration on
+   block:<u_fft/blk00000001/blk00000924>:<DSP48E1_DSP48E1>.  When the DSP48E1
+   AREG attribute is set to 1, the CEA1 input pin is prefered to be tied to GND
+   to save power when OPMODE0 and OPMODE1 are 1.
+INFO:PhysDesignRules:2384 - Issue with pin connections and/or configuration on
+   block:<u_fft/blk00000001/blk0000111e>:<DSP48E1_DSP48E1>.  When the DSP48E1
+   AREG attribute is set to 1, the CEA1 input pin is prefered to be tied to GND
+   to save power when OPMODE0 and OPMODE1 are 1.
+INFO:PhysDesignRules:2384 - Issue with pin connections and/or configuration on
+   block:<u_fft/blk00000001/blk00001a70>:<DSP48E1_DSP48E1>.  When the DSP48E1
+   AREG attribute is set to 1, the CEA1 input pin is prefered to be tied to GND
+   to save power when OPMODE0 and OPMODE1 are 1.
+INFO:PhysDesignRules:2384 - Issue with pin connections and/or configuration on
+   block:<u_fft/blk00000001/blk00002b52>:<DSP48E1_DSP48E1>.  When the DSP48E1
+   AREG attribute is set to 1, the CEA1 input pin is prefered to be tied to GND
+   to save power when OPMODE0 and OPMODE1 are 1.
+INFO:PhysDesignRules:2384 - Issue with pin connections and/or configuration on
+   block:<u_fft/blk00000001/blk00001a6e>:<DSP48E1_DSP48E1>.  When the DSP48E1
+   AREG attribute is set to 1, the CEA1 input pin is prefered to be tied to GND
+   to save power when OPMODE0 and OPMODE1 are 1.
+INFO:PhysDesignRules:2384 - Issue with pin connections and/or configuration on
+   block:<u_fft/blk00000001/blk00002bbb>:<DSP48E1_DSP48E1>.  When the DSP48E1
+   AREG attribute is set to 1, the CEA1 input pin is prefered to be tied to GND
+   to save power when OPMODE0 and OPMODE1 are 1.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+ 581 block(s) removed
+ 184 block(s) optimized away
+ 728 signal(s) removed
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+Loadless block "u_fft/blk00000001/blk00000252" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00000445" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00000253" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00000446" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk0000054f" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00000660" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00000550" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00000661" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk0000059b" (MUX) removed.
+Loadless block "u_fft/blk00000001/blk000005c0" (MUX) removed.
+Loadless block "u_fft/blk00000001/blk000009ef" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00000b47" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk000009f0" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00000b48" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00000d3a" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00000d98" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00000d3b" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00000d99" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00000d86" (MUX) removed.
+Loadless block "u_fft/blk00000001/blk00000db1" (MUX) removed.
+Loadless block "u_fft/blk00000001/blk00001214" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00001288" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00001215" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00001289" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00001216" (SFF) removed.
+ The signal "u_fft/blk00000001/sig0000128a" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00001217" (SFF) removed.
+ The signal "u_fft/blk00000001/sig0000128b" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00001218" (SFF) removed.
+ The signal "u_fft/blk00000001/sig0000128c" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00001219" (SFF) removed.
+ The signal "u_fft/blk00000001/sig0000128d" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk0000121a" (SFF) removed.
+ The signal "u_fft/blk00000001/sig0000128e" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk0000121b" (SFF) removed.
+ The signal "u_fft/blk00000001/sig0000128f" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk000015a7" (SFF) removed.
+ The signal "u_fft/blk00000001/sig000014fd" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk000015a8" (SFF) removed.
+ The signal "u_fft/blk00000001/sig000014fe" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk000015e1" (MUX) removed.
+Loadless block "u_fft/blk00000001/blk00001610" (MUX) removed.
+Loadless block "u_fft/blk00000001/blk0000175c" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00001734" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk0000175d" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00001735" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk0000175e" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00001736" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk0000175f" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00001737" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00001760" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00001738" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00001761" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00001739" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00001cf6" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00001cbb" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00001cf7" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00001cbc" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00001cf8" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00001cbd" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00001cf9" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00001cbe" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00001cfa" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00001cbf" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00001f39" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00001cc0" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00001f3a" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00001cc1" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00001f3b" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00001cc2" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00001f3c" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00001cc3" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00001f3d" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00001cc4" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00001f3e" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00001cc5" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00001f47" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00001cc8" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00001f48" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00001cc9" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00001f49" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00001cca" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00001f4a" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00001ccb" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00001fe9" (MUX) removed.
+Loadless block "u_fft/blk00000001/blk0000201c" (MUX) removed.
+Loadless block "u_fft/blk00000001/blk0000267d" (SFF) removed.
+ The signal "u_fft/blk00000001/sig0000220e" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk0000267e" (SFF) removed.
+ The signal "u_fft/blk00000001/sig0000220f" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk0000267f" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00002210" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00002680" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00002211" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00002687" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00002214" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00002688" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00002215" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00002739" (MUX) removed.
+Loadless block "u_fft/blk00000001/blk00002770" (MUX) removed.
+Loadless block "u_fft/blk00000001/blk00002bc7" (SFF) removed.
+ The signal "u_fft/blk00000001/sig0000290f" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00002bc8" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00002910" is loadless and has been removed.
+Loadless block "u_fft/blk00000001/blk00002f2b" (MUX) removed.
+Loadless block "u_fft/blk00000001/blk00002f66" (MUX) removed.
+Loadless block "u_fft/blk00000001/blk0000330c" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00002e72" is loadless and has been removed.
+  Loadless block "u_fft/blk00000001/blk0000330d" (SFF) removed.
+   The signal "u_fft/blk00000001/sig00002da7" is loadless and has been removed.
+    Loadless block "u_fft/blk00000001/blk00003231" (MUX) removed.
+     The signal "u_fft/blk00000001/sig00002dd5" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk0000325f" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002e55" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032df" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002e38" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032c2" (ROM) removed.
+     The signal "u_fft/blk00000001/sig00002dd4" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk0000325e" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002e1b" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032a5" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002dfe" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk00003288" (ROM) removed.
+Loadless block "u_fft/blk00000001/blk0000330e" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00002e73" is loadless and has been removed.
+  Loadless block "u_fft/blk00000001/blk0000330f" (SFF) removed.
+   The signal "u_fft/blk00000001/sig00002da8" is loadless and has been removed.
+    Loadless block "u_fft/blk00000001/blk00003232" (MUX) removed.
+     The signal "u_fft/blk00000001/sig00002dd7" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003261" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002e56" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032e0" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002e39" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032c3" (ROM) removed.
+     The signal "u_fft/blk00000001/sig00002dd6" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003260" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002e1c" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032a6" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002dff" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk00003289" (ROM) removed.
+Loadless block "u_fft/blk00000001/blk00003310" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00002e74" is loadless and has been removed.
+  Loadless block "u_fft/blk00000001/blk00003311" (SFF) removed.
+   The signal "u_fft/blk00000001/sig00002da9" is loadless and has been removed.
+    Loadless block "u_fft/blk00000001/blk00003233" (MUX) removed.
+     The signal "u_fft/blk00000001/sig00002dd9" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003263" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002e57" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032e1" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002e3a" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032c4" (ROM) removed.
+     The signal "u_fft/blk00000001/sig00002dd8" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003262" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002e1d" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032a7" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002e00" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk0000328a" (ROM) removed.
+Loadless block "u_fft/blk00000001/blk00003312" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00002e75" is loadless and has been removed.
+  Loadless block "u_fft/blk00000001/blk00003313" (SFF) removed.
+   The signal "u_fft/blk00000001/sig00002daa" is loadless and has been removed.
+    Loadless block "u_fft/blk00000001/blk00003234" (MUX) removed.
+     The signal "u_fft/blk00000001/sig00002ddb" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003265" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002e58" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032e2" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002e3b" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032c5" (ROM) removed.
+     The signal "u_fft/blk00000001/sig00002dda" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003264" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002e1e" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032a8" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002e01" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk0000328b" (ROM) removed.
+Loadless block "u_fft/blk00000001/blk00003314" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00002e76" is loadless and has been removed.
+  Loadless block "u_fft/blk00000001/blk00003315" (SFF) removed.
+   The signal "u_fft/blk00000001/sig00002dab" is loadless and has been removed.
+    Loadless block "u_fft/blk00000001/blk00003235" (MUX) removed.
+     The signal "u_fft/blk00000001/sig00002ddd" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003267" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002e59" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032e3" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002e3c" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032c6" (ROM) removed.
+     The signal "u_fft/blk00000001/sig00002ddc" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003266" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002e1f" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032a9" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002e02" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk0000328c" (ROM) removed.
+Loadless block "u_fft/blk00000001/blk00003316" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00002e77" is loadless and has been removed.
+  Loadless block "u_fft/blk00000001/blk00003317" (SFF) removed.
+   The signal "u_fft/blk00000001/sig00002dac" is loadless and has been removed.
+    Loadless block "u_fft/blk00000001/blk00003236" (MUX) removed.
+     The signal "u_fft/blk00000001/sig00002ddf" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003269" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002e5a" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032e4" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002e3d" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032c7" (ROM) removed.
+     The signal "u_fft/blk00000001/sig00002dde" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003268" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002e20" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032aa" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002e03" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk0000328d" (ROM) removed.
+Loadless block "u_fft/blk00000001/blk00003318" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00002e78" is loadless and has been removed.
+  Loadless block "u_fft/blk00000001/blk00003319" (SFF) removed.
+   The signal "u_fft/blk00000001/sig00002dad" is loadless and has been removed.
+    Loadless block "u_fft/blk00000001/blk00003237" (MUX) removed.
+     The signal "u_fft/blk00000001/sig00002de1" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk0000326b" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002e5b" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032e5" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002e3e" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032c8" (ROM) removed.
+     The signal "u_fft/blk00000001/sig00002de0" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk0000326a" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002e21" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032ab" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002e04" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk0000328e" (ROM) removed.
+Loadless block "u_fft/blk00000001/blk0000331a" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00002e79" is loadless and has been removed.
+  Loadless block "u_fft/blk00000001/blk0000331b" (SFF) removed.
+   The signal "u_fft/blk00000001/sig00002dae" is loadless and has been removed.
+    Loadless block "u_fft/blk00000001/blk00003238" (MUX) removed.
+     The signal "u_fft/blk00000001/sig00002de3" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk0000326d" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002e5c" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032e6" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002e3f" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032c9" (ROM) removed.
+     The signal "u_fft/blk00000001/sig00002de2" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk0000326c" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002e22" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032ac" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002e05" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk0000328f" (ROM) removed.
+Loadless block "u_fft/blk00000001/blk0000331c" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00002e7a" is loadless and has been removed.
+  Loadless block "u_fft/blk00000001/blk0000331d" (SFF) removed.
+   The signal "u_fft/blk00000001/sig00002daf" is loadless and has been removed.
+    Loadless block "u_fft/blk00000001/blk00003239" (MUX) removed.
+     The signal "u_fft/blk00000001/sig00002de5" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk0000326f" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002e5d" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032e7" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002e40" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032ca" (ROM) removed.
+     The signal "u_fft/blk00000001/sig00002de4" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk0000326e" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002e23" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032ad" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002e06" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk00003290" (ROM) removed.
+Loadless block "u_fft/blk00000001/blk0000331e" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00002e7b" is loadless and has been removed.
+  Loadless block "u_fft/blk00000001/blk0000331f" (SFF) removed.
+   The signal "u_fft/blk00000001/sig00002db0" is loadless and has been removed.
+    Loadless block "u_fft/blk00000001/blk0000323a" (MUX) removed.
+     The signal "u_fft/blk00000001/sig00002de7" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003271" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002e5e" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032e8" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002e41" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032cb" (ROM) removed.
+     The signal "u_fft/blk00000001/sig00002de6" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003270" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002e24" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032ae" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002e07" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk00003291" (ROM) removed.
+Loadless block "u_fft/blk00000001/blk00003320" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00002e7c" is loadless and has been removed.
+  Loadless block "u_fft/blk00000001/blk00003321" (SFF) removed.
+   The signal "u_fft/blk00000001/sig00002db1" is loadless and has been removed.
+    Loadless block "u_fft/blk00000001/blk0000323b" (MUX) removed.
+     The signal "u_fft/blk00000001/sig00002de9" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003273" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002e5f" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032e9" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002e42" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032cc" (ROM) removed.
+     The signal "u_fft/blk00000001/sig00002de8" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003272" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002e25" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032af" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002e08" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk00003292" (ROM) removed.
+Loadless block "u_fft/blk00000001/blk00003322" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00002e7d" is loadless and has been removed.
+  Loadless block "u_fft/blk00000001/blk00003323" (SFF) removed.
+   The signal "u_fft/blk00000001/sig00002db2" is loadless and has been removed.
+    Loadless block "u_fft/blk00000001/blk0000323c" (MUX) removed.
+     The signal "u_fft/blk00000001/sig00002deb" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003275" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002e60" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032ea" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002e43" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032cd" (ROM) removed.
+     The signal "u_fft/blk00000001/sig00002dea" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003274" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002e26" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032b0" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002e09" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk00003293" (ROM) removed.
+Loadless block "u_fft/blk00000001/blk00003324" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00002e7e" is loadless and has been removed.
+  Loadless block "u_fft/blk00000001/blk00003325" (SFF) removed.
+   The signal "u_fft/blk00000001/sig00002db3" is loadless and has been removed.
+    Loadless block "u_fft/blk00000001/blk0000323d" (MUX) removed.
+     The signal "u_fft/blk00000001/sig00002ded" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003277" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002e61" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032eb" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002e44" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032ce" (ROM) removed.
+     The signal "u_fft/blk00000001/sig00002dec" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003276" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002e27" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000032b1" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002e0a" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk00003294" (ROM) removed.
+Loadless block "u_fft/blk00000001/blk00003411" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00002f5a" is loadless and has been removed.
+  Loadless block "u_fft/blk00000001/blk00003412" (SFF) removed.
+   The signal "u_fft/blk00000001/sig00002e8f" is loadless and has been removed.
+    Loadless block "u_fft/blk00000001/blk00003336" (MUX) removed.
+     The signal "u_fft/blk00000001/sig00002ebd" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003364" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002f3d" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033e4" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002f20" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033c7" (ROM) removed.
+     The signal "u_fft/blk00000001/sig00002ebc" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003363" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002f03" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033aa" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002ee6" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk0000338d" (ROM) removed.
+Loadless block "u_fft/blk00000001/blk00003413" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00002f5b" is loadless and has been removed.
+  Loadless block "u_fft/blk00000001/blk00003414" (SFF) removed.
+   The signal "u_fft/blk00000001/sig00002e90" is loadless and has been removed.
+    Loadless block "u_fft/blk00000001/blk00003337" (MUX) removed.
+     The signal "u_fft/blk00000001/sig00002ebf" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003366" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002f3e" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033e5" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002f21" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033c8" (ROM) removed.
+     The signal "u_fft/blk00000001/sig00002ebe" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003365" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002f04" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033ab" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002ee7" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk0000338e" (ROM) removed.
+Loadless block "u_fft/blk00000001/blk00003415" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00002f5c" is loadless and has been removed.
+  Loadless block "u_fft/blk00000001/blk00003416" (SFF) removed.
+   The signal "u_fft/blk00000001/sig00002e91" is loadless and has been removed.
+    Loadless block "u_fft/blk00000001/blk00003338" (MUX) removed.
+     The signal "u_fft/blk00000001/sig00002ec1" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003368" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002f3f" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033e6" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002f22" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033c9" (ROM) removed.
+     The signal "u_fft/blk00000001/sig00002ec0" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003367" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002f05" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033ac" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002ee8" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk0000338f" (ROM) removed.
+Loadless block "u_fft/blk00000001/blk00003417" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00002f5d" is loadless and has been removed.
+  Loadless block "u_fft/blk00000001/blk00003418" (SFF) removed.
+   The signal "u_fft/blk00000001/sig00002e92" is loadless and has been removed.
+    Loadless block "u_fft/blk00000001/blk00003339" (MUX) removed.
+     The signal "u_fft/blk00000001/sig00002ec3" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk0000336a" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002f40" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033e7" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002f23" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033ca" (ROM) removed.
+     The signal "u_fft/blk00000001/sig00002ec2" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003369" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002f06" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033ad" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002ee9" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk00003390" (ROM) removed.
+Loadless block "u_fft/blk00000001/blk00003419" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00002f5e" is loadless and has been removed.
+  Loadless block "u_fft/blk00000001/blk0000341a" (SFF) removed.
+   The signal "u_fft/blk00000001/sig00002e93" is loadless and has been removed.
+    Loadless block "u_fft/blk00000001/blk0000333a" (MUX) removed.
+     The signal "u_fft/blk00000001/sig00002ec5" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk0000336c" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002f41" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033e8" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002f24" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033cb" (ROM) removed.
+     The signal "u_fft/blk00000001/sig00002ec4" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk0000336b" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002f07" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033ae" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002eea" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk00003391" (ROM) removed.
+Loadless block "u_fft/blk00000001/blk0000341b" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00002f5f" is loadless and has been removed.
+  Loadless block "u_fft/blk00000001/blk0000341c" (SFF) removed.
+   The signal "u_fft/blk00000001/sig00002e94" is loadless and has been removed.
+    Loadless block "u_fft/blk00000001/blk0000333b" (MUX) removed.
+     The signal "u_fft/blk00000001/sig00002ec7" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk0000336e" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002f42" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033e9" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002f25" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033cc" (ROM) removed.
+     The signal "u_fft/blk00000001/sig00002ec6" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk0000336d" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002f08" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033af" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002eeb" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk00003392" (ROM) removed.
+Loadless block "u_fft/blk00000001/blk0000341d" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00002f60" is loadless and has been removed.
+  Loadless block "u_fft/blk00000001/blk0000341e" (SFF) removed.
+   The signal "u_fft/blk00000001/sig00002e95" is loadless and has been removed.
+    Loadless block "u_fft/blk00000001/blk0000333c" (MUX) removed.
+     The signal "u_fft/blk00000001/sig00002ec9" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003370" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002f43" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033ea" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002f26" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033cd" (ROM) removed.
+     The signal "u_fft/blk00000001/sig00002ec8" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk0000336f" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002f09" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033b0" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002eec" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk00003393" (ROM) removed.
+Loadless block "u_fft/blk00000001/blk0000341f" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00002f61" is loadless and has been removed.
+  Loadless block "u_fft/blk00000001/blk00003420" (SFF) removed.
+   The signal "u_fft/blk00000001/sig00002e96" is loadless and has been removed.
+    Loadless block "u_fft/blk00000001/blk0000333d" (MUX) removed.
+     The signal "u_fft/blk00000001/sig00002ecb" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003372" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002f44" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033eb" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002f27" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033ce" (ROM) removed.
+     The signal "u_fft/blk00000001/sig00002eca" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003371" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002f0a" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033b1" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002eed" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk00003394" (ROM) removed.
+Loadless block "u_fft/blk00000001/blk00003421" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00002f62" is loadless and has been removed.
+  Loadless block "u_fft/blk00000001/blk00003422" (SFF) removed.
+   The signal "u_fft/blk00000001/sig00002e97" is loadless and has been removed.
+    Loadless block "u_fft/blk00000001/blk0000333e" (MUX) removed.
+     The signal "u_fft/blk00000001/sig00002ecd" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003374" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002f45" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033ec" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002f28" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033cf" (ROM) removed.
+     The signal "u_fft/blk00000001/sig00002ecc" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003373" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002f0b" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033b2" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002eee" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk00003395" (ROM) removed.
+Loadless block "u_fft/blk00000001/blk00003423" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00002f63" is loadless and has been removed.
+  Loadless block "u_fft/blk00000001/blk00003424" (SFF) removed.
+   The signal "u_fft/blk00000001/sig00002e98" is loadless and has been removed.
+    Loadless block "u_fft/blk00000001/blk0000333f" (MUX) removed.
+     The signal "u_fft/blk00000001/sig00002ecf" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003376" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002f46" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033ed" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002f29" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033d0" (ROM) removed.
+     The signal "u_fft/blk00000001/sig00002ece" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003375" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002f0c" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033b3" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002eef" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk00003396" (ROM) removed.
+Loadless block "u_fft/blk00000001/blk00003425" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00002f64" is loadless and has been removed.
+  Loadless block "u_fft/blk00000001/blk00003426" (SFF) removed.
+   The signal "u_fft/blk00000001/sig00002e99" is loadless and has been removed.
+    Loadless block "u_fft/blk00000001/blk00003340" (MUX) removed.
+     The signal "u_fft/blk00000001/sig00002ed1" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003378" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002f47" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033ee" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002f2a" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033d1" (ROM) removed.
+     The signal "u_fft/blk00000001/sig00002ed0" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003377" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002f0d" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033b4" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002ef0" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk00003397" (ROM) removed.
+Loadless block "u_fft/blk00000001/blk00003427" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00002f65" is loadless and has been removed.
+  Loadless block "u_fft/blk00000001/blk00003428" (SFF) removed.
+   The signal "u_fft/blk00000001/sig00002e9a" is loadless and has been removed.
+    Loadless block "u_fft/blk00000001/blk00003341" (MUX) removed.
+     The signal "u_fft/blk00000001/sig00002ed3" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk0000337a" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002f48" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033ef" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002f2b" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033d2" (ROM) removed.
+     The signal "u_fft/blk00000001/sig00002ed2" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk00003379" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002f0e" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033b5" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002ef1" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk00003398" (ROM) removed.
+Loadless block "u_fft/blk00000001/blk00003429" (SFF) removed.
+ The signal "u_fft/blk00000001/sig00002f66" is loadless and has been removed.
+  Loadless block "u_fft/blk00000001/blk0000342a" (SFF) removed.
+   The signal "u_fft/blk00000001/sig00002e9b" is loadless and has been removed.
+    Loadless block "u_fft/blk00000001/blk00003342" (MUX) removed.
+     The signal "u_fft/blk00000001/sig00002ed5" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk0000337c" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002f49" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033f0" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002f2c" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033d3" (ROM) removed.
+     The signal "u_fft/blk00000001/sig00002ed4" is loadless and has been removed.
+      Loadless block "u_fft/blk00000001/blk0000337b" (MUX) removed.
+       The signal "u_fft/blk00000001/sig00002f0f" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk000033b6" (ROM) removed.
+       The signal "u_fft/blk00000001/sig00002ef2" is loadless and has been removed.
+        Loadless block "u_fft/blk00000001/blk00003399" (ROM) removed.
+The signal
+"u_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.
+wsts/ram_full_i" is sourceless and has been removed.
+The signal
+"u_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.
+rsts/ram_empty_i" is sourceless and has been removed.
+ Sourceless block
+"u_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grhf.
+rhf/ram_valid_i1" (ROM) removed.
+  The signal
+"u_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grhf.
+rhf/ram_valid_i" is sourceless and has been removed.
+   Sourceless block
+"u_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grhf.
+rhf/ram_valid_d1" (FF) removed.
+    The signal
+"u_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grhf.
+rhf/ram_valid_d1" is sourceless and has been removed.
+The signal "u_fft/blk_exp<4>" is sourceless and has been removed.
+The signal "u_fft/blk_exp<3>" is sourceless and has been removed.
+The signal "u_fft/blk_exp<2>" is sourceless and has been removed.
+The signal "u_fft/blk_exp<1>" is sourceless and has been removed.
+The signal "u_fft/blk_exp<0>" is sourceless and has been removed.
+The signal "u_fft/busy" is sourceless and has been removed.
+The signal "u_fft/edone" is sourceless and has been removed.
+ Sourceless block "u_fft/blk00000001/blk0000005f" (SFF) removed.
+  The signal "u_fft/done" is sourceless and has been removed.
+ Sourceless block "u_fft/blk00000001/blk00003684" (ROM) removed.
+  The signal "u_fft/blk00000001/sig00002f85" is sourceless and has been removed.
+   Sourceless block "u_fft/blk00000001/blk00003450" (SFF) removed.
+    The signal "u_fft/blk00000001/sig00002f88" is sourceless and has been removed.
+     Sourceless block "u_fft/blk00000001/blk00003683" (ROM) removed.
+      The signal "u_fft/blk00000001/sig00002f7f" is sourceless and has been removed.
+     Sourceless block "u_fft/blk00000001/blk00003685" (ROM) removed.
+      The signal "u_fft/blk00000001/sig00002f84" is sourceless and has been removed.
+       Sourceless block "u_fft/blk00000001/blk00003455" (SFF) removed.
+   Sourceless block "u_fft/blk00000001/blk00003451" (SFF) removed.
+    The signal "u_fft/blk00000001/sig00002f87" is sourceless and has been removed.
+     Sourceless block "u_fft/blk00000001/blk00003682" (ROM) removed.
+      The signal "u_fft/blk00000001/sig00002f80" is sourceless and has been removed.
+   Sourceless block "u_fft/blk00000001/blk00003452" (SFF) removed.
+    The signal "u_fft/blk00000001/sig00002f86" is sourceless and has been removed.
+     Sourceless block "u_fft/blk00000001/blk000037e1" (BUF) removed.
+      The signal "u_fft/blk00000001/sig00002f81" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000003c0" is sourceless and has been removed.
+ Sourceless block "u_fft/blk00000001/blk000000aa" (SFF) removed.
+The signal "u_fft/blk00000001/sig000003c2" is sourceless and has been removed.
+ Sourceless block "u_fft/blk00000001/blk000000c9" (SFF) removed.
+The signal "u_fft/blk00000001/sig000003c3" is sourceless and has been removed.
+ Sourceless block "u_fft/blk00000001/blk000000ca" (SFF) removed.
+The signal "u_fft/blk00000001/sig000003c4" is sourceless and has been removed.
+ Sourceless block "u_fft/blk00000001/blk000000cb" (SFF) removed.
+The signal "u_fft/blk00000001/sig000003c5" is sourceless and has been removed.
+ Sourceless block "u_fft/blk00000001/blk000000cc" (SFF) removed.
+The signal "u_fft/blk00000001/sig00000558" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000055a" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000559" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000055b" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000678" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000067a" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000679" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000067b" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000008ff" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000900" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000901" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000902" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000903" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000904" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000905" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000906" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000907" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000091b" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000091c" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000091d" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000091e" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000091f" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000920" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000921" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000922" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000923" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000924" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000925" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000926" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000927" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000928" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000929" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000955" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000956" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000957" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000958" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000959" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000095a" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000095b" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000009ab" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000009ac" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000009ad" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000009ae" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000009af" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000009b0" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000009b1" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000009b2" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000009b3" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000009c7" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000009c8" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000009c9" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000009ca" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000009cb" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000009cc" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000009cd" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000009ce" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000009cf" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000009d0" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000009d1" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000009d2" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000009d3" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000009d4" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000009d5" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000c44" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000c46" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000c45" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000c47" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000dac" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000dae" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000dad" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00000daf" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000010d6" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000010d7" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000010d8" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000010d9" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000010da" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000010db" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000010dc" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000010f2" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000010f3" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000010f4" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000010f5" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000010f6" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000010f7" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000010f8" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000010f9" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000010fa" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000010fb" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000010fc" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000010fd" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000010fe" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000010ff" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001100" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001080" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001081" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001082" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001083" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000102a" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000102b" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000102c" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000102d" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000102e" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000102f" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001030" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001046" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001047" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001048" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001049" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000104a" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000104b" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000104c" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000104d" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000104e" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000104f" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001050" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001051" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001052" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001053" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001054" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001280" is sourceless and has been removed.
+ Sourceless block "u_fft/blk00000001/blk0000120c" (SFF) removed.
+  The signal "u_fft/blk00000001/sig000012f3" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001281" is sourceless and has been removed.
+ Sourceless block "u_fft/blk00000001/blk0000120d" (SFF) removed.
+  The signal "u_fft/blk00000001/sig000012f4" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001282" is sourceless and has been removed.
+ Sourceless block "u_fft/blk00000001/blk0000120e" (SFF) removed.
+  The signal "u_fft/blk00000001/sig000012f5" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001283" is sourceless and has been removed.
+ Sourceless block "u_fft/blk00000001/blk0000120f" (SFF) removed.
+  The signal "u_fft/blk00000001/sig000012f6" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001284" is sourceless and has been removed.
+ Sourceless block "u_fft/blk00000001/blk00001210" (SFF) removed.
+  The signal "u_fft/blk00000001/sig000012f7" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001285" is sourceless and has been removed.
+ Sourceless block "u_fft/blk00000001/blk00001211" (SFF) removed.
+  The signal "u_fft/blk00000001/sig000012f8" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000138d" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000138f" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000138e" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001390" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001500" is sourceless and has been removed.
+ Sourceless block "u_fft/blk00000001/blk000015aa" (SFF) removed.
+  The signal "u_fft/blk00000001/sig000000d5" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001501" is sourceless and has been removed.
+ Sourceless block "u_fft/blk00000001/blk000015ab" (SFF) removed.
+  The signal "u_fft/blk00000001/sig000000d6" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001502" is sourceless and has been removed.
+ Sourceless block "u_fft/blk00000001/blk000015ac" (SFF) removed.
+  The signal "u_fft/blk00000001/sig000000d7" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001503" is sourceless and has been removed.
+ Sourceless block "u_fft/blk00000001/blk000015ad" (SFF) removed.
+  The signal "u_fft/blk00000001/sig000000d8" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001504" is sourceless and has been removed.
+ Sourceless block "u_fft/blk00000001/blk000015ae" (SFF) removed.
+  The signal "u_fft/blk00000001/sig000000d9" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001505" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001507" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001506" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001508" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000182d" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000182e" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000182f" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001830" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001831" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001849" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000184a" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000184b" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000184c" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000184d" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000184e" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000184f" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001850" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001851" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001852" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001853" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001854" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001855" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001856" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001857" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000017d7" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000017d8" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001781" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001782" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001783" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001784" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001785" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000179d" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000179e" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000179f" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000017a0" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000017a1" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000017a2" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000017a3" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000017a4" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000017a5" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000017a6" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000017a7" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000017a8" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000017a9" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000017aa" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000017ab" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001b39" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001b3b" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001b3a" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00001b3c" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002571" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002572" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002573" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002574" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002575" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002576" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002577" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002578" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002579" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000257a" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000257b" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000257c" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000257d" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000257e" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000257f" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002788" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002787" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002786" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002785" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002784" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002783" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002782" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002781" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002780" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000277f" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000277e" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000277d" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000277c" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000277b" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000277a" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002779" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002778" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002777" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002816" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002815" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002814" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002813" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002812" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002811" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002810" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000280f" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000280e" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000280d" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000280c" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000280b" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000280a" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002809" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002808" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000028ee" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000028ed" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000028ec" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000028eb" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000028ea" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000028e9" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000028e8" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000028e7" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000028e6" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000028e5" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000028e4" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000028e3" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000028e2" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000028e1" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig000028e0" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002861" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002860" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000285f" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000285e" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000285d" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000285c" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000285b" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig0000285a" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002859" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002858" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002857" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002856" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002855" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002854" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002853" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002852" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002851" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002850" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002f82" is sourceless and has been removed.
+ Sourceless block "u_fft/blk00000001/blk00003453" (SFF) removed.
+  The signal "u_fft/blk00000001/sig00002f83" is sourceless and has been removed.
+   Sourceless block "u_fft/blk00000001/blk00003454" (SFF) removed.
+    The signal "u_fft/blk00000001/sig00002f89" is sourceless and has been removed.
+The signal "u_fft/blk00000001/sig00002fc7" is sourceless and has been removed.
+The signal "u_fft/blk00000001/blk000003f3/sig0000334f" is sourceless and has
+been removed.
+ Sourceless block "u_fft/blk00000001/blk000003f3/blk00000405" (XOR) removed.
+  The signal "u_fft/blk00000001/blk000003f3/sig0000334e" is sourceless and has
+been removed.
+   Sourceless block "u_fft/blk00000001/blk000003f3/blk00000418" (FF) removed.
+The signal "u_fft/blk00000001/blk000003f3/sig00003361" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk0000043c/sig000033bc" is sourceless and has
+been removed.
+ Sourceless block "u_fft/blk00000001/blk0000043c/blk0000044e" (XOR) removed.
+  The signal "u_fft/blk00000001/blk0000043c/sig000033bb" is sourceless and has
+been removed.
+   Sourceless block "u_fft/blk00000001/blk0000043c/blk00000461" (FF) removed.
+The signal "u_fft/blk00000001/blk0000043c/sig000033ce" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk00000485/sig00003436" is sourceless and has
+been removed.
+ Sourceless block "u_fft/blk00000001/blk00000485/blk00000487" (MUX) removed.
+  The signal "u_fft/blk00000001/blk00000485/sig00003418" is sourceless and has
+been removed.
+   Sourceless block "u_fft/blk00000001/blk00000485/blk000004a4" (XOR) removed.
+    The signal "u_fft/blk00000001/blk00000485/sig00003435" is sourceless and has
+been removed.
+     Sourceless block "u_fft/blk00000001/blk00000485/blk000004a9" (FF) removed.
+The signal "u_fft/blk00000001/blk00000485/sig0000344b" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk000004de/sig000034b3" is sourceless and has
+been removed.
+ Sourceless block "u_fft/blk00000001/blk000004de/blk000004e0" (MUX) removed.
+  The signal "u_fft/blk00000001/blk000004de/sig00003495" is sourceless and has
+been removed.
+   Sourceless block "u_fft/blk00000001/blk000004de/blk000004fd" (XOR) removed.
+    The signal "u_fft/blk00000001/blk000004de/sig000034b2" is sourceless and has
+been removed.
+     Sourceless block "u_fft/blk00000001/blk000004de/blk00000502" (FF) removed.
+The signal "u_fft/blk00000001/blk000004de/sig000034c8" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk000006fd/sig000035da" is sourceless and has
+been removed.
+ Sourceless block "u_fft/blk00000001/blk000006fd/blk00000710" (XOR) removed.
+  The signal "u_fft/blk00000001/blk000006fd/sig000035d9" is sourceless and has
+been removed.
+   Sourceless block "u_fft/blk00000001/blk000006fd/blk00000724" (FF) removed.
+The signal "u_fft/blk00000001/blk000006fd/sig000035ed" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk0000074a/sig0000364d" is sourceless and has
+been removed.
+ Sourceless block "u_fft/blk00000001/blk0000074a/blk0000075d" (XOR) removed.
+  The signal "u_fft/blk00000001/blk0000074a/sig0000364c" is sourceless and has
+been removed.
+   Sourceless block "u_fft/blk00000001/blk0000074a/blk00000771" (FF) removed.
+The signal "u_fft/blk00000001/blk0000074a/sig00003660" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk00000797/sig000036ce" is sourceless and has
+been removed.
+ Sourceless block "u_fft/blk00000001/blk00000797/blk00000799" (MUX) removed.
+  The signal "u_fft/blk00000001/blk00000797/sig000036ae" is sourceless and has
+been removed.
+   Sourceless block "u_fft/blk00000001/blk00000797/blk000007b8" (XOR) removed.
+    The signal "u_fft/blk00000001/blk00000797/sig000036cd" is sourceless and has
+been removed.
+     Sourceless block "u_fft/blk00000001/blk00000797/blk000007bd" (FF) removed.
+The signal "u_fft/blk00000001/blk00000797/sig000036e4" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk000007f5/sig00003752" is sourceless and has
+been removed.
+ Sourceless block "u_fft/blk00000001/blk000007f5/blk000007f7" (MUX) removed.
+  The signal "u_fft/blk00000001/blk000007f5/sig00003732" is sourceless and has
+been removed.
+   Sourceless block "u_fft/blk00000001/blk000007f5/blk00000816" (XOR) removed.
+    The signal "u_fft/blk00000001/blk000007f5/sig00003751" is sourceless and has
+been removed.
+     Sourceless block "u_fft/blk00000001/blk000007f5/blk0000081b" (FF) removed.
+The signal "u_fft/blk00000001/blk000007f5/sig00003768" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk0000086f/sig000037d1" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk00000bb6/sig00003a97" is sourceless and has
+been removed.
+ Sourceless block "u_fft/blk00000001/blk00000bb6/blk00000bcb" (XOR) removed.
+  The signal "u_fft/blk00000001/blk00000bb6/sig00003a96" is sourceless and has
+been removed.
+   Sourceless block "u_fft/blk00000001/blk00000bb6/blk00000be1" (FF) removed.
+The signal "u_fft/blk00000001/blk00000bb6/sig00003aac" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk00000c0b/sig00003b16" is sourceless and has
+been removed.
+ Sourceless block "u_fft/blk00000001/blk00000c0b/blk00000c20" (XOR) removed.
+  The signal "u_fft/blk00000001/blk00000c0b/sig00003b15" is sourceless and has
+been removed.
+   Sourceless block "u_fft/blk00000001/blk00000c0b/blk00000c36" (FF) removed.
+The signal "u_fft/blk00000001/blk00000c0b/sig00003b2b" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk00000c60/sig00003ba5" is sourceless and has
+been removed.
+ Sourceless block "u_fft/blk00000001/blk00000c60/blk00000c62" (MUX) removed.
+  The signal "u_fft/blk00000001/blk00000c60/sig00003b81" is sourceless and has
+been removed.
+   Sourceless block "u_fft/blk00000001/blk00000c60/blk00000c85" (XOR) removed.
+    The signal "u_fft/blk00000001/blk00000c60/sig00003ba4" is sourceless and has
+been removed.
+     Sourceless block "u_fft/blk00000001/blk00000c60/blk00000c8a" (FF) removed.
+The signal "u_fft/blk00000001/blk00000c60/sig00003bbd" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk00000cc8/sig00003c37" is sourceless and has
+been removed.
+ Sourceless block "u_fft/blk00000001/blk00000cc8/blk00000cca" (MUX) removed.
+  The signal "u_fft/blk00000001/blk00000cc8/sig00003c13" is sourceless and has
+been removed.
+   Sourceless block "u_fft/blk00000001/blk00000cc8/blk00000ced" (XOR) removed.
+    The signal "u_fft/blk00000001/blk00000cc8/sig00003c36" is sourceless and has
+been removed.
+     Sourceless block "u_fft/blk00000001/blk00000cc8/blk00000cf2" (FF) removed.
+The signal "u_fft/blk00000001/blk00000cc8/sig00003c4f" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk00000f1a/sig00003d60" is sourceless and has
+been removed.
+ Sourceless block "u_fft/blk00000001/blk00000f1a/blk00000f30" (XOR) removed.
+  The signal "u_fft/blk00000001/blk00000f1a/sig00003d5f" is sourceless and has
+been removed.
+   Sourceless block "u_fft/blk00000001/blk00000f1a/blk00000f47" (FF) removed.
+The signal "u_fft/blk00000001/blk00000f1a/sig00003d76" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk00000f73/sig00003de5" is sourceless and has
+been removed.
+ Sourceless block "u_fft/blk00000001/blk00000f73/blk00000f89" (XOR) removed.
+  The signal "u_fft/blk00000001/blk00000f73/sig00003de4" is sourceless and has
+been removed.
+   Sourceless block "u_fft/blk00000001/blk00000f73/blk00000fa0" (FF) removed.
+The signal "u_fft/blk00000001/blk00000f73/sig00003dfb" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk00000fcc/sig00003e7b" is sourceless and has
+been removed.
+ Sourceless block "u_fft/blk00000001/blk00000fcc/blk00000fce" (MUX) removed.
+  The signal "u_fft/blk00000001/blk00000fcc/sig00003e55" is sourceless and has
+been removed.
+   Sourceless block "u_fft/blk00000001/blk00000fcc/blk00000ff3" (XOR) removed.
+    The signal "u_fft/blk00000001/blk00000fcc/sig00003e7a" is sourceless and has
+been removed.
+     Sourceless block "u_fft/blk00000001/blk00000fcc/blk00000ff8" (FF) removed.
+The signal "u_fft/blk00000001/blk00000fcc/sig00003e94" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk00001039/sig00003f14" is sourceless and has
+been removed.
+ Sourceless block "u_fft/blk00000001/blk00001039/blk0000103b" (MUX) removed.
+  The signal "u_fft/blk00000001/blk00001039/sig00003eee" is sourceless and has
+been removed.
+   Sourceless block "u_fft/blk00000001/blk00001039/blk00001060" (XOR) removed.
+    The signal "u_fft/blk00000001/blk00001039/sig00003f13" is sourceless and has
+been removed.
+     Sourceless block "u_fft/blk00000001/blk00001039/blk00001065" (FF) removed.
+The signal "u_fft/blk00000001/blk00001039/sig00003f2d" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk000010b6/sig00003f71" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk00001401/sig00004241" is sourceless and has
+been removed.
+ Sourceless block "u_fft/blk00000001/blk00001401/blk00001418" (XOR) removed.
+  The signal "u_fft/blk00000001/blk00001401/sig00004240" is sourceless and has
+been removed.
+   Sourceless block "u_fft/blk00000001/blk00001401/blk00001430" (FF) removed.
+The signal "u_fft/blk00000001/blk00001401/sig00004258" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk0000145e/sig000042cc" is sourceless and has
+been removed.
+ Sourceless block "u_fft/blk00000001/blk0000145e/blk00001475" (XOR) removed.
+  The signal "u_fft/blk00000001/blk0000145e/sig000042cb" is sourceless and has
+been removed.
+   Sourceless block "u_fft/blk00000001/blk0000145e/blk0000148d" (FF) removed.
+The signal "u_fft/blk00000001/blk0000145e/sig000042e3" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk000014bb/sig00004369" is sourceless and has
+been removed.
+ Sourceless block "u_fft/blk00000001/blk000014bb/blk000014bd" (MUX) removed.
+  The signal "u_fft/blk00000001/blk000014bb/sig00004341" is sourceless and has
+been removed.
+   Sourceless block "u_fft/blk00000001/blk000014bb/blk000014e4" (XOR) removed.
+    The signal "u_fft/blk00000001/blk000014bb/sig00004368" is sourceless and has
+been removed.
+     Sourceless block "u_fft/blk00000001/blk000014bb/blk000014e9" (FF) removed.
+The signal "u_fft/blk00000001/blk000014bb/sig00004383" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk0000152d/sig00004409" is sourceless and has
+been removed.
+ Sourceless block "u_fft/blk00000001/blk0000152d/blk0000152f" (MUX) removed.
+  The signal "u_fft/blk00000001/blk0000152d/sig000043e1" is sourceless and has
+been removed.
+   Sourceless block "u_fft/blk00000001/blk0000152d/blk00001556" (XOR) removed.
+    The signal "u_fft/blk00000001/blk0000152d/sig00004408" is sourceless and has
+been removed.
+     Sourceless block "u_fft/blk00000001/blk0000152d/blk0000155b" (FF) removed.
+The signal "u_fft/blk00000001/blk0000152d/sig00004423" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk000017f0/sig000045c5" is sourceless and has
+been removed.
+ Sourceless block "u_fft/blk00000001/blk000017f0/blk00001808" (XOR) removed.
+  The signal "u_fft/blk00000001/blk000017f0/sig000045c4" is sourceless and has
+been removed.
+   Sourceless block "u_fft/blk00000001/blk000017f0/blk00001821" (FF) removed.
+The signal "u_fft/blk00000001/blk000017f0/sig000045dd" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk00001851/sig00004656" is sourceless and has
+been removed.
+ Sourceless block "u_fft/blk00000001/blk00001851/blk00001869" (XOR) removed.
+  The signal "u_fft/blk00000001/blk00001851/sig00004655" is sourceless and has
+been removed.
+   Sourceless block "u_fft/blk00000001/blk00001851/blk00001882" (FF) removed.
+The signal "u_fft/blk00000001/blk00001851/sig0000466e" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk000018b2/sig000046fa" is sourceless and has
+been removed.
+ Sourceless block "u_fft/blk00000001/blk000018b2/blk000018b4" (MUX) removed.
+  The signal "u_fft/blk00000001/blk000018b2/sig000046d0" is sourceless and has
+been removed.
+   Sourceless block "u_fft/blk00000001/blk000018b2/blk000018dd" (XOR) removed.
+    The signal "u_fft/blk00000001/blk000018b2/sig000046f9" is sourceless and has
+been removed.
+     Sourceless block "u_fft/blk00000001/blk000018b2/blk000018e2" (FF) removed.
+The signal "u_fft/blk00000001/blk000018b2/sig00004715" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk00001929/sig000047a1" is sourceless and has
+been removed.
+ Sourceless block "u_fft/blk00000001/blk00001929/blk0000192b" (MUX) removed.
+  The signal "u_fft/blk00000001/blk00001929/sig00004777" is sourceless and has
+been removed.
+   Sourceless block "u_fft/blk00000001/blk00001929/blk00001954" (XOR) removed.
+    The signal "u_fft/blk00000001/blk00001929/sig000047a0" is sourceless and has
+been removed.
+     Sourceless block "u_fft/blk00000001/blk00001929/blk00001959" (FF) removed.
+The signal "u_fft/blk00000001/blk00001929/sig000047bc" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk000019ad/sig000047fb" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk00001d5f/sig00004b9d" is sourceless and has
+been removed.
+ Sourceless block "u_fft/blk00000001/blk00001d5f/blk00001d78" (XOR) removed.
+  The signal "u_fft/blk00000001/blk00001d5f/sig00004b9c" is sourceless and has
+been removed.
+   Sourceless block "u_fft/blk00000001/blk00001d5f/blk00001d92" (FF) removed.
+The signal "u_fft/blk00000001/blk00001d5f/sig00004bb6" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk00001dc4/sig00004c34" is sourceless and has
+been removed.
+ Sourceless block "u_fft/blk00000001/blk00001dc4/blk00001ddd" (XOR) removed.
+  The signal "u_fft/blk00000001/blk00001dc4/sig00004c33" is sourceless and has
+been removed.
+   Sourceless block "u_fft/blk00000001/blk00001dc4/blk00001df7" (FF) removed.
+The signal "u_fft/blk00000001/blk00001dc4/sig00004c4d" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk00001e29/sig00004cdf" is sourceless and has
+been removed.
+ Sourceless block "u_fft/blk00000001/blk00001e29/blk00001e2b" (MUX) removed.
+  The signal "u_fft/blk00000001/blk00001e29/sig00004cb3" is sourceless and has
+been removed.
+   Sourceless block "u_fft/blk00000001/blk00001e29/blk00001e56" (XOR) removed.
+    The signal "u_fft/blk00000001/blk00001e29/sig00004cde" is sourceless and has
+been removed.
+     Sourceless block "u_fft/blk00000001/blk00001e29/blk00001e5b" (FF) removed.
+The signal "u_fft/blk00000001/blk00001e29/sig00004cfb" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk00001ea5/sig00004d8d" is sourceless and has
+been removed.
+ Sourceless block "u_fft/blk00000001/blk00001ea5/blk00001ea7" (MUX) removed.
+  The signal "u_fft/blk00000001/blk00001ea5/sig00004d61" is sourceless and has
+been removed.
+   Sourceless block "u_fft/blk00000001/blk00001ea5/blk00001ed2" (XOR) removed.
+    The signal "u_fft/blk00000001/blk00001ea5/sig00004d8c" is sourceless and has
+been removed.
+     Sourceless block "u_fft/blk00000001/blk00001ea5/blk00001ed7" (FF) removed.
+The signal "u_fft/blk00000001/blk00001ea5/sig00004da9" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk000022a3/sig00004f96" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk00002a09/sig000053c5" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk000031cd/sig000059b5" is sourceless and has
+been removed.
+The signal "u_fft/blk00000001/blk000031cd/sig000059b7" is sourceless and has
+been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk0000004b/sig00000255" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk0000004b/sig00000257" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk0000004b/sig0000026f" is sourceless
+and has been removed.
+ Sourceless block "u_complex_magnitude/sqrt_inst/blk0000004b/blk0000004f" (XOR)
+removed.
+The signal "u_complex_magnitude/sqrt_inst/blk00000085/sig00000291" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk00000085/sig00000293" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk00000085/sig000002ad" is sourceless
+and has been removed.
+ Sourceless block "u_complex_magnitude/sqrt_inst/blk00000085/blk00000089" (XOR)
+removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000000af/sig000002cc" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000000af/sig000002ce" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000000af/sig000002e4" is sourceless
+and has been removed.
+ Sourceless block "u_complex_magnitude/sqrt_inst/blk000000af/blk000000b3" (XOR)
+removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000000d3/sig00000307" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000000d3/sig00000309" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000000d3/sig00000325" is sourceless
+and has been removed.
+ Sourceless block "u_complex_magnitude/sqrt_inst/blk000000d3/blk000000d7" (XOR)
+removed.
+The signal "u_complex_magnitude/sqrt_inst/blk00000117/sig00000343" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk00000117/sig00000345" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk00000117/sig00000359" is sourceless
+and has been removed.
+ Sourceless block "u_complex_magnitude/sqrt_inst/blk00000117/blk0000011b" (XOR)
+removed.
+The signal "u_complex_magnitude/sqrt_inst/blk00000140/sig0000037d" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk00000140/sig0000037f" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk00000140/sig0000039d" is sourceless
+and has been removed.
+ Sourceless block "u_complex_magnitude/sqrt_inst/blk00000140/blk00000144" (XOR)
+removed.
+The signal "u_complex_magnitude/sqrt_inst/blk00000170/sig000003ba" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk00000170/sig000003bc" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk00000170/sig000003ce" is sourceless
+and has been removed.
+ Sourceless block "u_complex_magnitude/sqrt_inst/blk00000170/blk00000174" (XOR)
+removed.
+The signal "u_complex_magnitude/sqrt_inst/blk0000018e/sig000003f3" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk0000018e/sig000003f5" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk0000018e/sig00000415" is sourceless
+and has been removed.
+ Sourceless block "u_complex_magnitude/sqrt_inst/blk0000018e/blk00000192" (XOR)
+removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000001dc/sig00000431" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000001dc/sig00000433" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000001dc/sig00000443" is sourceless
+and has been removed.
+ Sourceless block "u_complex_magnitude/sqrt_inst/blk000001dc/blk000001e0" (XOR)
+removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000001f7/sig00000469" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000001f7/sig0000046b" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000001f7/sig0000048d" is sourceless
+and has been removed.
+ Sourceless block "u_complex_magnitude/sqrt_inst/blk000001f7/blk000001fb" (XOR)
+removed.
+The signal "u_complex_magnitude/sqrt_inst/blk0000022d/sig000004a8" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk0000022d/sig000004aa" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk0000022d/sig000004b8" is sourceless
+and has been removed.
+ Sourceless block "u_complex_magnitude/sqrt_inst/blk0000022d/blk00000231" (XOR)
+removed.
+The signal "u_complex_magnitude/sqrt_inst/blk00000245/sig000004df" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk00000245/sig000004e1" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk00000245/sig00000505" is sourceless
+and has been removed.
+ Sourceless block "u_complex_magnitude/sqrt_inst/blk00000245/blk00000249" (XOR)
+removed.
+The signal "u_complex_magnitude/sqrt_inst/blk0000029d/sig0000051f" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk0000029d/sig00000521" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk0000029d/sig0000052c" is sourceless
+and has been removed.
+ Sourceless block "u_complex_magnitude/sqrt_inst/blk0000029d/blk000002a1" (XOR)
+removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000002b1/sig00000554" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000002b1/sig00000556" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000002b1/sig0000057c" is sourceless
+and has been removed.
+ Sourceless block "u_complex_magnitude/sqrt_inst/blk000002b1/blk000002b5" (XOR)
+removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000002ed/sig000005b3" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000002ed/sig000005b5" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000002ed/sig000005b6" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000002ed/sig000005b7" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000002ed/sig000005b8" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000002ed/sig000005b9" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000002ed/sig000005ba" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000002ed/sig000005bb" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000002ed/sig000005bc" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000002ed/sig000005bd" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000002ed/sig000005be" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000002ed/sig000005bf" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000002ed/sig000005c0" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000002ed/sig000005c1" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000002ed/sig000005c2" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000002ed/sig000005c3" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000002ed/sig000005c4" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000002ed/sig000005c5" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000002ed/sig000005c6" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000002ed/sig000005c7" is sourceless
+and has been removed.
+The signal "u_complex_magnitude/sqrt_inst/blk000002ed/sig000005dd" is sourceless
+and has been removed.
+ Sourceless block "u_complex_magnitude/sqrt_inst/blk000002ed/blk000002f1" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk0000004b/blk00000051" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk0000004b/blk0000005b" (MUX)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk00000085/blk0000008b" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk00000085/blk00000096" (MUX)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk000000af/blk000000b5" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk000000af/blk000000be" (MUX)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk000000d3/blk000000d9" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk000000d3/blk000000e5" (MUX)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk00000117/blk0000011d" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk00000117/blk00000125" (MUX)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk00000140/blk00000146" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk00000140/blk00000153" (MUX)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk00000170/blk00000176" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk00000170/blk0000017d" (MUX)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk0000018e/blk00000194" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk0000018e/blk000001a2" (MUX)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk000001dc/blk000001e2" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk000001dc/blk000001e8" (MUX)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk000001f7/blk000001fd" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk000001f7/blk0000020c" (MUX)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk0000022d/blk00000233" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk0000022d/blk00000238" (MUX)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk00000245/blk0000024b" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk00000245/blk0000025b" (MUX)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk0000029d/blk000002a3" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk0000029d/blk000002a7" (MUX)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk000002b1/blk000002b7" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk000002b1/blk000002c8" (MUX)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk000002ed/blk000002f0" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk000002ed/blk000002f3" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk000002ed/blk000002f4" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk000002ed/blk000002f5" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk000002ed/blk000002f6" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk000002ed/blk000002f7" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk000002ed/blk000002f8" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk000002ed/blk000002f9" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk000002ed/blk000002fa" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk000002ed/blk000002fb" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk000002ed/blk000002fc" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk000002ed/blk000002fd" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk000002ed/blk000002fe" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk000002ed/blk000002ff" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk000002ed/blk00000300" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk000002ed/blk00000301" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk000002ed/blk00000302" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk000002ed/blk00000303" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk000002ed/blk00000304" (XOR)
+removed.
+Unused block "u_complex_magnitude/sqrt_inst/blk000002ed/blk00000305" (MUX)
+removed.
+Unused block "u_fft/blk00000001/blk000000ad" (FF) removed.
+Unused block "u_fft/blk00000001/blk000000cd" (SFF) removed.
+Unused block "u_fft/blk00000001/blk000000ce" (FF) removed.
+Unused block "u_fft/blk00000001/blk000000cf" (FF) removed.
+Unused block "u_fft/blk00000001/blk000000d0" (FF) removed.
+Unused block "u_fft/blk00000001/blk000000d1" (FF) removed.
+Unused block "u_fft/blk00000001/blk00000238" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk00000239" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk000003f3/blk00000406" (MUX) removed.
+Unused block "u_fft/blk00000001/blk000003f3/blk00000431" (ROM) removed.
+Unused block "u_fft/blk00000001/blk0000043c/blk0000044f" (MUX) removed.
+Unused block "u_fft/blk00000001/blk0000043c/blk0000047a" (ROM) removed.
+Unused block "u_fft/blk00000001/blk00000485/blk000004c2" (ROM) removed.
+Unused block "u_fft/blk00000001/blk00000485/blk000004cc" (ROM) removed.
+Unused block "u_fft/blk00000001/blk000004de/blk0000051b" (ROM) removed.
+Unused block "u_fft/blk00000001/blk000004de/blk00000525" (ROM) removed.
+Unused block "u_fft/blk00000001/blk00000543" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk00000544" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk000006fd/blk00000711" (MUX) removed.
+Unused block "u_fft/blk00000001/blk000006fd/blk0000073f" (ROM) removed.
+Unused block "u_fft/blk00000001/blk0000074a/blk0000075e" (MUX) removed.
+Unused block "u_fft/blk00000001/blk0000074a/blk0000078c" (ROM) removed.
+Unused block "u_fft/blk00000001/blk00000797/blk000007d8" (ROM) removed.
+Unused block "u_fft/blk00000001/blk00000797/blk000007e2" (ROM) removed.
+Unused block "u_fft/blk00000001/blk000007f5/blk00000836" (ROM) removed.
+Unused block "u_fft/blk00000001/blk000007f5/blk00000840" (ROM) removed.
+Unused block "u_fft/blk00000001/blk000009da" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk000009db" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk00000bb6/blk00000bcc" (MUX) removed.
+Unused block "u_fft/blk00000001/blk00000bb6/blk00000c00" (ROM) removed.
+Unused block "u_fft/blk00000001/blk00000c0b/blk00000c21" (MUX) removed.
+Unused block "u_fft/blk00000001/blk00000c0b/blk00000c55" (ROM) removed.
+Unused block "u_fft/blk00000001/blk00000c60/blk00000ca9" (ROM) removed.
+Unused block "u_fft/blk00000001/blk00000c60/blk00000cb3" (ROM) removed.
+Unused block "u_fft/blk00000001/blk00000cc8/blk00000d11" (ROM) removed.
+Unused block "u_fft/blk00000001/blk00000cc8/blk00000d1b" (ROM) removed.
+Unused block "u_fft/blk00000001/blk00000d30" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk00000d31" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk00000f1a/blk00000f31" (MUX) removed.
+Unused block "u_fft/blk00000001/blk00000f1a/blk00000f69" (ROM) removed.
+Unused block "u_fft/blk00000001/blk00000f73/blk00000f8a" (MUX) removed.
+Unused block "u_fft/blk00000001/blk00000f73/blk00000fc2" (ROM) removed.
+Unused block "u_fft/blk00000001/blk00000fcc/blk0000101a" (ROM) removed.
+Unused block "u_fft/blk00000001/blk00000fcc/blk00001023" (ROM) removed.
+Unused block "u_fft/blk00000001/blk00001039/blk00001087" (ROM) removed.
+Unused block "u_fft/blk00000001/blk00001039/blk00001090" (ROM) removed.
+Unused block "u_fft/blk00000001/blk000011f3" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk000011f4" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk000011f5" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk000011f6" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk000011f7" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk000011f8" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk000011fb" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk000011fc" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk000011fd" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk000011fe" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk000011ff" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk00001200" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk00001201" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk00001202" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk00001401/blk00001419" (MUX) removed.
+Unused block "u_fft/blk00000001/blk00001401/blk00001454" (ROM) removed.
+Unused block "u_fft/blk00000001/blk0000145e/blk00001476" (MUX) removed.
+Unused block "u_fft/blk00000001/blk0000145e/blk000014b1" (ROM) removed.
+Unused block "u_fft/blk00000001/blk000014bb/blk0000150d" (ROM) removed.
+Unused block "u_fft/blk00000001/blk000014bb/blk00001516" (ROM) removed.
+Unused block "u_fft/blk00000001/blk0000152d/blk0000157f" (ROM) removed.
+Unused block "u_fft/blk00000001/blk0000152d/blk00001588" (ROM) removed.
+Unused block "u_fft/blk00000001/blk0000159f" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk000015a0" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk000015a2" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk000015a3" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk000015a4" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk000015a5" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk000015a6" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk00001756" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk00001757" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk00001758" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk00001759" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk0000175a" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk0000175b" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk000017f0/blk00001809" (MUX) removed.
+Unused block "u_fft/blk00000001/blk000017f0/blk00001847" (ROM) removed.
+Unused block "u_fft/blk00000001/blk00001851/blk0000186a" (MUX) removed.
+Unused block "u_fft/blk00000001/blk00001851/blk000018a8" (ROM) removed.
+Unused block "u_fft/blk00000001/blk000018b2/blk00001908" (ROM) removed.
+Unused block "u_fft/blk00000001/blk000018b2/blk00001911" (ROM) removed.
+Unused block "u_fft/blk00000001/blk00001929/blk0000197f" (ROM) removed.
+Unused block "u_fft/blk00000001/blk00001929/blk00001988" (ROM) removed.
+Unused block "u_fft/blk00000001/blk00001cf1" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk00001cf2" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk00001cf3" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk00001cf4" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk00001cf5" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk00001d5f/blk00001d79" (MUX) removed.
+Unused block "u_fft/blk00000001/blk00001d5f/blk00001dba" (ROM) removed.
+Unused block "u_fft/blk00000001/blk00001dc4/blk00001dde" (MUX) removed.
+Unused block "u_fft/blk00000001/blk00001dc4/blk00001e1f" (ROM) removed.
+Unused block "u_fft/blk00000001/blk00001e29/blk00001e83" (ROM) removed.
+Unused block "u_fft/blk00000001/blk00001e29/blk00001e8c" (ROM) removed.
+Unused block "u_fft/blk00000001/blk00001ea5/blk00001eff" (ROM) removed.
+Unused block "u_fft/blk00000001/blk00001ea5/blk00001f08" (ROM) removed.
+Unused block "u_fft/blk00000001/blk00001f33" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk00001f34" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk00001f35" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk00001f36" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk00001f37" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk00001f38" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk00001f41" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk00001f42" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk00001f43" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk00001f44" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk00002679" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk0000267a" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk0000267b" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk0000267c" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk00002683" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk00002684" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk00002bc2" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk00002bc3" (SRL16E) removed.
+Unused block "u_fft/blk00000001/blk0000344f" (SRL16E) removed.
+Unused block
+"u_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.
+rsts/ram_empty_i" (FF) removed.
+Unused block
+"u_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.
+wsts/ram_full_i" (FF) removed.
+Unused block "u_fft/blk00000001/blk000031cd/blk00003206" (ROM) removed.
+Unused block "u_fft/blk00000001/blk000031cd/blk00003208" (ROM) removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+GND 		XST_GND
+VCC 		XST_VCC
+VCC 		u_complex_magnitude/mult_imag/blk00000001/blk00000002
+GND 		u_complex_magnitude/mult_imag/blk00000001/blk00000003
+VCC 		u_complex_magnitude/mult_real/blk00000001/blk00000002
+GND 		u_complex_magnitude/mult_real/blk00000001/blk00000003
+VCC 		u_complex_magnitude/sqrt_inst/blk00000001
+GND 		u_complex_magnitude/sqrt_inst/blk00000002
+VCC 		u_complex_magnitude/sqrt_inst/blk0000004b/blk0000004c
+GND 		u_complex_magnitude/sqrt_inst/blk0000004b/blk0000004d
+VCC 		u_complex_magnitude/sqrt_inst/blk00000085/blk00000086
+GND 		u_complex_magnitude/sqrt_inst/blk00000085/blk00000087
+VCC 		u_complex_magnitude/sqrt_inst/blk000000af/blk000000b0
+GND 		u_complex_magnitude/sqrt_inst/blk000000af/blk000000b1
+VCC 		u_complex_magnitude/sqrt_inst/blk000000d3/blk000000d4
+GND 		u_complex_magnitude/sqrt_inst/blk000000d3/blk000000d5
+VCC 		u_complex_magnitude/sqrt_inst/blk00000117/blk00000118
+GND 		u_complex_magnitude/sqrt_inst/blk00000117/blk00000119
+VCC 		u_complex_magnitude/sqrt_inst/blk00000140/blk00000141
+GND 		u_complex_magnitude/sqrt_inst/blk00000140/blk00000142
+VCC 		u_complex_magnitude/sqrt_inst/blk00000170/blk00000171
+GND 		u_complex_magnitude/sqrt_inst/blk00000170/blk00000172
+VCC 		u_complex_magnitude/sqrt_inst/blk0000018e/blk0000018f
+GND 		u_complex_magnitude/sqrt_inst/blk0000018e/blk00000190
+VCC 		u_complex_magnitude/sqrt_inst/blk000001dc/blk000001dd
+GND 		u_complex_magnitude/sqrt_inst/blk000001dc/blk000001de
+VCC 		u_complex_magnitude/sqrt_inst/blk000001f7/blk000001f8
+GND 		u_complex_magnitude/sqrt_inst/blk000001f7/blk000001f9
+VCC 		u_complex_magnitude/sqrt_inst/blk0000022d/blk0000022e
+GND 		u_complex_magnitude/sqrt_inst/blk0000022d/blk0000022f
+VCC 		u_complex_magnitude/sqrt_inst/blk00000245/blk00000246
+GND 		u_complex_magnitude/sqrt_inst/blk00000245/blk00000247
+VCC 		u_complex_magnitude/sqrt_inst/blk0000029d/blk0000029e
+GND 		u_complex_magnitude/sqrt_inst/blk0000029d/blk0000029f
+VCC 		u_complex_magnitude/sqrt_inst/blk000002b1/blk000002b2
+GND 		u_complex_magnitude/sqrt_inst/blk000002b1/blk000002b3
+VCC 		u_complex_magnitude/sqrt_inst/blk000002ed/blk000002ee
+GND 		u_complex_magnitude/sqrt_inst/blk000002ed/blk000002ef
+VCC 		u_fft/blk00000001/blk00000002
+GND 		u_fft/blk00000001/blk00000003
+GND 		u_fft/blk00000001/blk00000203/blk00000204/blk00000205
+VCC 		u_fft/blk00000001/blk00000203/blk00000204/blk00000206
+GND 		u_fft/blk00000001/blk000002e5/blk000002e6/blk000002e7
+VCC 		u_fft/blk00000001/blk000002e5/blk000002e6/blk000002e8
+VCC 		u_fft/blk00000001/blk000003ca/blk000003cb
+GND 		u_fft/blk00000001/blk000003ca/blk000003cc
+GND 		u_fft/blk00000001/blk000003f3/blk000003f4
+GND 		u_fft/blk00000001/blk0000043c/blk0000043d
+GND 		u_fft/blk00000001/blk00000537/blk00000538/blk00000539
+VCC 		u_fft/blk00000001/blk00000537/blk00000538/blk0000053a
+GND 		u_fft/blk00000001/blk0000053d/blk0000053e/blk0000053f
+VCC 		u_fft/blk00000001/blk0000053d/blk0000053e/blk00000540
+GND 		u_fft/blk00000001/blk00000573/blk00000574/blk00000575
+VCC 		u_fft/blk00000001/blk00000573/blk00000574/blk00000576
+VCC 		u_fft/blk00000001/blk000006d4/blk000006d5
+GND 		u_fft/blk00000001/blk000006d4/blk000006d6
+GND 		u_fft/blk00000001/blk000006fd/blk000006fe
+GND 		u_fft/blk00000001/blk0000074a/blk0000074b
+GND 		u_fft/blk00000001/blk00000853/blk00000854/blk00000855
+GND 		u_fft/blk00000001/blk00000858/blk00000859/blk0000085a
+GND 		u_fft/blk00000001/blk0000085d/blk0000085e/blk0000085f
+VCC 		u_fft/blk00000001/blk0000085d/blk0000085e/blk00000860
+VCC 		u_fft/blk00000001/blk0000086f/blk00000870
+GND 		u_fft/blk00000001/blk0000086f/blk00000871
+GND 		u_fft/blk00000001/blk000009b6/blk000009b7/blk000009b8
+VCC 		u_fft/blk00000001/blk000009b6/blk000009b7/blk000009b9
+GND 		u_fft/blk00000001/blk000009bc/blk000009bd/blk000009be
+VCC 		u_fft/blk00000001/blk000009bc/blk000009bd/blk000009bf
+GND 		u_fft/blk00000001/blk000009c2/blk000009c3/blk000009c4
+VCC 		u_fft/blk00000001/blk000009c2/blk000009c3/blk000009c5
+GND 		u_fft/blk00000001/blk00000a84/blk00000a85/blk00000a86
+VCC 		u_fft/blk00000001/blk00000a84/blk00000a85/blk00000a87
+VCC 		u_fft/blk00000001/blk00000b89/blk00000b8a
+GND 		u_fft/blk00000001/blk00000b89/blk00000b8b
+GND 		u_fft/blk00000001/blk00000bb6/blk00000bb7
+GND 		u_fft/blk00000001/blk00000c0b/blk00000c0c
+GND 		u_fft/blk00000001/blk00000d58/blk00000d59/blk00000d5a
+VCC 		u_fft/blk00000001/blk00000d58/blk00000d59/blk00000d5b
+VCC 		u_fft/blk00000001/blk00000eeb/blk00000eec
+GND 		u_fft/blk00000001/blk00000eeb/blk00000eed
+GND 		u_fft/blk00000001/blk00000f1a/blk00000f1b
+GND 		u_fft/blk00000001/blk00000f73/blk00000f74
+GND 		u_fft/blk00000001/blk000010a6/blk000010a7/blk000010a8
+VCC 		u_fft/blk00000001/blk000010a6/blk000010a7/blk000010a9
+VCC 		u_fft/blk00000001/blk000010b6/blk000010b7
+GND 		u_fft/blk00000001/blk000010b6/blk000010b8
+GND 		u_fft/blk00000001/blk000011e1/blk000011e2/blk000011e3
+VCC 		u_fft/blk00000001/blk000011e1/blk000011e2/blk000011e4
+GND 		u_fft/blk00000001/blk000011e7/blk000011e8/blk000011e9
+VCC 		u_fft/blk00000001/blk000011e7/blk000011e8/blk000011ea
+GND 		u_fft/blk00000001/blk000011ed/blk000011ee/blk000011ef
+VCC 		u_fft/blk00000001/blk000011ed/blk000011ee/blk000011f0
+GND 		u_fft/blk00000001/blk000012b7/blk000012b8/blk000012b9
+VCC 		u_fft/blk00000001/blk000012b7/blk000012b8/blk000012ba
+VCC 		u_fft/blk00000001/blk000013d0/blk000013d1
+GND 		u_fft/blk00000001/blk000013d0/blk000013d2
+GND 		u_fft/blk00000001/blk00001401/blk00001402
+GND 		u_fft/blk00000001/blk0000145e/blk0000145f
+GND 		u_fft/blk00000001/blk000015af/blk000015b0/blk000015b1
+VCC 		u_fft/blk00000001/blk000015af/blk000015b0/blk000015b2
+GND 		u_fft/blk00000001/blk00001762/blk00001763/blk00001764
+VCC 		u_fft/blk00000001/blk00001762/blk00001763/blk00001765
+GND 		u_fft/blk00000001/blk000017f0/blk000017f1
+GND 		u_fft/blk00000001/blk00001851/blk00001852
+GND 		u_fft/blk00000001/blk000019a0/blk000019a1/blk000019a2
+VCC 		u_fft/blk00000001/blk000019ad/blk000019ae
+GND 		u_fft/blk00000001/blk000019ad/blk000019af
+GND 		u_fft/blk00000001/blk000019de/blk000019df
+VCC 		u_fft/blk00000001/blk000019de/blk00001a62
+GND 		u_fft/blk00000001/blk00001b33/blk00001b34/blk00001b35
+VCC 		u_fft/blk00000001/blk00001b33/blk00001b34/blk00001b36
+GND 		u_fft/blk00000001/blk00001bce/blk00001bcf/blk00001bd0
+VCC 		u_fft/blk00000001/blk00001bce/blk00001bcf/blk00001bd1
+GND 		u_fft/blk00000001/blk00001cfb/blk00001cfc/blk00001cfd
+VCC 		u_fft/blk00000001/blk00001cfb/blk00001cfc/blk00001cfe
+GND 		u_fft/blk00000001/blk00001d5f/blk00001d60
+GND 		u_fft/blk00000001/blk00001dc4/blk00001dc5
+GND 		u_fft/blk00000001/blk00001f21/blk00001f22/blk00001f23
+VCC 		u_fft/blk00000001/blk00001f21/blk00001f22/blk00001f24
+GND 		u_fft/blk00000001/blk00001f27/blk00001f28/blk00001f29
+VCC 		u_fft/blk00000001/blk00001f27/blk00001f28/blk00001f2a
+GND 		u_fft/blk00000001/blk00001f2d/blk00001f2e/blk00001f2f
+VCC 		u_fft/blk00000001/blk00001f2d/blk00001f2e/blk00001f30
+GND 		u_fft/blk00000001/blk00001f4b/blk00001f4c/blk00001f4d
+GND 		u_fft/blk00000001/blk00001f50/blk00001f51/blk00001f52
+GND 		u_fft/blk00000001/blk000020ea/blk000020eb/blk000020ec
+VCC 		u_fft/blk00000001/blk000020ea/blk000020eb/blk000020ed
+GND 		u_fft/blk00000001/blk000021b8/blk000021b9
+VCC 		u_fft/blk00000001/blk0000221d/blk0000221e
+GND 		u_fft/blk00000001/blk00002282/blk00002283/blk00002284
+VCC 		u_fft/blk00000001/blk00002282/blk00002283/blk00002285
+GND 		u_fft/blk00000001/blk00002292/blk00002293/blk00002294
+VCC 		u_fft/blk00000001/blk00002292/blk00002293/blk00002295
+GND 		u_fft/blk00000001/blk00002298/blk00002299/blk0000229a
+VCC 		u_fft/blk00000001/blk000022a3/blk000022a4
+GND 		u_fft/blk00000001/blk000022a3/blk000022a5
+GND 		u_fft/blk00000001/blk000022c8/blk000022c9
+VCC 		u_fft/blk00000001/blk000022c8/blk0000234a
+GND 		u_fft/blk00000001/blk0000234d/blk0000234e/blk0000234f
+VCC 		u_fft/blk00000001/blk0000234d/blk0000234e/blk00002350
+GND 		u_fft/blk00000001/blk00002353/blk00002354/blk00002355
+VCC 		u_fft/blk00000001/blk00002353/blk00002354/blk00002356
+GND 		u_fft/blk00000001/blk00002359/blk0000235a/blk0000235b
+VCC 		u_fft/blk00000001/blk00002359/blk0000235a/blk0000235c
+GND 		u_fft/blk00000001/blk0000252b/blk0000252c/blk0000252d
+VCC 		u_fft/blk00000001/blk0000252b/blk0000252c/blk0000252e
+GND 		u_fft/blk00000001/blk00002531/blk00002532
+VCC 		u_fft/blk00000001/blk0000259a/blk0000259b
+GND 		u_fft/blk00000001/blk0000266b/blk0000266c/blk0000266d
+VCC 		u_fft/blk00000001/blk0000266b/blk0000266c/blk0000266e
+GND 		u_fft/blk00000001/blk00002673/blk00002674/blk00002675
+VCC 		u_fft/blk00000001/blk00002673/blk00002674/blk00002676
+GND 		u_fft/blk00000001/blk00002689/blk0000268a/blk0000268b
+GND 		u_fft/blk00000001/blk0000268e/blk0000268f/blk00002690
+GND 		u_fft/blk00000001/blk00002693/blk00002694/blk00002695
+VCC 		u_fft/blk00000001/blk00002693/blk00002694/blk00002696
+GND 		u_fft/blk00000001/blk00002926/blk00002927
+VCC 		u_fft/blk00000001/blk00002993/blk00002994
+GND 		u_fft/blk00000001/blk00002a00/blk00002a01/blk00002a02
+VCC 		u_fft/blk00000001/blk00002a09/blk00002a0a
+GND 		u_fft/blk00000001/blk00002a09/blk00002a0b
+GND 		u_fft/blk00000001/blk00002a22/blk00002a40
+VCC 		u_fft/blk00000001/blk00002a22/blk00002a41
+GND 		u_fft/blk00000001/blk00002b53/blk00002b54
+GND 		u_fft/blk00000001/blk00002b9d/blk00002b9e
+GND 		u_fft/blk00000001/blk00002bbc/blk00002bbd/blk00002bbe
+VCC 		u_fft/blk00000001/blk00002bbc/blk00002bbd/blk00002bbf
+GND 		u_fft/blk00000001/blk00002bce/blk00002bcf/blk00002bd0
+GND 		u_fft/blk00000001/blk00002d1d/blk00002d1e
+VCC 		u_fft/blk00000001/blk00002d8e/blk00002d8f
+GND 		u_fft/blk00000001/blk00002e6f/blk00002e70/blk00002e71
+VCC 		u_fft/blk00000001/blk00002e6f/blk00002e70/blk00002e72
+GND 		u_fft/blk00000001/blk00002e75/blk00002e76/blk00002e77
+GND 		u_fft/blk00000001/blk00002e7a/blk00002e7b/blk00002e7c
+GND 		u_fft/blk00000001/blk000030c9/blk000030ca
+VCC 		u_fft/blk00000001/blk0000313e/blk0000313f
+VCC 		u_fft/blk00000001/blk000031cd/blk000031ce
+GND 		u_fft/blk00000001/blk000031cd/blk000031cf
+LUT3 		u_fft/blk00000001/blk000036c5
+   optimized to 1
+FD 		u_fft/blk00000001/blk000036c6
+   optimized to 1
+GND
+		u_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbm
+g.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/XST_GND
+VCC
+		u_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbm
+g.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/XST_VCC
+GND 		u_fifo/XST_GND
+VCC 		u_fifo/XST_VCC
+
+To enable printing of redundant blocks removed and signals merged, set the
+detailed map report option and rerun map.
+
+Section 11 - Timing Report
+--------------------------
+INFO:Timing:3284 - This timing report was generated using estimated delay 
+   information.  For accurate numbers, please refer to the post Place and Route 
+   timing report.
+Asterisk (*) preceding a constraint indicates it was not met.
+   This may be due to a setup or hold violation.
+
+----------------------------------------------------------------------------------------------------------
+  Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
+                                            |             |    Slack   | Achievable | Errors |    Score   
+----------------------------------------------------------------------------------------------------------
+* TS_wr_clk = PERIOD TIMEGRP "wr_clk" 10000 | SETUP       |  9998.974ns|     1.026ns|       0|           0
+   ns HIGH 50%                              | HOLD        |     0.001ns|            |       0|           0
+                                            | MINPERIOD   |  9998.148ns|     1.852ns|       0|           0
+                                            | MAXPERIOD   | -9000.000ns|            |       1|     9000000
+----------------------------------------------------------------------------------------------------------
+* TS_rd_clk = PERIOD TIMEGRP "rd_clk" 10 ns | SETUP       |     6.670ns|     3.330ns|       0|           0
+   HIGH 50%                                 | HOLD        |    -0.361ns|            |    1352|      110088
+----------------------------------------------------------------------------------------------------------
+
+
+2 constraints not met.
+
+
+
+Section 6 - IOB Properties
+--------------------------
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
+|                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| din<0>                             | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| din<1>                             | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| din<2>                             | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| din<3>                             | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| din<4>                             | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| din<5>                             | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| din<6>                             | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| din<7>                             | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| din<8>                             | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| din<9>                             | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| din<10>                            | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| din<11>                            | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| din<12>                            | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| din<13>                            | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| din<14>                            | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| din<15>                            | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dout<0>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| dout<1>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| dout<2>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| dout<3>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| dout<4>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| dout<5>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| dout<6>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| dout<7>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| rd_clk                             | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| rst                                | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| wr_clk                             | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| wr_en                              | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group and Partition Summary
+--------------------------------------------
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Area Group Information
+----------------------
+
+  No area groups were found in this design.
+
+----------------------
+
+Section 10 - Timing Report
+--------------------------
+A logic-level (pre-route) timing report can be generated by using Xilinx static
+timing analysis tools, Timing Analyzer (GUI) or TRCE (command line), with the
+mapped NCD and PCF files. Please note that this timing report will be generated
+using estimated delay information. For accurate numbers, please generate a
+timing report with the post Place and Route NCD file.
+
+For more information about the Timing Analyzer, consult the Xilinx Timing
+Analyzer Reference Manual; for more information about TRCE, consult the Xilinx
+Command Line Tools User Guide "TRACE" chapter.
+
+Section 11 - Configuration String Details
+-----------------------------------------
+Use the "-detail" map option to print out Configuration Strings
+
+Section 12 - Control Set Information
+------------------------------------
+Use the "-detail" map option to print out Control Set Information.
+
+Section 13 - Utilization by Hierarchy
+-------------------------------------
+Use the "-detail" map option to print out the Utilization by Hierarchy section.
